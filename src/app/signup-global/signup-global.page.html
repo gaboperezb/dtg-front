@@ -1,0 +1,89 @@
+<ion-header>
+	<ion-toolbar color="success">
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{title}}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content #signupContent>
+
+	<div *ngIf="title == 'Sign up'; else login">
+
+		<div class="image-container">
+			<img id="icon" src="assets/imgs/dtg_icon.png" alt="">
+		</div>
+		<div class="form-container">
+			<h4>Create an account</h4>
+			<form (ngSubmit)="submit(registerForm.value)" [formGroup]="registerForm" novalidate>
+				<ion-list class="log-list">
+					<ion-item class="signin">
+						<ion-input type="text" spellcheck="false" placeholder="Username" formControlName="username"
+							[attr.maxlength]="20"></ion-input>
+					</ion-item>
+					<ion-item class="signin">
+						<ion-input id="emailId" type="email" (ionFocus)="elementFocus($event)" placeholder="Email" formControlName="email"></ion-input>
+					</ion-item>
+					<ion-item class="signin">
+						<ion-input id="passId" (ionFocus)="elementFocus($event)" type="password" placeholder="Password" formControlName="password"
+							></ion-input>
+					</ion-item>
+					<ion-item class="signin">
+						<ion-input id="confirmId" (ionFocus)="elementFocus($event)" type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+						</ion-input>
+					</ion-item>
+				</ion-list>
+				<h4 class="alert-custom" *ngIf="username.length > 19">That username is too long</h4>
+				<h4 class="alert-custom" [hidden]="registerForm.controls['password'].untouched || registerForm.controls['password'].value.length >= 6">
+					Your password must be at least 6 characters long</h4>
+				<h4 class="alert-custom"
+					[hidden]="registerForm.controls['username'].untouched || registerForm.controls['username'].valid">
+					Please enter a valid username</h4>
+				<h4 class="alert-custom"
+					[hidden]="registerForm.controls['password'].untouched || registerForm.controls['password'].valid">
+					Please enter a valid password</h4>
+				<h4 class="alert-custom"
+					[hidden]="registerForm.controls['email'].untouched ||registerForm.controls['email'].valid">Please
+					enter a valid email address</h4>
+
+				<div class="sign">
+
+					<span class="agree">By signing up you agree to the
+						<span class="terms" (click)="openLink('terms')">Terms of Use</span> and the
+						<span class="privacy" (click)="openLink('privacy')">Privacy Policy</span>
+					</span>
+					<ion-button expand="full" type="submit" class="full" color="signup"
+						[disabled]="!registerForm.valid">Create account</ion-button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<ng-template #login>
+		<div>
+			<div class="form-container login-container">
+
+				<form (ngSubmit)="submitLogin(loginForm.value)" [formGroup]="loginForm" novalidate>
+					<ion-list class="log-list">
+						<ion-item class="log">
+							<ion-input type="email" spellcheck="false" placeholder="Username or email" formControlName="email"></ion-input>
+						</ion-item>
+						<ion-item class="log">
+							<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+						</ion-item>
+					</ion-list>
+					<div class="center">
+						<span id="skip-l" (click)="forgot()">Forgot your password?</span>
+					</div>
+					<div class="login">
+						<ion-button expand="full" type="submit" class="full" color="signup"
+							[disabled]="!loginForm.valid">Log in</ion-button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</ng-template>
+
+
+</ion-content>

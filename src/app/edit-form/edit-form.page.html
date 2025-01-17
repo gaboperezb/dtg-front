@@ -1,0 +1,121 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+			<ion-buttons slot="start">
+					<ion-button class="custom-back-button" (click)="goBack()">
+						<ion-icon class="sort" name="chevron-back"></ion-icon>
+					</ion-button>
+				</ion-buttons>
+		<ion-title></ion-title>
+		<ion-buttons slot="end">
+			<ion-button *ngIf="action !== 'mode'" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" id="send" (click)="submit()">
+				Done
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+	<!-- Profile Picture -->
+
+	<div class="toggle-item" *ngIf="action == 'mode' && (iosVersion >= 13 || androidVersion >= 10)">
+		<span  *ngIf="iosVersion >= 13" class="toggle-text">Automatic (follow iOS setting)</span>
+		<span *ngIf="androidVersion >= 10" class="toggle-text">Automatic (follow Android setting)</span>
+		<ion-toggle (click)="toggleSystemMode()" [(ngModel)]="automaticMode" class="toggle" color="warning"></ion-toggle>
+	  </div>
+	  <div class="toggle-item" *ngIf="action == 'mode' && !automaticMode">
+		<span class="toggle-text">Dark mode</span>
+		<ion-toggle (click)="toggleDarkMode()" [(ngModel)]="darkMode" class="toggle" color="warning"></ion-toggle>
+	  </div>
+
+	  <ion-list-header *ngIf="action == 'mode'">
+		<ion-label [class.theme-label]="global.state['theme']=='dark' || global.state['theme']=='black'">Dark mode theme</ion-label>
+	  </ion-list-header>
+	  <div class="toggle-item" *ngIf="action == 'mode'">
+		<span class="toggle-text">Black</span>
+		<ion-toggle (click)="toggleBlackTheme()" [(ngModel)]="darkBlack" class="toggle" color="warning"></ion-toggle>
+	  </div>
+	  <div class="toggle-item" *ngIf="action == 'mode'">
+		<span class="toggle-text">Dim</span>
+		<ion-toggle (click)="toggleDarkTheme()" [(ngModel)]="darkBlue" class="toggle" color="warning"></ion-toggle>
+	  </div>
+
+	<!-- Profile Picture -->
+
+	<div class="photo-container" *ngIf="action == 'profile'">
+		<img [src]="profilePicture" alt="" id="user-pic">
+		<input (change)="onChange($event)" id="file" type="file" class="form-control-file inputfile" />
+		<label id="label-profile-picture" for="file">
+			<span>Select profile picture</span>
+		</label>
+	</div>
+
+	<!-- Cover Photo -->
+
+	<div class="photo-container" *ngIf="action == 'cover'">
+		<div class="cover-photo" [ngStyle]="coverPhoto"></div>
+		<input (change)="onChange($event)" id="cover-file" type="file" class="form-control-file inputfile" />
+		<label id="label-profile-picture" for="cover-file">
+			<span>Select cover photo</span>
+		</label>
+	</div>
+
+	<!-- BIO -->
+
+	<div class="bio-div" *ngIf="action == 'bio'">
+		<ion-list lines="none" class="bio-list">
+			<ion-item lines="none">
+				<ion-label color="primary" position="stacked" class="count-title">{{count}}</ion-label>
+				<ion-input autocapitalize="on" (keyup)="wordCount()" (keydown)="wordCount()" [ngModelOptions]="{standalone: true}"
+					placeholder="Bio/Page description" [(ngModel)]="bio" [attr.maxlength]=150></ion-input>
+			</ion-item>
+			
+		</ion-list>
+	</div>
+
+	<!-- Username -->
+
+	<div class="" *ngIf="action == 'username'">
+			<ion-list lines="none" class="username-list">
+				<div class="old">
+						<span class="current-username-helper">Current</span>
+						<br>
+						<span class="current-username">{{this.authService.currentUser.username}}</span>
+				</div>
+				
+				<ion-item lines="none">
+					<ion-label color="primary" position="stacked" class="count-title">New (You can only change it once every two months)</ion-label>
+					<ion-input type="email" placeholder="Username" [ngModelOptions]="{standalone: true}"
+						[(ngModel)]="username" [attr.maxlength]=20></ion-input>
+				</ion-item>
+				
+			</ion-list>
+	</div>
+
+	<!-- Change Password -->
+
+	<div class="" *ngIf="action == 'password'">
+		<ion-list>
+			<ion-item>
+				<ion-input [ngModelOptions]="{standalone: true}" type="password" placeholder="Current password"
+					[(ngModel)]="currentPassword"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-input [ngModelOptions]="{standalone: true}" type="password" placeholder="New password"
+					[(ngModel)]="newPassword"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-input [ngModelOptions]="{standalone: true}" type="password" placeholder="Confirm password"
+					[(ngModel)]="confirmPassword"></ion-input>
+			</ion-item>
+		</ion-list>
+	</div>
+
+
+
+	<div class="line" *ngIf="action != 'password'">
+	</div>
+
+
+</ion-content>

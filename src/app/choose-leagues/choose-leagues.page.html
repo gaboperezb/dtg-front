@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		
+		<ion-title>Create Your Feed</ion-title>
+		<ion-buttons slot="end">
+			<ion-button [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" class="send" (click)="done()" *ngIf="selectedLeagues.length > 0">
+				DONE
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="button-container">
+		<ion-button id="love" color="tertiary" (click)="selectAll()">
+			I
+			<ion-icon name="heart-red" class="heart"></ion-icon>
+			SPORTS, SELECT ALL!
+		</ion-button>
+	</div>
+	
+
+	<div class="leagues-container">
+		<div *ngFor="let league of leagues" (click)="addLeague(league)" [class.league-selection]="true" [class.active-leagues]="league.selected">
+			<img  [class.img-sport]="true"  [class.img-league]="league.league == 'NBA' || league.league == 'NFL' || league.league == 'NCAAF' || league.league == 'NCAAB' || league.league == 'MLB' || league.league == 'NHL'" [src]="league.image">
+			<span [class.text-league]="true">{{league.league}}</span>
+		</div>
+		
+	</div>
+</ion-content>

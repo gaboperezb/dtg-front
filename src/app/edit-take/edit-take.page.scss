@@ -1,0 +1,313 @@
+
+    .poll-flex {
+        display: flex;
+        align-items: center;
+        
+    }
+    
+    .choose-text {
+        font-weight: 500;
+    }
+
+    .delete-option-team {
+        display: inline-block;
+        margin-left: 20px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    #video {
+        width: 100%;
+    }
+
+    .draft {
+        --background: #f4f5f8;
+        --background-activated: #b1b1b1;
+        --background-focused:   #b1b1b1;  
+        --color: black;
+        margin-top: 10px;
+    }
+
+    .delete-draft {
+        --background: #f4f5f8;
+        --background-activated: #b1b1b1;
+        --background-focused:   #b1b1b1;  
+        --color: black;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .poll-flex span {
+        color: #21263c;
+    }
+
+    #send {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .option {
+        background: rebeccapurple;
+        color: white;
+        height: 50px;
+        width: 50px;
+        border-radius: 50px;
+        display: inline-block;
+        padding-top: 11px;
+    }
+    
+    .option ion-icon {
+        font-size: 25px;
+    }
+
+    ion-item {
+        --inner-padding-end: 0px;
+        --padding-start: 0px;
+    }
+
+
+    .option-number {
+        background: #4264d0;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        color: white !important;
+        border-radius: 30px;
+        font-size: 12px;
+        padding-top: 2px;
+        font-weight: bold;
+        
+    }
+
+    .link-item {
+        margin-top: 20px;
+    }
+
+    ion-item, .item-inner {
+        --padding-start: 0px !important;
+
+    }
+
+    ion-item {
+        --margin-bottom: 5px !important;
+    }
+
+    #trophy {
+        color: #ffffff;
+        padding: 6px;
+        font-size: 18px;
+        width: 30px;
+        border-radius: 40px;
+        background: #4264d0;
+    }
+
+
+
+    .team-helper {
+        color: #21253c;
+        font-size: 12px;
+        /* line-height: 140%; */
+        display: inline-block;
+    }
+  
+
+
+    #selection-team {
+        background: #ffffff;
+        width: 100%;
+    }
+
+    
+   
+
+    #selection {
+        padding: 0px 16px !important;
+        background: #ffffff;
+    }
+
+    .poll-option {
+    
+        padding: 10px;
+        font-size: 18px;
+        border-radius: 10px;
+        background: #4264d0;
+        color: white;
+        margin-right: 20px;
+        display: inline-block;
+        margin-bottom: 10px;
+        font-weight: 500;
+        
+    }
+
+    .new-item ion-textarea {
+        border-bottom: 1px solid #d1d0d4;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    #optional {
+        font-weight: 600;
+        color: gray;
+    }
+
+
+
+    .close {
+        font-weight: 600;
+        margin-left: 10px;
+    }
+
+    ion-textarea {
+
+    }
+
+    .trash {
+        color: white;
+        background: #4061d3;
+        padding: 3px;
+        border-radius: 5px;
+    }
+
+    #post {
+        margin: 20px 0px;
+        font-weight: 600;
+        border-radius: 5px;
+        
+    }
+
+    .scroll-content {
+        padding: 0px 16px !important;
+    }
+
+    #add-button-item {
+        --text-align: center;
+        --border-style: none;
+    }
+
+    #add-button-item button {
+        padding: 15px;
+        
+    } 
+
+    ion-list {
+        margin-bottom: 20px !important;
+    }
+
+    .image-container, .video-container {
+        position: relative;
+
+        img.media-file {
+            border-radius: 10px;
+        }
+        
+    }
+    
+
+    .play-img {
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 65px;
+    }
+    
+    .image-container ion-icon, .video-container ion-icon {
+        position: absolute;
+        color: white;
+        top: 10px;
+        right: 10px;
+        font-size: 25px;
+
+    }
+
+    .label-option {
+        background: #0c142a;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    
+
+    item-ios.item-block .item-inner {
+        
+        --border-bottom: none;
+    }
+
+    .fixed-content {
+        margin-top: 90px !important;
+    }
+
+    
+    .option-text {
+        display: inline-block;
+        width: 50px;
+        text-align: center;
+        margin-top: 5px;
+        font-weight: 500;
+    }
+
+    .poll {
+        background: #F9833E;
+    }
+
+    .link {
+        background: #3CA8FC;
+    }
+
+    .option-item {
+       --border-style: none;
+       width: 90vw;
+    
+        
+    }
+
+
+
+
+    .col {
+        text-align: center;
+    }
+
+
+    .inputfile {
+        display: none;
+    }
+
+
+    .f-btn {
+        margin: 0 8px;
+    }
+
+#label-profile-picture {
+
+
+    height: 35px;
+    /* background: rebeccapurple; */
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ion-icon {
+        font-size: 22px;
+    }
+
+}
+
+.media-btn {
+    margin: 0 8px;
+}
+
+.btn-selected {
+    border-bottom: 2px solid #4164d0;
+}
+
+
+#image-label {
+    margin-right: 5px
+    
+}
+
+

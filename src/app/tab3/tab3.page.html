@@ -1,0 +1,62 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-title>
+			Create
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<div class="create-container">
+		<div class="more-complete" *ngIf="showHelper">
+			<ion-icon class="close" name="close" (click)="hideHelper()"></ion-icon>
+			<span>For a more complete posting experience (multiple font-styles, media, tables, and more) go to our website: <span class="url">discussthegame.com</span></span>
+		</div>
+
+		<div class="create-option" (click)="openType()">
+			<div class="icon">
+				<img [src]="global.state['theme'] == 'light' ? 'assets/imgs/new-text.png' : 'assets/imgs/new-text-night.png'" alt="">
+			</div>
+			<div class="text">
+				<span class="text-title">Write a post</span>
+				<span class="text-description">Analysis, multi-paragraph opinions, or in-depth sports texts.</span>
+			</div>
+
+		</div>
+		<div class="create-option" (click)="createTake()">
+			<div class="icon">
+				<img [src]="global.state['theme'] == 'light' ? 'assets/imgs/new-take.png' : 'assets/imgs/new-take-night.png'" alt="">
+			</div>
+			<div class="text">
+				<span class="text-title">Create a discussion</span>
+				<span class="text-description">The best way to write a brief opinion, start a debate, or share sports related content.</span>
+			</div>
+
+		</div>
+		
+
+
+	</div>
+
+
+
+
+</ion-content>
+
+
+
+<div class="centered-container" *ngIf="post" (click)="closeType()">
+	<div class="centered">
+		<div class="type">
+			Type of post
+		</div>
+		<div class="option" (click)="create($event, 'text')">
+			Text
+		</div>
+		<div class="option" (click)="create($event, 'poll')">
+			Poll
+		</div>
+
+	</div>
+</div>

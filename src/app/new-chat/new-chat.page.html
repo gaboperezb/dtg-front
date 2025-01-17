@@ -1,0 +1,51 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-buttons slot="start">
+			<ion-button slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="dismissModal()">
+				<ion-icon name="close"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title *ngIf="!addPeople">New Chat</ion-title>
+		<ion-title *ngIf="addPeople" >Add Members</ion-title>
+		<ion-buttons slot="end" *ngIf="recipients.length > 0">
+			<ion-button (click)="handleChat()">
+				<span *ngIf="!addPeople" class="start-chat">Chat</span>
+				<span *ngIf="addPeople" class="start-chat">Add</span>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+	<div scrollY="false" scrollX="true" id="too" class="to" style="width:100vw; height:57px">
+		<div class="to-padding">
+			<span *ngIf="!addPeople" class="to-text">To:</span>
+			<span *ngIf="addPeople" class="to-text">Add:</span>
+			<div *ngFor="let recipient of recipients" class="league-scroll" (click)="addUser($event, recipient)">
+				<span class="recipient-name">{{recipient.username}}</span>
+				<ion-icon class="delete-recipient" name="close"></ion-icon>
+			</div>
+		</div>
+	</div>
+	<ion-searchbar color="light" debounce="700" type="email" class="search-custom-add" placeholder="Search users..."
+		(ionChange)="onSearchInput($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content class="chat-content">
+
+	<div *ngIf="searching" class="spinner-container-add">
+		<ion-spinner></ion-spinner>
+	</div>
+	<span *ngIf="!searching && trimSearchTerm.length == 0" class="followers-add">Followers</span>
+	<ion-list no-lines *ngIf="!searching" class="add-chat-list">
+		<ion-item *ngFor="let user of users" class="foll-item" lines="none" (click)="addUser($event, user)">
+			<ion-avatar slot="start">
+				<img class="profile-pic" [src]="user?.profilePicture">
+			</ion-avatar>
+			<span class="foll-username">{{user?.username}}</span>
+			<div slot="end" [class.add]="true" [class.active]="user.active">
+				<ion-icon *ngIf="user.active" class="checkmark" name="checkmark"></ion-icon>
+			</div>
+		</ion-item>
+	</ion-list>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="30%" [disabled]="!enableInfinite">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,419 @@
+
+
+
+.username {
+  /* font-weight: bold;
+  display: block;
+  color: #14171a; */
+
+  display: block;
+    color: #3a3a3a;
+    font-weight: 300;
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+}
+
+
+.take-title-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 16px 16px 16px;
+}
+
+.take-title {
+  font-weight: 600;
+  display: inline-block;
+  white-space: pre-wrap;
+  flex: 1;
+}
+
+
+
+
+.detail-image {
+  height: 30px;
+    width: 30px;
+    object-fit: cover;
+    border-radius: 50px;
+    border: 1px solid white;
+}
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+    align-items: center;
+}
+
+.unread {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+
+  
+}
+
+.unread-line {
+  height: 1px;
+  background: rgb(18, 18, 18);
+  flex-grow: 1;
+  background: gray;
+}
+
+.unread-text {
+  display: inline-block;
+  margin: 0 10px;
+  color: gray;
+
+}
+
+.title-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+
+.title-text p {
+  margin: 0;
+}
+
+ion-toolbar.top-toolbar {
+  height: 55px;
+    display: flex;
+}
+
+.title-username {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.title-online {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.more-messages-spinner {
+  text-align: center;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wait-container-2 {
+  text-align: center;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li.sent, li.replies {
+    display: inline-block;
+    clear: both;
+    float: left;
+    margin: 6px 13px 6px 13px;
+    width: calc(100% - 23px);
+    font-size: 0.9em;
+    position: relative;
+  }
+ 
+ li.sent img {
+    margin: 6px 10px 0 0;
+  }
+
+
+   li.sent p {
+    background: #f5f5f5;
+    color: #14171a;
+    margin: 0;
+  }
+
+  li.sent .post {
+    background: #f5f5f5;
+    color: #14171a;
+    margin: 0;
+    font-size: 15px;
+  }
+
+
+  li.replies img.profile-pic {
+    float: right;
+    margin: 6px 0 0 8px;
+  }
+
+
+  
+  li.replies p {
+    background: #4264d0;
+    color: #f5f5f5;
+    float: right;
+    margin: 0;
+  }
+
+  li.replies .post {
+    background: #4264d0;
+    color: #f5f5f5;
+    float: right;
+    margin: 0;
+  }
+
+
+
+ li img.profile-pic {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    float: left;
+    object-fit: cover;
+  }
+
+  
+ li.sent p, li.replies p, li.sent .post, li.replies .post {
+    display: inline-block;
+    border-radius: 20px;
+    max-width: 75%;
+    overflow: hidden;
+    line-height: 130%;
+  }
+
+  li p.text {
+    padding: 10px 15px;
+    white-space: pre-wrap;
+    font-size: 15px;
+  }
+
+
+
+  .inputfile {
+    display: none;
+}
+
+#label-profile-picture  {
+  display: flex;
+}
+
+.imgToSend {
+  max-height: 250px;
+  object-fit: contain;
+  margin: 10px 0;
+}
+
+
+
+.post-deleted {
+  font-style: italic;
+}
+
+.image-container {
+  width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #21243c;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 10px;
+}
+  
+
+  .message-container {
+    width: 100%;
+    min-height: 32px;
+    border: 1px solid #d6d9dc;;
+    border-radius: 15px;
+    background: #fff;
+    resize: none;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  ion-icon.camera-icon {
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+
+  .message-input {
+    width: 100%;
+    min-height: 32px;
+    border: none;
+    border-radius: 50px;
+    background: #fff;
+    resize: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    outline: none !important;
+  }
+   
+  .msg-btn {
+    --padding-start: 0.5em;
+    --padding-end: 0.5em;
+  }
+
+
+  .post-pic {
+      height: 160px;
+      width: 100%;
+      object-fit: cover;
+    
+  }
+
+  .take-pic-container {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    display: inline-block;
+  }
+
+  .take-pic {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    object-fit: cover;
+    
+  }
+
+  .thread-top-container {
+    position: relative;
+    display: block;
+  }
+
+  .post-title {
+    font-weight: 600;
+    display: inline-block;
+    padding: 8px 15px 10px 15px;
+    width: 100%;
+
+  }
+
+  .post-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    right: 15px;
+  }
+
+  .post-title-container {
+    position: relative;
+  }
+
+  .by-user {
+    display: inline-flex;
+    padding: 10px 15px 12px 15px;
+    width: 100%;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .thread-user-img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 5px;
+  }
+
+  .thread-message {
+    padding: 0 15px 10px 15px;
+    display: block;
+  }
+
+  .thread-username {
+    font-weight: 600;
+    display: block;
+    width: 70%;
+  }
+
+  .thread-bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 15px 10px 15px;
+    position: relative;
+  }
+
+  .time-left {
+    left: 0px;
+    bottom: 3px;
+    color: #a5a5a5;
+    font-size: 11px;
+    position: absolute;
+    display: inline-block;
+    white-space: pre-wrap;
+  }
+
+  .time-right {
+    right: 0px;
+    bottom: 3px;
+    color: #a5a5a5;
+    font-size: 11px;
+    position: absolute;
+    display: inline-block;
+    white-space: pre-wrap;
+  }
+
+  
+ 
+
+ 
+       /* Unvisited link  */
+
+  li.operation {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+
+  p.operation-message {
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 5px 10px;
+    max-width: 75%;
+    background: #a2d6ff;
+    color: #131313;
+  }
+
+  p.cascade {
+    margin-left: 35px !important;
+    
+  }
+
+
+  div.cascade {
+    margin-left: 35px !important;
+  }
+
+  li.cascade-li {
+    margin-top: 0px !important
+  }
+
+  li.sent img.group-img {
+    margin: 25px 10px 0 0;
+  } 
+
+ 
+  .typing-cheat {
+    width: 100%;
+    height: 20px;
+}
+
+
+
+:host ::ng-deep li.replies p.text a {
+  color: white !important;
+}
+
+
+
+
+  
+ 

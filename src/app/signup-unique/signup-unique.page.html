@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-buttons slot="start">
+
+        </ion-buttons>
+        <ion-title></ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content #signupTab>
+    <div class="image-back">
+        <div class="top">
+            <img id="logo" src="assets/imgs/complete.png" alt="">
+        </div>
+        <div class="middle">
+            <img id="sports" src="assets/imgs/4sports.png" alt="">
+            <h4>Time to experience the best app for sports fans.</h4>
+        </div>
+        <div class="bottom">
+            <ion-button class="btn-signup" expand="full" (click)="signup('Sign up')">Create Account</ion-button>
+            <ion-button class="btn-login" expand="full" (click)="signup('Log in')" color="signup">Sign In</ion-button>
+            <br>
+            <ion-button id="skip" fill="clear" (click)="skip()">Skip for now</ion-button>
+        </div>
+    </div>
+
+</ion-content>

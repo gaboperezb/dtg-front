@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+      <ion-buttons slot="start">
+          <ion-button slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="dismissModal()">
+              <ion-icon name="close"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+    <ion-title></ion-title>
+    <ion-buttons slot="end">
+        <ion-button [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="send()" id="send">
+            SAVE
+        </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+    <ion-item lines="none" class="textarea add-item">
+        <ion-textarea rows="6" placeholder="Your comment" autocorrect="on" autocapitalize="on" [(ngModel)]="comment" class="textarea-input"></ion-textarea>
+    </ion-item>
+</ion-content>
+

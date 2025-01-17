@@ -1,0 +1,18 @@
+
+    <ion-item lines="none" (click)="goToChat()" class="chat-item"> 
+        <ion-avatar slot="start" class="user-picture-cont">
+            <img class="user-picture" [src]="chat.otherUserPicture">
+            <div *ngIf="chat.online" class="online"></div>
+        </ion-avatar>
+        <ion-label>
+            <span class="last-message-time">{{chat?.lastMessageTime}}</span>
+            <span *ngIf="chat.unreadMessageCount > 0 && !chat.clicked" class="unread"></span>
+            <h2 [class.usernamee]="true" [class.usernamee-active]="chat?.unreadMessageCount > 0 && !chat.clicked">{{chat.chatName}}</h2>
+            <p *ngIf="chat.typing && !chat.name" class="last-message typing-item">Typing...</p>
+            <p *ngIf="chat.typing && chat.name" class="last-message typing-item">{{chat?.usernameTyping}} {{chat?.typing}}</p>
+            <ion-icon class="muted" *ngIf="chat.muted" name="volume-mute"></ion-icon>
+            <p *ngIf="!chat.typing" [class.last-message]="true" [class.last-message-unread]="chat.unreadMessageCount > 0 && !chat.clicked">{{chat?.lastMessage?.message}}</p>
+            <p *ngIf="!chat?.lastMessage" [class.last-message]="true" [class.last-message-unread]="chat.unreadMessageCount > 0 && !chat.clicked">This is the beginning of the conversation</p>
+        </ion-label>
+    </ion-item>
+

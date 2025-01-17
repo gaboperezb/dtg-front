@@ -1,0 +1,31 @@
+<ion-menu type="reveal" side="start" menuId="first" swipeGesture="false" contentId="main" class="feed-menu">
+
+    <ion-header>
+       <div class="menu-top-container">
+
+       </div>
+    </ion-header>
+    <ion-content>
+        <div class="menu-content">
+            <div class="item-menu" (click)="getAllThreads()">
+                <img *ngIf="global.state['theme'] == 'light'" src="assets/imgs/myfeed.png" alt="">
+                <img *ngIf="global.state['theme'] == 'dark' || global.state['theme'] == 'black'"src="assets/imgs/myfeed-white.png" alt="">
+                <span [class.menu-active]="threadsService.filterBy == 'TOP' && !threadsService.followers && !threadsService.bookmarks">Main Feed</span>
+            </div>
+            <div class="item-menu" (click)="handlerFollowers()" *ngIf="!playService.playToggled">
+                <img *ngIf="global.state['theme'] == 'light'" src="assets/imgs/following.png" alt="">
+                <img *ngIf="global.state['theme'] == 'dark' || global.state['theme'] == 'black'" src="assets/imgs/following-white.png" alt="">
+                <span [class.menu-active]="threadsService.followers">Following</span>
+            </div>
+            <div class="item-menu" (click)="getSavedPosts()" *ngIf="!playService.playToggled">
+                <ion-icon class="saved-icon" [class.white-icon]="global.state['theme'] == 'dark' || global.state['theme'] == 'black'" name="bookmark"></ion-icon>
+                <span [class.menu-active]="threadsService.bookmarks">Saved</span>
+            </div>
+            <div *ngFor="let league of threadsService.menuLeagues" class="item-menu" (click)="navbarGetThreads(league.league)">
+                <img [src]="league.image" alt="" [class.general]="league.league == 'General'" [class.menu__icon--league]="league.league == 'NBA' || league.league == 'NFL' || league.league == 'NCAAF' || league.league == 'NCAAB' || league.league == 'MLB' || league.league == 'NHL'" >
+                <span
+                    [class.menu-active]="threadsService.filterBy == league.league && !threadsService.followers">{{league.league}}</span>
+            </div>
+        </div>
+    </ion-content>
+</ion-menu>

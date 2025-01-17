@@ -1,0 +1,97 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'" class="top-toolbar">
+		<ion-buttons slot="start">
+			<ion-button class="custom-back-button" (click)="goBack()">
+				<ion-icon class="sort" name="chevron-back"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+
+		<div class="title" *ngIf="!chat?.connecting && !chatService.connectingDetail">
+			<img [class.detail-image]="true" [class.detail-image-border]="chat?.customType == '1-1'"
+				[src]="chat?.otherUserPicture" alt="">
+			<div class="title-text">
+				<p *ngIf="!chat?.room" class="title-username">{{chat?.chatName}}</p>
+				<p *ngIf="chat?.room" class="title-username">{{chatName}}</p>
+				<p *ngIf="chat?.lastSeenAt && chat?.customType == '1-1' && chat?.chatName != 'discussthegame'"
+					class="title-online">Active
+					{{chat?.lastSeenAt}} ago</p>
+				<p *ngIf="chat?.online && chat?.customType == '1-1'" class="title-online">Online</p>
+
+			</div>
+		</div>
+		<ion-title *ngIf="chat?.connecting || chatService.connectingDetail">
+			<span class="connecting">
+				<ion-spinner class="connecting-spinner" name="lines-small"></ion-spinner>Connecting...
+			</span>
+		</ion-title>
+		<ion-buttons slot="end">
+			<ion-button (click)="goToInfo()">
+				<ion-icon name="information-circle-outline"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+	
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="logScrolling($event)" #chatTab class="chat-content">
+	<div *ngIf="displayMsgsSpinner && chatService.channelMessages[chat?._id] && chatService.channelMessages[chat?._id].length >= 30 && !hideTopSpinner"
+		class="more-messages-spinner">
+		<ion-spinner></ion-spinner>
+	</div>
+
+	<ul #list>
+		<message *ngFor="let message of chatService.channelMessages[chat?._id]; let i = index; let last = last"
+			[message]="message" [chat]="chat" [unreadMessages]="unreadMessages" [i]="i" [ready]="last"
+			(scroll)="registerMutation()"></message>
+	</ul>
+
+</ion-content>
+
+<div *ngIf="!disappearLastDiv" class="last-div"></div>
+<ion-footer>
+	<div class="mention-list" *ngIf="mention">
+		<ul>
+			<li *ngFor="let mention of sortedMentions" (touchend)="mentionsClick($event, mention)" (touchmove)="mentionsScroll()">
+				<img [src]="mention.profilePictureThumbnail" alt="">
+				<span>{{mention.username}}</span>
+			</li>
+		</ul>
+	</div>
+
+	<div class="typing-cont" *ngIf="chat?.typing && finishedAnimating && chatService.cheatForTyping">
+		<div class="typing">
+			<span><b>{{chat?.usernameTyping}}</b> {{chat?.typing}}</span>
+		</div>
+	</div>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'secondary'" [class.footer-chat]="true"
+	[class.border-top-typing]="chat?.typing && finishedAnimating">
+		<div class="send-rows">
+			<div class="send-input">
+				<ion-textarea id="texti" autosize (keydown)="capital($event)" (keyup)="startTyping($event)" [class.cap]="cap"
+					[class.message-input]="true" rows="1" maxRows="4" placeholder="Message..." autocorrect="on"
+					autocapitalize="on" [(ngModel)]="message"></ion-textarea>
+
+			</div>
+			<div class="send-button" #sendButton>
+
+				<ion-button expand="block" fill="clear" class="msg-btn">
+					<span [class.send-text]="true" [class.send-active]="message.length > 0">Send</span>
+				</ion-button>
+
+			</div>
+		</div>
+	</ion-toolbar>
+</ion-footer>
+
+<div class="helper" *ngIf="notificationsHelper">
+	<div class="helper-info">
+		<div class="helper-top">
+			<ion-icon class="notifications-icon" name="notifications-outline"></ion-icon>
+			<p class="if-you">If you want to receive notifications from a team chat, go to a chat's info (upper right corner) and turn notifications on</p>
+		</div>
+		<div class="helper-bottom" (click)="setNotificationsHelper()">
+			Got it!
+		</div>
+	</div>
+	
+</div>

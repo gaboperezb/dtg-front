@@ -1,0 +1,53 @@
+<ion-header>
+	<ion-toolbar color="success">
+		
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<ion-slides pager="true" [options]="slideOpts" #slides>
+		<ion-slide>
+			<div class="slide-container">
+				<div class="slide-image">
+					<img src="assets/imgs/onboarding_1.png" alt="">
+				</div>
+				<div class="slide-info">
+					<h3>Fan Posts</h3>
+					<p>All content in Discuss TheGame is created by fans like you. Write articles, create polls, or share sports content.</p>
+				</div>
+
+			</div>
+		</ion-slide>
+		<ion-slide>
+			<div class="slide-container">
+				<div class="slide-image">
+					<img src="assets/imgs/onboarding_2.png" alt="">
+				</div>
+				<div class="slide-info">
+					<h3>Debates</h3>
+					<p>Express your sports opinions and debate with other fans. This is the best place to talk sports.</p>
+				</div>
+
+			</div>
+		</ion-slide>
+		<ion-slide>
+			<div class="slide-container">
+				<div class="slide-image">
+					<img src="assets/imgs/onboarding_3.png" alt="">
+				</div>
+				<div class="slide-info">
+					<h3>Group Chats</h3>
+					<p>Select your favorite leagues and teams, and join group chats around them.</p>
+				</div>
+
+			</div>
+		</ion-slide>
+
+	</ion-slides>
+
+	<div class="button-slide-cont" (click)="nextSlide()">
+		<ion-icon name="arrow-forward"></ion-icon>
+	</div>
+
+</ion-content>

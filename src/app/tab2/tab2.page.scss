@@ -1,0 +1,429 @@
+.top-container-teams {
+    margin-top: 16px;
+}
+
+.fav-teams-container {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 25px;
+
+}
+
+.back-container {
+    flex-basis: 15%;
+    text-align: center;
+    font-size: 22px;
+}
+
+ion-searchbar {
+    margin: 5px !important;
+    padding: 0 5px !important;
+}
+
+
+
+
+.searchbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    span {
+        padding-right: 12px;
+    }
+
+    .span:hover, .span:active{
+        color: rgb(233, 233, 233);
+      }
+}
+
+.segmentSearch {
+    background: white;
+    padding: 16px;
+}
+
+
+
+
+.fav-team-logo {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    margin-bottom: 10px;
+
+}
+
+.spinner-container-2 {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.sort-chats-container {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.sort-by-chats {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.hr {
+    height: .15rem;
+    width: 20%;
+    background: #4264d0;
+    border: none;
+    transition: .3s ease-in-out;
+    margin-left: 15%;
+  }
+
+  .move-right {
+    margin-left: 65%;
+  } 
+
+
+  .empty-chats {
+    text-align: center;
+      padding: 16px 16px;
+      color: #737373;
+      font-weight: 400;
+  }
+
+  .no-favorites {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 82%;
+    margin:  0 auto;
+    flex-direction: column;
+
+    img {
+        height: 80px;
+        width: 80px;
+        object-fit: cover;
+        margin-bottom: 25px;
+    }
+
+   .no-favorites-title {
+        display: inline-block;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 17px;
+
+   }
+
+   .no-favorites-subtitle {
+        display: inline-block;
+        text-align: center;
+        font-size: 15px;
+        margin-bottom: 25px;
+    }   
+    
+    ion-button {
+
+    }
+  }
+
+  
+
+  
+
+.fav-teams-h {
+    color: #14171a;
+    font-weight: 600;
+    padding: 16px 0 12px 16px;
+    display: inline-block;
+    font-size: 16px;
+}
+.discover-chats-h {
+    color: #14171a;
+    font-weight: 600;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+.discover-chats-all {
+    color: #4264d0;
+    font-weight: 500;
+    display: inline-block;
+    font-size: 15px;
+}
+
+.discover-chats-headers {
+
+    padding: 16px 16px 28px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-list {
+    margin-top: 12px;
+}
+
+.fav-team {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+    width: 75px;
+    height: 75px;
+}
+
+.fav-team-abb {
+    font-size: 12px;
+    font-weight: 300;
+    color: #14171a;
+}
+
+.fav-team-all {
+    font-size: 12px;
+    font-weight: 600;
+    color: #14171a;
+}
+
+.search-container {
+    padding: 0px 16px 16px 16px;
+}
+
+.empty {
+    text-align: center;
+    padding: 40px 16px;
+    color: #737373;
+    font-weight: 400;
+}
+
+//thread 
+
+.thread {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 16px;
+
+    .thread-left {
+        flex-basis: 75%;
+        border-bottom: 1px solid #d8d8d8;
+        padding-bottom: 12px;
+
+        .thread-user {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+
+            .thread-profile {
+                height: 15px;
+                width: 15px;
+                border-radius: 50px;
+                object-fit: cover;
+                margin-right: 5px;
+            }
+
+            .thread-username-search {
+                margin-right: 5px;
+                font-size: 13px;
+            }
+
+            .thread-created {
+                margin-right: 5px;
+                font-size: 13px;
+                color: #9e9c9c;
+            }
+        } 
+
+        .thread-title {
+            font-weight: 600;
+            margin-bottom: 17px;
+            font-size: 17px;
+        }
+
+    }
+
+    .thread-right {
+        flex-basis: 20%;
+    display: flex;
+    justify-content: flex-end;
+
+        img {
+            height: 55px;
+            width: 55px;
+            object-fit: cover;
+        margin-top: 26px;
+        }
+    }
+
+
+    .thread-comments {
+        display: flex;
+        
+    }
+
+    .comments, .likes {
+
+        ion-icon {
+            margin-right: 5px;
+        }
+
+        display: flex;
+        color: #9e9c9c;
+        align-items: center;
+        width: 55px;
+        font-size: 13px;
+    }
+}
+
+
+
+
+//user item 
+
+    .profile-pic {
+        object-fit: cover;
+    }
+
+    ion-item.foll-item {
+        border-bottom: 1px solid #edeff1;
+    }
+
+
+
+    .foll-username {
+        margin: 15px 0;
+    }
+
+    .wait-container-2 {
+        text-align: center;
+        padding-top: 16px;
+    }
+
+
+
+    //chat-item {
+        ion-item {
+            margin: 8px 0;
+        }
+        
+        .last-message-time {
+            position: absolute;
+            right: 16px;
+            font-size: 15px;
+            color: #9c9c9c;
+        }
+        
+        .muted {
+            font-size: 18px;
+            /* position: absolute; */
+            /* right: 28px; */
+            top: 11px;
+            position: absolute;
+            right: 75px;
+            font-size: 17px;
+            color: #9c9c9c;
+            display: inline-block;
+            color: #ababab;
+        }
+        
+        
+        
+        .unread {
+            position: absolute;
+            right: 16px;
+            /* bottom: 0; */
+            top: 63%;
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            background: #136eea;
+            display: inline-block;
+        }
+        
+        .typing-item {
+            font-style: italic;
+        }
+        
+        .last-message {
+            width: 89%;
+            margin-bottom: 0px !important;
+        }
+        
+        .placeholder {
+            height: 48px;
+            width: 48px;
+            margin-right: 10px;
+            object-fit: cover;
+            background: #e4e4e4;
+            border-radius: 50px;
+        }
+        
+        .user-picture {
+            height: 55px;
+            width: 55px;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        
+        .user-picture-cont {
+            height: 55px;
+            width: 55px;
+            margin-right: 10px;
+            position: relative;
+           
+        }
+        
+        .usernamee {
+            
+            margin-bottom: 4px;
+            font-size: 15px;
+            color: #14171a;
+        }
+        
+        .usernamee-active {
+            font-weight: 500;
+        }
+        
+        .last-message-unread {
+            font-weight: 500;
+            color: #242629;
+        }
+        
+        .info-chat-container {
+            height: 22px;
+            width: 22px;
+            background: white;
+            border-radius: 50px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            box-shadow: 0 1px 1px rgba(109, 109, 109, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px;
+        
+            img {
+                height: 22px;
+                width: 22px;
+                object-fit: contain;
+            }
+        
+            
+        
+            span {
+                font-size: 11px;
+            }
+        }
+        
+     

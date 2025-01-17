@@ -1,0 +1,82 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-buttons slot="start">
+			<ion-button class="custom-back-button" (click)="goBack()">
+				<ion-icon class="sort" name="chevron-back"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title>Chat info</ion-title>
+
+	</ion-toolbar>
+</ion-header>
+
+<div class="centered-container" *ngIf="toggleType">
+	<div class="centered">
+		<div class="app-top">
+
+			<div class="type-app" (click)="editType('sport')">Sport/League Chat</div>
+			<div class="type-app" (click)="editType('team')">Team Chat</div>
+			<div class="type-app" (click)="editType('general')">General Chat</div>
+
+		</div>
+
+		<div class="app-bottom">
+			<div class="join-bottom" (click)="hideType()">Cancel</div>
+		</div>
+	</div>
+</div>
+
+<ion-content class="chat-content">
+	<div class="members-container">
+
+		<!-- Username -->
+
+		<div class="top-info" *ngIf="!chat.room">
+			<ion-list lines="none" class="username-list">
+				<div class="toggle-item" (click)="editName()" *ngIf="chat.customType != '1-1'">
+					<span class="toggle-text">Group Name:</span>
+					<span class="toggle-text">{{chat.name}}</span>
+				</div>
+		
+				<!-- Mute -->
+				<div class="toggle-item">
+					<span class="toggle-text">Mute messages</span>
+					<ion-toggle (click)="muteMessages()" [(ngModel)]="chat.muted" class="toggle" color="warning">
+					</ion-toggle>
+				</div>
+			</ion-list>
+		</div>
+
+		<ion-list lines="none" class="members-list" *ngIf="!chat.room">
+
+			<ion-list-header class="members-header">
+				<ion-label>Members ({{chat.members.length}})</ion-label>
+			</ion-list-header>
+			<div class="add-member" *ngIf="chat.customType != '1-1'">
+				<p (click)="addPeople()">Add people</p>
+			</div>
+			<ion-item *ngFor="let member of chat.members" lines="none" class="info-item" (click)="goToUser(member._id)">
+				<ion-avatar slot="start">
+					<ion-img class="user-picture" [src]="member.profilePicture"></ion-img>
+				</ion-avatar>
+				<ion-label class="username">{{member.username}}</ion-label>
+				<ion-button slot="end" color="warning" (click)="removeMember($event, member)"
+					*ngIf="chat.customType != '1-1' && member._id != this.authService.currentUser._id && admin">
+					Remove
+				</ion-button>
+				<ion-button slot="end" color="danger"
+					*ngIf="chat.customType != '1-1' && member.admin">
+					Admin
+				</ion-button>
+			</ion-item>
+		</ion-list>
+
+		<div class="actions">
+			<span (click)="reportChat()" class="text-action">Report Chat/Issue</span>
+			<span (click)="blockUser()" class="text-action" *ngIf="chat.customType == '1-1'">Block User</span>
+			<span (click)="deleteChat()" class="text-action">Leave Chat</span>
+		</div>
+
+	</div>
+
+</ion-content>

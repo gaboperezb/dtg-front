@@ -1,0 +1,227 @@
+
+
+/* TEST ALL DETAL */
+
+
+div.header-link {
+    display: table;
+    padding: 16px 0 10px 16px;
+    height: 59px;
+    
+}
+
+ion-icon.more-icon {
+    font-size: 16px !important;
+}
+
+.more-comment {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    display: inline-block;
+}
+
+.focus {
+    background: #ebf4ff 
+}
+
+.more-icon {
+    margin-right: 16px;
+}
+
+.top-thread {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 59px;
+    position: relative;
+}
+
+.ago {
+    position: absolute;
+    top: 18px;
+    right: 16px;
+    color: #A2A4A6;
+    font-size: 12px;
+}
+
+.user-info .span-userimage, .transparent {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.profile-picture {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+    
+}
+
+.profile-picture-child {
+    border-radius: 50%;
+    height: 26px;
+    width: 26px;
+    object-fit: cover;
+    
+}
+
+.by-username {
+    color: black;
+    font-weight: 500;
+    font-size: 13px;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: table-cell;
+    padding-bottom: 4px;
+}
+
+.by-username .name {
+    color: rgb(161, 161, 161);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+
+.level {
+    height: 15px;
+    width: 15px;
+    object-fit: contain;
+    margin: -3px 1px -2px 1px;
+    margin-left: 4px;
+}
+
+.level-container {
+    height: 15px;
+    
+}
+
+.discussion {
+    padding: 0 16px;
+    margin: 0;
+    color:  rgb(20, 23, 26);
+    white-space: pre-wrap;
+    font-size: 15px;
+    line-height: 130%;
+}
+
+span.responding {
+    color: #117DDC !important;
+    display: inline-block !important;
+    margin-right: 5px !important;
+}
+
+.ion-item-btn {
+    padding-bottom: 10px;
+}
+ion-icon {
+    font-size: 15px;
+    margin-right: 5px !important;
+}
+
+.child {
+    padding-left: 26px;
+}
+
+.count {
+    font-size: 14px;
+    font-weight: 500;
+    color: #989aa2;
+}
+
+.reply {
+    font-size: 14px;
+    font-weight: 400;
+    color: #989aa2;
+}
+.custom-btn {
+    color: #EB4B59 !important;
+}
+.like-div {
+    display: inline-block;
+    padding-left: 3px;
+    margin: 0 auto 0 0;
+    width: 90px;
+    
+}
+
+.reply-div {
+    padding-right: 6px;
+    width: 90px;
+    margin-right: 0px;
+    
+}
+
+.likes {
+    font-size: 14px;
+    color: #989aa2;
+    font-weight: 500;
+}
+
+ion-avatar {
+    width: 0;
+    height: 0;
+}
+
+
+.actions {
+ 
+    display: flex;
+    margin-top: 6px;
+    align-items: center;
+    height: 35px;
+}
+
+.hide-container {
+    padding: 10px 0px;
+}
+
+
+.left-hide {
+    width: 26px;
+    height: 1px;
+    display: inline-block;
+    background: #898a8c;
+    margin-bottom: 4px;
+    margin-left: 45px;
+    margin-right: 8px;
+}
+
+.right-hide {
+    color: #898a8c;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.divider-replies {
+    height: 1px;;
+    background: #EDEFF1;
+}
+
+
+
+
+
+    
+    
+
+
+
+   
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+

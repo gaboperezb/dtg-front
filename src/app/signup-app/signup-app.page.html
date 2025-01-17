@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+      <ion-buttons slot="start">
+          <ion-button slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="dismiss()">
+              <ion-icon name="close"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="not-logged">
+        <img src="assets/imgs/sign-pic.png" alt="" class="sign-pic">
+        <br>
+        <span id="sign-up-to">{{message}}</span>
+        <ion-button  expand="block" class="sign-btn" color="tertiary" (click)="goToSign('Sign up')">SIGN UP</ion-button>
+        <ion-button  expand="block" color="light" class="log-btn" (click)="goToSign('Log in')">LOG IN</ion-button>
+    </div>
+
+</ion-content>

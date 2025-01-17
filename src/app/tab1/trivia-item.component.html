@@ -1,0 +1,21 @@
+<div class="trivia"
+    [style.backgroundImage]="'url(' + currentImage + ')'" (click)="goToTrivia()">
+    <p class="trivia-text" *ngIf="trivia.league == 'NBA'">🏀 NBA DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'NCAAB'">🏀 NCAAB DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'NFL'">🏈 NFL DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'NCAAF'">🏈 NCAAF DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'Soccer'">⚽️ SOCCER DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'MLB'">⚾ MLB DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'NHL'">🏒 NHL DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'General'">🏆 GENERAL DAILY</p>
+
+    <div class="trivia-info" *ngIf="trivia.pending">
+        <span>PENDING</span>
+    </div>
+    <div class="trivia-info wrong" *ngIf="!trivia.correct && !trivia.pending">
+        <span>WRONG</span>
+    </div>
+    <div class="trivia-info correct" *ngIf="trivia.correct && !trivia.pending">
+        <span>CORRECT</span>
+    </div>
+</div>

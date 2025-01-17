@@ -1,0 +1,305 @@
+
+    .noti {
+      display: flex;
+      align-items: flex-start; // <---- This does the trick!
+      padding: 16px 16px 0px 16px;
+      width: 100%;
+    }
+
+    
+
+   
+    
+    .number-likes {
+        color: #A2A4A6;
+        font-size: 12px;
+        display: inline-block;
+        margin-right: 4px;
+        font-weight: 500;
+        
+    }
+
+    .no-permission {
+        background: #f19019;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .notifications-container span {
+        margin-left: 5px;
+    }
+
+    .date {
+        color: rgb(177, 177, 177);
+    }
+    
+    .ion-item-btn {
+        
+        border-bottom: 1px solid #EDEFF1;
+    }
+    
+    .user-picture {
+    
+        height: 40px;
+        width: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .flex-helper {
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        flex: 1;
+    }
+
+ 
+    .d-level {
+        height: 20px;
+        width: 20px;
+        object-fit: contain;
+        margin: -5px;
+        
+    }
+    
+    .username {
+        color:  rgb(20, 23, 26);
+        font-weight: 600;
+    }
+
+    .discussions-text {
+        color:  rgb(20, 23, 26);
+    }
+
+    .fixed-content {
+        background: #EDEFF1;
+    }
+
+    .notifications-icon {
+        font-size: 80px;
+        margin-bottom: 10px;
+    }
+
+    
+
+    .sign-btn{
+        margin-bottom: 10px;
+
+    }
+
+    .sign-btn, .log-btn {
+        font-weight: 600;
+
+    }
+
+    #sign-up-to {
+        font-weight: 600;
+        color: #3e3e3e;
+        font-size: 18px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+
+    .sign-pic {
+        height: 100px;
+        margin-bottom: 20px;
+    }
+
+    #logo {
+        width: 70%;
+    }
+
+    #sports {
+        height: 55px;
+    }
+
+
+
+    .not-logged {
+        padding: 16px;
+        text-align: center;
+        background: white;
+        border-radius: 10px;
+        width: 90%;
+        margin: 20% auto 0 auto;
+    }
+
+    .no-notifications {
+     
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        font-weight: 600;
+        color: #989898;
+        font-size: 20px;
+        padding: 0px 32px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+
+    .no-notifications span {
+        margin-top: 15px;
+        /* font-size: 16px; */
+        font-weight: 600;
+        display: inline-block;
+        text-align: center;
+
+    }
+
+
+    .no-notifications img {
+        width: 100%;
+
+    }
+
+    #sign-in-btn {
+        margin-top: 20px;
+        font-weight: 600;
+        color: white !important;
+    
+    }
+    
+    .n-text {
+        white-space: pre-wrap;
+        color:  rgb(20, 23, 26);
+        flex: 1;
+        margin: 0px;
+        font-size: 14px !important;
+    }
+    
+    .d-created {
+        color: #A2A4A6;
+        font-size: 14px;
+        display: inline-block;
+        margin-left: 5px;
+    
+    }
+
+    .reply-div {
+        margin-left: 50px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .reply, .likes {
+        font-size: 14px;
+        color: #A2A4A6;
+        margin-left: 5px;
+    }
+    
+    .reply {
+        margin-right: 10px;
+    }
+    
+    .likes {
+        font-weight: 500;
+    }
+    
+    .game {
+       
+        font-size: 12px;
+        font-weight: 500;
+    
+    }
+
+    #no-games {
+        text-align: center;
+        padding-top: 50%;
+        font-weight: 600;
+        color: #989898;
+        font-size: 20px;
+    }
+
+
+    .ctoast {
+        background-color: green;
+        color: white;
+        text-align: center;
+    }
+
+    .notifications-container {
+        text-align: center;
+        padding-top: 10px;
+        margin-bottom: 4px !important;
+    }
+
+
+    .placeholders {
+        position: absolute;
+        top: 16px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    
+      .placeholder-item, .game {
+        height: 90px;
+        width: 100%;
+        margin-bottom: 10px;
+        background: white;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .notification-container {
+        border-bottom: 1px solid #EDEFF1;
+        /* color: black; */
+        padding-bottom: 12px;
+      }
+    
+     
+      .placeholder-logos-container, .logos-container{
+        width: 70px;
+        flex-direction: column;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .placeholder-flex-logos {
+          height: 40px;
+          width: 40px;
+          background: #edeff1;
+          border-radius: 50%;
+    
+      }
+    
+      .logo {
+        height: 40px;
+        width: 40px;
+        object-fit: contain;
+      }
+    
+      .placeholder-flex-name-1{
+        height: 15px;
+        width: 100%;
+        background: #edeff1;
+        border-radius: 3px;
+        margin-bottom: 10px;
+      }
+
+      .placeholder-flex-name-2{
+        height: 15px;
+        width: 70%;
+        background: #edeff1;
+        border-radius: 3px;
+      }
+    
+      .placeholder-names-container, .names-container {
+        flex: 1;
+        padding-right: 16px;
+        flex-direction: column;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+      }
+
+

@@ -1,0 +1,171 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-buttons slot="start">
+			<ion-button class="custom-back-button" (click)="goBack()">
+				<ion-icon class="sort" name="chevron-back"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title>{{user?.username}}</ion-title>
+		<ion-buttons slot="end">
+			<ion-button slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'"
+				(click)="presentActionSheet()">
+				<ion-icon name="ellipsis-horizontal"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content #userPage>
+
+	<div *ngIf="waitProfile" class="wait-container-2">
+		<ion-spinner name="crescent"></ion-spinner>
+	</div>
+	<div *ngIf="!waitProfile">
+
+		<div class="background-container header-image" [ngStyle]="userBackground">
+		</div>
+
+		<div class="pic-username">
+			<img id="user-pic" [src]="user?.profilePicture" alt="">
+			<br>
+			<span id="username">{{user?.username}}</span>
+
+			<div [class.follow]="!user?.provFollowing" [class.following]="user?.provFollowing" (click)="followUser()">
+				<span *ngIf="!user?.provFollowing && !user?.loadingFollow">Follow</span>
+				<span *ngIf="user?.provFollowing && !user?.loadingFollow">Following</span>
+				<span *ngIf="user?.loadingFollow">Loading..</span>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div class="fetch-content" *ngIf="!waitProfile">
+		<div class="user-info user-header">
+			<div class="info">
+				<div *ngIf="!user?.verified" class="level-container">
+					<img id="level" *ngIf="global.state['theme'] == 'light' "
+						[src]="user?.badge?.picture.replace('.png', 'L.png')" alt="">
+					<img id="level" *ngIf="global.state['theme'] == 'dark' || global.state['theme'] == 'black' "
+						[src]="user?.badge?.picture.replace('.png', 'LN.png')" alt="">
+					<div *ngIf="fetchingTeams || (user.favAllTeams && user.favAllTeams.length)" [class.line-breaker]="true" [class.star]="user?.badge?.level <= 5"
+						[class.trophy]="user?.badge?.level <= 10 && user?.badge?.level > 5"
+						[class.diamond]="user?.badge?.level <= 15 && user?.badge?.level > 10"
+						[class.crown]="user?.badge?.level <= 19  && user?.badge?.level > 15"
+						[class.twenty]="user?.badge?.level == 20">
+					</div>
+					<div *ngIf="!fetchingTeams" scrollY="false" scrollX="true" class="scroll-padding-teams">
+						<img *ngFor="let team of teamsToShow" class="fav-team-logo" [src]="team.logo" alt="">
+						<span (click)="addMoreTeams()" *ngIf="extraTeams" class="more-teams">{{extraTeams}}+</span>
+					</div>
+				</div>
+				<div *ngIf="user?.verified" class="level-container">
+					<img id="level" src="assets/imgs/verified.png" alt="">
+				</div>
+
+				<p *ngIf="user?.bio" class="bio">{{user?.bio}}</p>
+				<p class="joined">
+					<ion-icon [name]="global.state['theme'] == 'light' ? 'joined' : 'joined-night'"></ion-icon>Joined
+					{{user?.createdAt | date}}
+				</p>
+				<div class="foll-info">
+					<ion-button fill="clear" class="foll-btn foll-m" (click)="followings()">
+						<span class="foll-no">{{user?.followingNumber}}</span><span class="foll-txt">Following</span>
+					</ion-button>
+					<ion-button fill="clear" class="foll-btn" (click)="followers()">
+						<span class="foll-no">{{user?.followersNumber}}</span><span class="foll-txt">Followers</span>
+					</ion-button>
+
+				</div>
+			</div>
+		</div>
+		<!-- Segment -->
+
+		<div class="segment-container">
+			<div [class.col-selection]="true" [class.col-active]="postsBoolean" (click)="getPostsSegment()">
+				Posts
+			</div>
+			<div [class.col-selection]="true" [class.col-active]="takesBoolean" (click)="getTakesSegment()">
+				Discussions
+			</div>
+		</div>
+
+		<div scrollY="false" scrollX="true" class="wide-as-needed" style="width:100vw; height:57px">
+			<div class="scroll-padding" *ngIf="threadsService.leagues.length > 1">
+				<div *ngFor="let league of threadsService.leagues" class="league-scroll"
+					[class.fantasy]="league == 'NFL Fantasy' || league == 'Motorsports'"
+					[class.active]="filterBy===league" (click)="handlePosts(league)">
+					<span *ngIf="league != 'TOP'">{{league}}</span>
+					<span *ngIf="league == 'TOP'">ALL</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="no-posts" *ngIf="threads.length == 0 && !wait && postsBoolean">
+			<span *ngIf="filterBy =='TOP'">{{user?.username}} has not posted anything about your favorite sports</span>
+			<span *ngIf="filterBy != 'TOP'">{{user?.username}} has not posted {{filterBy}} posts</span>
+		</div>
+
+		<div class="no-posts" *ngIf="takes.length == 0 && !wait && takesBoolean">
+			<span *ngIf="filterBy =='TOP'">{{user?.username}} has not posted anything about your favorite sports</span>
+			<span *ngIf="filterBy !='TOP'">{{user?.username}} has not posted {{filterBy}} discussions</span>
+		</div>
+
+		<div *ngIf="wait" class="wait-container-comments">
+			<ion-spinner name="crescent"></ion-spinner>
+		</div>
+
+		<ion-list lines="none" *ngIf="!wait && postsBoolean" class="user-list">
+			<ion-item *ngFor="let thread of threads" lines="none" (click)="goToThread(thread)"
+				class="user-post-item ion-no-padding">
+				<div class="c">
+					<!-- HEADER -->
+					<span class="thread-ago">{{thread?.created}} ago</span>
+					<!-- TITLE -->
+
+					<span class="thread-title">
+						<ion-icon *ngIf="thread.type == 'Poll' || thread.type == 'A/B'" name="podium" class="poll">
+						</ion-icon>
+						<ion-icon *ngIf="thread.type == 'Link'" name="link" class="link"></ion-icon>{{thread?.title}}
+					</span>
+
+					<!-- ACTIONS -->
+					<div class="actions-container">
+						<div class="like-c">
+							<like-thread [thread]="thread" (like)="like(thread)"></like-thread>
+						</div>
+						<div class="replies-c">
+							<div class="like-div">
+								<ion-button color="light" fill="clear" size="small" slot="start">
+									<ion-icon class="comments-icon" name="comment-white"></ion-icon>
+									<div class="replies-text">{{thread.replies}}</div>
+								</ion-button>
+							</div>
+						</div>
+						<div class="share-c">
+							<div class="">
+								<ion-button color="light" fill="clear" size="small" slot="start"
+									(click)="presentActionSheetShare($event, thread)">
+									<ion-icon class="share-icon" name="share-content-white"></ion-icon>
+								</ion-button>
+							</div>
+
+						</div>
+					</div>
+					<!-- BACKGROUND -->
+					<div class="background-image-black">
+					</div>
+					<ion-img class="background-image" [src]="thread?.picture"></ion-img>
+				</div>
+			</ion-item>
+		</ion-list>
+
+		<div *ngIf="!wait && takesBoolean">
+			<profile-take-item *ngFor="let take of takes" [take]="take" [showUser]="false"></profile-take-item>
+		</div>
+
+		<ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="20%" [disabled]="!enableInfinite">
+			<ion-infinite-scroll-content></ion-infinite-scroll-content>
+		</ion-infinite-scroll>
+	</div>
+</ion-content>

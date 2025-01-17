@@ -1,0 +1,49 @@
+<!-- <div class="trivia"
+    [style.backgroundImage]="'url(' + currentImage + ')'" (click)="goToTrivia()">
+    <p class="trivia-text" *ngIf="trivia.league == 'NBA'">🏀 NBA DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'NCAAB'">🏀 NCAAB DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'NFL'">🏈 NFL DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'NCAAF'">🏈 NCAAF DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'Soccer'">⚽️ SOCCER DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'MLB'">⚾ MLB DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'NHL'">🏒 NHL DAILY</p>
+    <p class="trivia-text" *ngIf="trivia.league == 'General'">🏆 GENERAL DAILY</p>
+
+    <div class="trivia-info" *ngIf="trivia.pending">
+        <span>PENDING</span>
+    </div>
+    <div class="trivia-info wrong" *ngIf="!trivia.correct && !trivia.pending">
+        <span>WRONG</span>
+    </div>
+    <div class="trivia-info correct" *ngIf="trivia.correct && !trivia.pending">
+        <span>CORRECT</span>
+    </div>
+</div> -->
+
+<div class="pick" (click)="goToPick()">
+    <p class="pick-league" *ngIf="pick.league == 'NBA'">🏀 NBA</p>
+    <p class="pick-league" *ngIf="pick.league == 'NCAAB'">🏀 NCAAB</p>
+    <p class="pick-league" *ngIf="pick.league == 'NFL'">🏈 NFL</p>
+    <p class="pick-league" *ngIf="pick.league == 'NCAAF'">🏈 NCAAF</p>
+    <p class="pick-league" *ngIf="pick.league == 'Soccer'">⚽️ SOCCER</p>
+    <p class="pick-league" *ngIf="pick.league == 'MLB'">⚾ MLB</p>
+    <p class="pick-league" *ngIf="pick.league == 'NHL'">🏒 NHL</p>
+    <p class="pick-league" *ngIf="pick.league == 'General'">🏆 GENERAL</p>
+
+    <div class="pick-info">
+        <p class="pick-question">{{pick.question}}</p>
+
+        <div class="pick-imgs">
+            <div class="left-img" [style.backgroundImage]="'url(' + pick.options[0].picture + ')'">
+    
+            </div>
+            <img src="assets/imgs/versus.png" alt="" class="versus-img">
+            <div class="right-img" [style.backgroundImage]="'url(' + pick.options[1].picture + ')'">
+        
+            </div>
+        </div>
+    </div>
+    
+
+    
+</div>

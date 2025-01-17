@@ -1,0 +1,171 @@
+<div class="ion-item-btn" detail="false" (click)="itemTapped()">
+
+
+    <!-- No user info -->
+    <div class="top-thread-created" *ngIf="!showUser">
+        <span>{{take.created}} ago</span>
+    </div>
+
+    <div *ngIf="authService.currentUser">
+
+        <ion-button class="delete-thread" fill="clear" (click)="deleteOrEdit($event)"  *ngIf="take.user.username === authService.currentUser.username || authService.currentUser.isAdmin">
+            <ion-icon class="more-icon" name="ellipsis-horizontal"></ion-icon>
+        </ion-button>
+    </div> 
+    
+
+    <!-- User info -->
+    <div class="top-thread" *ngIf="showUser">
+        <div class="header-link user-info white ion-padding">
+            <span class="span-userimage" (click)="goToUser($event)">
+                <img [src]="take?.user?.profilePictureThumbnail" class="profile-picture">
+            </span>
+            <span class="transparent" style="color: transparent;">::</span>
+            <span class="by-username" (click)="goToUser($event)">
+                <span>{{take?.user?.username}}</span>
+                <!-- <img *ngIf="global.state['theme'] == 'light'" [src]="take.user.badge.picture" alt="" class="level">
+                    <img *ngIf="global.state['theme'] == 'dark'" [src]="take.user.badge.picture.replace('.png', 'N.png')"
+                        alt="" class="level"> -->
+                <br>
+                <span class="name">{{take?.created}}
+
+                </span>
+            </span>
+
+        </div>
+        <!-- <div *ngIf="authService.currentUser">
+            <div
+                *ngIf="timeline.user.username === authService.currentUser.username || authService.currentUser.isAdmin">
+                <ion-icon class="more-icon" name="ellipsis-horizontal" (click)="edit()"></ion-icon>
+            </div>
+        </div> -->
+
+    </div>
+
+
+
+    <div class="discussion">
+        <p [id]="'text-' + take._id">{{take?.take}}</p>
+    </div>
+
+    <!-- Poll -->
+    <div class="poll-container" *ngIf="take.type == 'Poll'">
+        <div *ngIf="!take.voted && !showResults">
+            <div *ngFor="let option of options" class="threed-btn">
+                <a class="button-3d" (click)="toggleVote(option, $event)">{{option}}</a>
+            </div>
+        </div>
+        <div *ngIf="take.voted || showResults">
+            <div *ngFor="let option of take.optionsWithPercentage" class="progress-outer">
+                <div class="percentage-option">
+                    <span >{{option?.option}}</span>
+                    <ion-icon *ngIf="option.userInOption" name="checkmark-circle-outline" class="checked">
+                    </ion-icon>
+                </div>  
+                    <span class="percentage">{{option?.flooredPercentage}}%</span>
+                <div [style.width]="option?.flooredPercentage + '%'" class="inner">
+                    <div [class.no-effect]="!pollEffect" [class.progress-inner]="pollEffect"
+                        [class.user-in-option]="option.userInOption"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Link -->
+    <div class="link-container"
+        *ngIf="take.type == 'Link' && take.urlType != 'video' && take.thumbnail_width > 500 && take.provider_name != 'Twitter'"
+        (click)="openLink($event)">
+        <div class="image-placeholder" *ngIf="!largeLink">
+
+        </div>
+        <div class="link-info">
+            <span class="url-title">{{take.reducedTitle}}</span>
+            <span class="url-provider">{{take.provider_name}}</span>
+        </div>
+    </div>
+
+    <!-- Small Link -->
+    <div class="small-link-container" role="link"
+            *ngIf="take.type == 'Link' && (take.thumbnail_width < 500 || take.provider_name == 'Twitter' || take.urlType == 'video' || !take.thumbnail_url) "
+            (click)="openLink($event)">
+            <img *ngIf="take.thumbnail_url" class="thumbnail-link" [src]="take.thumbnail_url" alt="">
+            <div *ngIf="!take.thumbnail_url" class="alt-thumbnail-link">
+                <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                    <path d="M5.712 6.96l.167-.167a1.99 1.99 0 0 1 .896-.518 1.99 1.99 0 0 1 .518-.896l.167-.167A3.004 3.004 0 0 0 6 5.499c-.22.46-.316.963-.288 1.46z"/>
+                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>
+                    <path d="M10 9.5a2.99 2.99 0 0 0 .288-1.46l-.167.167a1.99 1.99 0 0 1-.896.518 1.99 1.99 0 0 1-.518.896l-.167.167A3.004 3.004 0 0 0 10 9.501z"/>
+                </svg>
+            </div>
+            
+            <div class="link-info">
+                <span *ngIf="take.reducedTitle" class="url-title">{{take.reducedTitle}}</span>
+                <span class="url-provider">{{take.provider_name}}</span>
+            </div>
+        </div>
+
+
+    <!-- Image -->
+
+    <div class="take-image-container" (click)="fullSizePicture($event)" *ngIf="take.picture">
+        <img [src]="take.picture" alt="">
+
+    </div>
+
+   
+    <div class="top-video-container" *ngIf="take.video">
+        <div *ngIf="takeService.destroyDiscussions" class="fake-video-container">
+            <img class="video-thumb" [src]="take?.videoThumbnail" alt="">
+        </div>
+        <div class="video-container" *ngIf="!takeService.destroyDiscussions" [ngStyle]="videoStyle" (click)="changeVideoAudio(take?._id, $event)">
+
+            <video #videoTake inViewport [inViewportOptions]="{ threshold: [0, 0.02], partial: true }"
+                (pause)="onPause($event)" (play)="onPlay($event)" (loadedmetadata)="onMetadata($event)"
+                (loadeddata)="onData($event)" (inViewportAction)="onIntersection($event)" loop [muted]="'muted'"
+                preload="metadata" muted="muted" [poster]="take?.videoThumbnail" [id]="'media-' + take?._id"
+                class="video-media">
+                <source [src]="take.video" type="video/mp4">
+            </video>
+
+
+
+            <img src="assets/imgs/play.png" class="play-img" alt="" *ngIf="videoPaused || notLoaded">
+
+            <div class="video-time animate fadeOut" *ngIf="time && showTimer">
+                <span>{{time}}</span>
+            </div>
+            <div class="video-time animate fadeOut" *ngIf="!time">
+                <span>{{take?.videoDuration}}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video -->
+
+
+
+    <div class="actions">
+        <div class="like-div">
+            <ion-button [class.heart-container]="true" color="medium" [class.custom-btn]="take.likedByUser" fill="clear"
+                size="small" slot="start" (click)="like($event)">
+                <ion-icon class="heart-icon" [name]="take.likedByUser ? 'heart-red' : 'heart-outline-gray'">
+                </ion-icon>
+                <div *ngIf="take.count > 0" [class.custom-btn]="take.likedByUser">{{take?.count}}</div>
+                <div *ngIf="take.count == 0" class="cero-likes">Like</div>
+            </ion-button>
+        </div>
+        <div class="comment-div">
+            <ion-button color="medium" fill="clear" size="small" slot="start">
+                <ion-icon class="comment-icon" name="comment-gray"></ion-icon>
+                <div class="replies-text" *ngIf="take.replies > 0">{{take?.replies}} </div>
+                <div class="replies-text" *ngIf="take.replies == 0">Comment</div>
+            </ion-button>
+        </div>
+        <div class="share-div">
+            <ion-button color="medium" fill="clear" size="small" slot="start" (click)="presentActionSheetShare($event, take)">
+                <ion-icon class="comment-icon" name="share-content-gray"></ion-icon>
+            </ion-button>
+        </div>
+    </div>
+</div>

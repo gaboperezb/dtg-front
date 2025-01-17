@@ -1,0 +1,43 @@
+<ion-header>
+	
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-buttons slot="start">
+			<ion-button slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="dismissModal()">
+				<ion-icon name="close"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title >Send to chat</ion-title>
+		<ion-buttons slot="end" *ngIf="recipients.length > 0">
+			<ion-button (click)="handleMessage()">
+				<span class="start-chat">Send</span>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="chat-content">
+	<span class="new-chat" (click)="newChat()">+ NEW CHAT</span>
+	<ion-list no-lines class="add-chat-list">
+		<ion-item *ngFor="let chat of chats" class="foll-item" lines="none" (click)="addChat($event, chat)">
+			<ion-avatar slot="start" class="u-pic-c">
+				<img class="profile-pic" [src]="chat.otherUserPicture">
+			</ion-avatar>
+			<span class="foll-username">{{chat.chatName}}</span>
+			<div slot="end" [class.add]="true" [class.active]="chat.active">
+				<ion-icon *ngIf="chat.active" class="checkmark" name="checkmark"></ion-icon>
+			</div>
+		</ion-item>
+	</ion-list>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="30%" [disabled]="!enableInfinite && chats.length < 20">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>
+<ion-footer>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'secondary'">
+			<div class="custom-share-chat">
+					<ion-input autocorrect="on" autocapitalize="on"
+					 placeholder="Optional: Write a message" autocorrect="on"
+					[(ngModel)]="message" class="say-something"></ion-input>
+			</div>
+	</ion-toolbar>
+</ion-footer>

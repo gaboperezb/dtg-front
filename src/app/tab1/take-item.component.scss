@@ -1,0 +1,544 @@
+
+
+  :host ::ng-deep iframe {
+    width: 100%;
+    height: 100%;
+
+  }
+
+/* TEST ALL DETAL */
+
+
+
+/* Poll */
+
+.poll-container {
+    margin: 16px;
+}
+
+.poll-container div.threed-btn {
+    height: 35px;
+}
+
+.button-3d {
+    
+    margin: 8px 0;
+    border-radius: 50px;
+    border: 1px solid #4263d0;
+    overflow: hidden;
+    height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    position: relative;
+    color: #4263d0;
+      
+   }
+
+   .button-3d:active{
+    background-color: #4263d076;
+    
+   }
+
+   .progress-outer {
+    margin: 8px 0;
+    border-radius: 50px;
+    background: #ebedf2;
+    overflow: hidden;
+    height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    color: #262729;
+}
+
+span.percentage {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: #262729;
+    transition: color 0.5s;
+}
+
+.percentage-option {
+    color: #262729;
+
+    transition: color 0.5s;
+    margin-left: 20px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checked {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.inner {
+    height: 40px;
+}
+
+.no-effect {
+    height: 40px;
+    border-radius: 4px 0px 0px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: #d1d3d8;
+    text-align: left;
+    font-weight: 600;
+}
+
+.progress-inner {
+    height: 40px;
+    border-radius: 4px 0px 0px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: #d1d3d8;
+    text-align: left;
+    font-weight: 600;
+    animation: .6s ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.user-in-option {
+    background-color: #23ce70;
+}
+
+
+/* Poll */
+
+div.header-link {
+    display: table;
+    padding: 16px 0 10px 16px;
+    height: 59px;
+    
+}
+
+.provider-name {
+    text-transform: lowercase;
+}
+
+.replies-text, .count, .cero-likes {
+    font-weight: 500;;
+}
+
+.dot {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 3px;
+  }
+
+.more-icon {
+    margin-right: 16px;
+}
+
+.top-thread {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 59px;
+}
+
+.link-container {
+    margin: 16px 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 250px;
+    border: 1px solid #ededed;
+    display: flex;
+    flex-direction: column;
+
+    .image-placeholder {
+        object-fit: cover;
+        height: 170px;
+        width: 100%;
+        border-bottom: 1px solid #ededed;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .link-info {
+        min-height: 80px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        flex-direction: column;
+        padding: 8px;
+
+    .url-provider {
+        color: #a9abad;
+    }
+
+    .url-title {
+        color:  rgb(20, 23, 26);
+    }
+
+    }
+}
+
+.small-link-container {
+    margin: 16px 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ededed;
+    display: flex;
+    height: 90px;
+    
+
+    img {
+        object-fit: cover;
+        height: 90px;
+        width: 90px;
+        border-right: 1px solid #ededed;
+    }
+
+    .alt-thumbnail-link {
+        -o-object-fit: cover;
+        object-fit: cover;
+     height: 90px;
+     width: 90px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-right: 1px solid #dcdcdc;
+    }
+    
+    svg {
+      height: 40px;
+      width: 40px;
+      color: #878e94;
+    }
+
+    .link-info {
+        height: 90px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        flex-direction: column;
+        padding: 8px 12px 8px 12px;
+        width: 100%;
+
+    .url-provider {
+        color: #a9abad;
+    }
+
+    .url-title {
+        color:  rgb(20, 23, 26);
+    }
+
+    }
+}
+
+.ago {
+    position: absolute;
+    top: 18px;
+    right: 16px;
+    color: #A2A4A6;
+    font-size: 12px;
+}
+
+.user-info .span-userimage, .transparent {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.profile-picture {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+    
+}
+
+ion-tab-bar {
+    display: none;
+}
+
+.league {
+    margin-right: 3px;
+}
+
+.by-username {
+    color: black;
+    font-weight: 500;
+    font-size: 13px;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: table-cell;
+    padding-bottom: 4px;
+}
+
+.by-username .name {
+    color: rgb(161, 161, 161);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+
+.level {
+    height: 15px;
+    width: 15px;
+    object-fit: contain;
+    margin: -3px 1px -2px 1px;
+    margin-left: 4px;
+}
+
+.level-container {
+    height: 15px;
+    
+}
+
+.discussion {
+    p {
+        margin: 0;
+    }
+    padding: 0 16px;
+    margin: 0;
+    color:  rgb(20, 23, 26);
+    white-space: pre-wrap;
+    line-height: 130%;
+    
+}
+
+.d-link {
+    min-height: 75px;
+}
+
+.ion-item-btn {
+    border-bottom: 1px solid #EDEFF1;
+    padding-bottom: 5px;
+}
+ion-icon.heart-icon {
+    font-size: 16px;
+    margin-right: 5px !important;
+}
+
+.comment-icon {
+    font-size: 15px;
+    margin-right: 5px !important;
+}
+
+
+.comment-div, .share-div {
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.cero-likes {
+    margin-left: -1px;
+}
+
+.reply-icon {
+    font-size: 15px;
+    margin-right: 5px !important;
+}
+
+.wait-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50px;
+    width: 50px;
+    transform: translate(-50%, -50%);
+    z-index: 91000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.count {
+    font-size: 14px;
+    font-weight: 500;
+    color: #989aa2;
+}
+
+.reply {
+    font-size: 14px;
+    font-weight: 400;
+    color: #989aa2;
+}
+.custom-btn {
+    color: #EB4B59 !important;
+}
+.like-div {
+    display: flex;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+
+.likes {
+    font-size: 14px;
+    color: #989aa2;
+    font-weight: 500;
+}
+
+ion-avatar {
+    width: 0;
+    height: 0;
+}
+
+
+.actions {
+ 
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    height: 35px;
+    width: 100%;
+    justify-content: space-around;
+}
+
+
+
+.provider {
+    background: hsla(0, 0%, 0%, 0.5);
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-size: 12px;
+    color: white;
+    padding: 0 4px;
+    
+}
+
+
+.play-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    z-index: 90000000;
+}
+
+.fake-video-container {
+    
+    position: relative;
+
+    img {
+        border-radius: 10px;
+    }
+}
+
+.top-video-container {
+    margin: 16px;
+}
+
+.video-container {
+    
+
+    .video-time {
+        background: rgba(0, 0, 0, 0.61);
+        position: absolute;
+        color: white;
+        bottom: 10px;
+        left: 10px;
+        font-size: 12px;
+        padding: 2px 5px;
+        border-radius: 4px;
+        
+    }
+    video {
+        width: 100%;
+        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    
+    }
+
+    img.video-thumb {
+        width: 100%;
+        border-radius: 10px;
+    }
+}
+
+
+.take-image-container {
+    
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+    margin: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 220px;
+    background: #ededed;
+    border: 1px solid #ededed;
+}
+
+.video-container-not-yt {
+    margin: 16px 0;
+    height: 220px;
+
+    position: relative;
+
+    img.thumbnail {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 65px;
+    }
+}
+
+
+
+
+    
+    
+
+
+
+   
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+

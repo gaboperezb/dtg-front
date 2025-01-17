@@ -1,0 +1,1246 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+/*!
+ * froala_editor v3.0.5 (https://www.froala.com/wysiwyg-editor)
+ * License https://froala.com/wysiwyg-editor/terms/
+ * Copyright 2014-2019 Froala Labs
+ */
+
+
+
+
+.cheat-toast {
+    z-index: -1000 !important;
+    --background: rgba(255, 255, 255, 0);
+}
+
+ion-icon.action-sheet-icon {
+    margin-right: 5px !important;
+    font-size: 20px !important; 
+}
+
+.custom-back-button {
+    padding-right: 25px;
+}
+
+.reply-icon {
+    font-size: 16px !important;
+}
+
+
+body.light {
+    background: #edeff1;
+
+}
+
+body.dark {
+    background: #343a56;
+
+}
+
+body.black {
+    background: #121213;
+}
+
+.dark {
+
+    .no-effect, .progress-inner {
+        background-color: #646d94 !important;
+    }
+
+    .user-in-option {
+        background-color: #23ce70 !important;
+    }
+
+
+    .my-custom-loading {
+      
+        color: white !important;
+        --background: #4c5375;
+        --spinner-color: #fff;
+
+
+    }
+   
+
+    .my-custom-action .action-sheet-group {
+
+        --color: white !important;
+        color: white !important;
+        .action-sheet-title {
+            color: white !important;
+        }
+        background: #4c5375 !important;
+        button {
+            color: white !important;
+        }
+        .action-sheet-cancel::after {
+            background: #4c5375 !important;
+            
+        }
+        
+      }
+
+
+   .progress-outer {
+       background: #4c5375 !important;
+   }
+
+    ion-content {
+        --background: #21253C !important;
+    }
+
+    ion-modal {
+        --background: #343a56 !important;
+    }
+
+    .featured {
+        background: #343a56 !important;
+    }
+
+    .featured-item {
+        background-color: #21253C !important;
+    }
+
+    #control-grid {
+        border-bottom: none !important;
+    }
+
+    .trivia-container-title, .play-container-title, .channels-indicator, .league-chat-title, .placeholder-featured-item, .placeholder-featured-header, .f-text-all, .placeholder-flex-name-1, .placeholder-flex-name-2, .placeholder-flex-name, .placeholder-flex-logos, .skeleton-username, .skeleton-image, .placeholder-title, .new-thread-list, #control-grid, .refresh-container, .sorting-container, .scroll-padding, .agreed, .feed-configuration, .sort-container, #input-title, #add-button-item, #selection, #selection-team, .loader, .wide-as-needed, .virtual-item, .tabbar, .sort-comments, .subheader-custom, .divider, .spinner-container  {
+      
+        background: #21253C !important;
+    }
+
+    
+    .trivia-container, .control-grid-tab1, .mention-list, .segmentSearch, .last-div, .search-custom-add, .placeholder-featured, .f-container-place, .f-container, .placeholder-item, .create-option, .item-native, .feed, .foll-item, .hide-container, .loading-image-container, .wait-container, .sub-div-add-comment, .user-header, .pic-username, .info, .option-item, .container-item, .detail-header, .ion-item-btn, .timeline-detail, .game, .comment-grid, .scoreboard-grid-soccer, .game-grid, .scoreboard-grid, .wide-as-needed-2  {
+      
+        background: #343a56 !important;
+
+    }
+
+    .placeholder-item {
+        border-bottom: 1px solid #21253C !important;
+    }
+
+    .mention-list {
+        border-top: 1px solid #21243c !important;
+        border-bottom: none !important;
+        color: white !important;
+    }
+
+       
+
+    .col-selection {
+        
+        border-bottom: none !important;
+    }
+
+    .scores-container{
+        span {
+            color: white !important;
+        }
+    }
+
+    .custom-btn-prof {
+        color: #c1c1c1;
+    }
+
+    #control-grid {
+        transition: all .5s ease;
+        background: #22273c;
+        color: white;
+    }
+
+    .ion-item-btn{
+
+        border-top: 1px solid rgba(34, 38, 60, 0.357) !important;
+        border-bottom: none !important;
+    }
+
+    .notification-container {
+       
+        border-bottom: 1px solid rgba(34, 38, 60, 0.357) !important;
+        background: #343a56;
+       
+    }
+
+
+
+    .child {
+        border-top: none !important;
+    }
+
+    .left-hide {
+        background: #a8aaac !important;
+    }
+
+    .col-selection {
+        color: #a9aaac !important
+    }
+
+    .list-header, .col-active, .sortBy, .team-helper, .league-chat-title, .no-favorites-title, .chat-name, .sub-league-text, .thread-username-search, .delete-option-team, .no-chats-info, .sort-by-chats, .discover-chats-h, .fav-teams-h, .fav-team-all, .fav-team-abb, .sub-league-text, .text-favteam, .text-team, .no-conv, .custom-share-chat, .f-text-all-span, .delete-option, .text-title,.text-league, .gameTime, .bio, .feed, .foll-username, .foll-no, .agreed-text, .emoji-sport, ion-icon[name="ai-heart-outline"], .more-icon, .n-text, .discussions-text, .username, #in-response, #username, #title, .count-title, .final, #selection,#selection-team, .league-scroll, .teams-scroll,.wait-container-3 ,.wait-container, .spinner-container, .scoreboard-grid-soccer ,.teams, .info-col, .score, .away-team, .home-team, .by-username, .thread-title, .custom-btn, .thread-description, #thread-title, .d-text, .d-username, .heart-container, .number-likes, .link-via, .discussions, .subheader-custom {
+        color: white !important;
+    }
+
+    .no-favorites-subtitle {
+        color:darkgray;
+    }
+
+    .text-description {
+        color: #adadad !important;
+    }
+
+    .right, .left {
+        background-color: #4c5375 !important;
+    }
+
+    #title { //add-comment.title
+        border-bottom: 1px solid #2d3146 !important;
+    }
+
+
+    //encuesta game
+
+    .option-size {
+        color: #858da3 !important;
+    }
+
+    .comment {
+        background-color: #424a6d !important;
+        
+        border: 1px solid #22263c !important;
+    }
+
+
+
+
+    .profile-comment {
+        background-color: #343a56 !important;
+        border-bottom: 1px solid rgba(34, 38, 60, 0.357) !important;
+
+    }
+
+    .joined, .foll-txt, .right-hide, .name, .d-created, .reply, .minute-home, .minute-away, .quarters {
+        color: #a8aaac !important;
+    }
+
+    
+
+    .end-thread {
+        border-bottom: none !important;
+    }
+
+    .in-progress {
+        color: #5cad5c;
+    }
+
+    .divider {
+        margin: 0 !important;
+        height: 2px;
+    }
+
+    ion-spinner * { 
+        stroke: white !important;
+    }
+
+
+    ion-refresher {
+        ion-icon {
+            color: #b7b7b7 !important;
+        }
+    }
+    ion-spinner {
+        color: #b7b7b7 !important;
+    } 
+    
+
+    .divider-replies {
+        background: transparent !important;
+    }
+
+    .curated {
+        
+        background: #21253c !important;
+        color: white !important;
+      }
+
+      .description-featured {
+        color: #cecece !important;
+    }
+
+
+
+    .new-item ion-textarea, .add-item ion-textarea {
+        color: white;
+        background: #343a56;
+        border-bottom: 2px solid #4264d0 !important;
+    }
+
+    .post-textarea {
+        color: white !important;
+        background: #21253C !important;
+        border-bottom: 2px solid #4264d0 !important;
+    }
+
+    .url-item {
+        margin-top: 10px;
+    }
+
+    .option-item {
+        --ion-background-color: #4c5375 !important;
+        margin:  10px 0 0 0;
+        border-radius: 3px;
+    }
+
+    .edit-list .item {
+        --ion-background-color: #343a56 !important;
+        color: white !important;
+        --background-activated: #4c5375aa !important;
+        --background-focused: #4c5375aa !important;
+          
+    }
+
+    
+
+    .thread-left {
+        border-bottom: 1px solid #21253C !important;
+    }
+
+    #too {
+        border-bottom: 1px solid #343956 !important;
+    }
+
+    .post-item, .user-post-item, .teams-footer {
+        --background: #21253C !important;
+    }
+
+    .edit-list .item ion-toggle .toggle-icon .toggle-inner {
+        --handle-background-checked: white !important;
+    }
+
+    .followers-add, .members-header, .edit-list .item a, .toggle-text, .usernamee, .last-message-unread, .send-active {
+        color: white !important;
+    }
+
+    .message-flash {
+        --background: #4c5375 !important;
+        color: white !important;
+
+
+    }
+
+    .small-link-container {
+        border: 1px solid #4c5375 !important;
+
+        img {
+            border-right: 1px solid #4c5375 !important;
+        }
+
+        .alt-thumbnail-link {
+            border-right: 1px solid #4c5375 !important;
+         
+        }
+    }
+
+    .link-container, .link-container-detail {
+        border: 1px solid #4c5375 !important;
+        canvas, img {
+            border-bottom: 1px solid #4c5375 !important;
+        }
+
+    }
+
+    .trivia-option-result, .trivia-option {
+        background: #4c5375 !important;
+        border: 2px solid #4c5375 !important;
+    }
+
+    .option-selected {
+        background: #4264d0 !important;
+        border: 2px solid #4264d0 !important;
+        
+      }
+
+    .option-selected-after {
+        background: #f32c41 !important;
+        border: 2px solid #f32c41 !important;
+      }
+
+      .correct-option {
+        background: #21D36E !important;
+        border: 2px solid #21D36E !important;
+        }
+
+    .take-image-container {
+        background: #4c5375 !important;
+        border: 1px solid #343a56 !important;
+    }
+
+    .refresh-onresume {
+        background: #4c5375 !important;;
+        color: white !important;
+    }
+
+    .msg-msg {
+        color: white !important;
+    }
+
+   .last-message, .last-message-time {
+        color: #a5a5a5;
+    }
+
+    .typing-cont {
+        background: #343a56 !important;
+    }
+      
+    .typing {
+      background: #4c5375 !important;
+      color: rgba(255, 255, 255, 0.858) !important;
+      
+    }
+        
+    .border-top-typing {
+      border-top: 0.55px solid #21253C !important;
+    }
+
+    .chat-item, .info-item {
+        --ion-background-color: #343a56 !important;
+       
+    }
+
+    .disabled-chat {
+        color: rgba(255, 255, 255, 0.495) !important;
+    }
+
+    ion-segment-button {
+        color: white;
+    
+    }
+
+    ion-segment-button.segment-button-checked {
+        color: black;
+    }
+
+
+
+    .to-padding {
+        background: #21253C !important;
+        color: white !important;
+    }
+
+    .unread-text {
+        color: #d6d6d6 !important;
+    }
+
+    .unread-line {
+        background: #d6d6d6 !important;
+    }
+
+    .footer-chat {
+        border-top: 0.55px solid #21253C !important;
+    }
+
+    .play-content, .add-comment-content, .chat-content, .discover-content, .public-chats-content, .public-chat-info-content {
+        --background: #343a56 !important;
+    }
+
+    .join-public-chat {
+        border-top: 1px solid #21243c !important;
+        border-bottom: 1px solid #21243c !important;
+       
+    }
+
+    li.sent p.text a {
+        color: white !important;
+      }
+
+     
+    .disabled {
+        color: rgba(255, 255, 255, 0.412) !important;
+    }
+      
+
+    li.sent p {
+        background: #4c5375 !important;
+        color: rgba(255, 255, 255, 0.858) !important;
+       
+      }
+    
+      li.sent .post {
+        background: #4c5375 !important;
+        color: white !important;
+      
+      }
+
+
+
+      .menu-top-container {
+        background: #21253C !important;;
+      }
+
+      .menu-content  {
+        
+        background: #21253C !important;
+        .item-menu {
+            border-bottom: 1px solid #343a56 !important;
+
+            span {
+                color: rgba(255, 255, 255, 0.913);
+            }
+        }
+       
+      }
+
+    
+
+    .bio-list ion-item, .username-list ion-item, .foll-item {
+        --ion-background-color: #343a56 !important;
+        border-bottom: 1px solid rgba(34, 38, 60, 0.357) !important;
+        color: white;
+    }
+
+    .username-list .old {
+        background:  #4c5375;
+        color: white;
+    }
+    
+
+    .edit-list ion-list-header {
+        color: white !important;
+    }
+
+    .option-item {
+        --border-radius: 3px;
+    }
+
+    .bio-list {
+        color: white;
+    }
+
+   .search-users-list, .add-chat-list, .username-list, .members-list, .game-list, .timeline-list, .answer-list, .bio-list, .foll-list, .edit-thread, .chat-list {
+        background: transparent;
+    }
+
+    
+
+    .option-number {
+        margin-left: 7px;
+    }
+
+    #add-button-item {
+    --ion-background-color: #21253C !important;
+    }
+
+    #selection, #selection-team {
+
+        --ion-background-color: #21253C !important;
+
+    }
+    .new-item, .add-item {
+        --ion-background-color: #21253C !important;
+        
+
+    }
+
+    .textarea-input {
+        border-bottom: none;
+        
+    }
+
+    .option-item {
+        color: white;
+        
+    }
+
+    .add-option{
+        color: white;
+    }
+
+    .poll-flex span {
+        margin-left: 5px;
+        color: white;
+    }
+
+    .focus {
+        background: #4d5575 !important; 
+    }
+
+    .edit-list {
+        background: #343a56;
+
+        .edit-header {
+            background: #343a56;
+            color: #8e8e8e;
+        }
+
+        button {
+            background: #343a56;
+            color: white;
+        }
+    }
+
+    div.header-image {
+        background: #21253C;
+    }
+
+    .league-scroll {
+        background: #343a56 !important;
+        color: #b5b7b9 !important;
+          
+    }
+    
+
+    .play-header, .revealed-answer, #countdown-number, .text-option, #thread-title, .trivia-question, .section-header, .featured-header, .coming-soon, .text-trivia-option-result, .percentage-option, .percentage {
+        color: rgba(255, 255, 255, 0.906) !important;
+    }
+    .thread-description, .discussion, .by-username, .comment, .url-title {
+        color: rgba(255, 255, 255, 0.851) !important;
+    }
+
+    .thread-description a { 
+       
+        color: white !important;
+        border-bottom: 1px solid #426ad0 !important;
+    }
+
+    .thread-description table thead {
+        
+        background: #21253C !important;
+        
+      }
+
+      .thread-description tbody tr:nth-child(even) {
+        background-color: #4c5375 !important;
+      }
+
+
+       .thread-description  table thead {
+        border-left: 1px solid #21253C !important;
+        border-right: 1px solid #21253C !important;
+        border-top: 1px solid #21253C !important;
+        
+
+
+      }
+
+      .thread-description  table tbody, .thread-description td {
+        border: 1px solid #21253C !important;
+      }
+
+    .active {
+        background: #4264d0 !important;
+        color: white !important;
+    }
+
+    
+
+ 
+}
+
+.black {
+
+    .no-effect, .progress-inner {
+        background-color: #44484e !important;
+    }
+
+    .user-in-option {
+        background-color: #23ce70 !important;
+    }
+
+    .my-custom-loading {
+      
+        color: white !important;
+        --background: #1b1b1b;
+        --spinner-color: #fff;
+
+
+    }
+
+    .my-custom-action .action-sheet-group {
+
+        --color: white !important;
+        color: white !important;
+        .action-sheet-title {
+            color: white !important;
+        }
+        background: #262626 !important;
+        button {
+            color: white !important;
+        }
+        .action-sheet-cancel::after {
+            background: #262626 !important;
+            
+        }
+        
+      }
+      
+
+    .progress-outer {
+        background: #262626 !important;
+    }
+
+    
+
+    ion-content {
+        --background: #000000 !important;
+    }
+
+    ion-modal {
+        --background: #121213 !important;
+    }
+
+    .featured {
+        background: #121213 !important;
+    }
+
+    .featured-item {
+        background-color: #000000 !important;
+    }
+
+    #control-grid {
+        border-bottom: none !important;
+    }
+
+    .trivia-container-title, .play-container-title, .channels-indicator, .league-chat-title, .placeholder-featured-item, .placeholder-featured-header, .f-text-all, .placeholder-flex-name-1, .placeholder-flex-name-2, .placeholder-flex-name, .placeholder-flex-logos, .skeleton-username, .skeleton-image, .placeholder-title, .new-thread-list, #control-grid, .refresh-container, .sorting-container, .scroll-padding, .agreed, .feed-configuration, .sort-container, #input-title, #add-button-item, #selection, #selection-team, .loader, .wide-as-needed, .virtual-item, .tabbar, .sort-comments, .subheader-custom, .divider, .spinner-container  {
+      
+        background: #000000 !important;
+    }
+
+    
+    .trivia-container, .control-grid-tab1, .mention-list, .segmentSearch, .last-div, .search-custom-add, .placeholder-featured, .f-container-place, .f-container, .placeholder-item, .create-option, .item-native, .feed, .foll-item, .hide-container, .loading-image-container, .wait-container, .sub-div-add-comment, .user-header, .pic-username, .info, .option-item, .container-item, .detail-header, .ion-item-btn, .timeline-detail, .game, .comment-grid, .scoreboard-grid-soccer, .game-grid, .scoreboard-grid, .wide-as-needed-2  {
+      
+        background: #121213 !important;
+
+    }
+
+    .placeholder-item {
+        border-bottom: 1px solid #000000 !important;
+    }
+
+    .mention-list {
+        border-top: 1px solid #000 !important;
+        border-bottom: none !important;
+        color: white !important;
+    }
+
+       
+
+    .col-selection {
+        
+        border-bottom: none !important;
+    }
+
+    .scores-container{
+        span {
+            color: white !important;
+        }
+    }
+
+    .custom-btn-prof {
+        color: #c1c1c1;
+    }
+
+    #control-grid {
+        transition: all .5s ease;
+        background: #22273c;
+        color: white;
+    }
+
+    .ion-item-btn{
+
+        border-top: 1px solid rgba(34, 38, 60, 0.357) !important;
+        border-bottom: none !important;
+    }
+
+    .notification-container {
+       
+        border-bottom: 1px solid rgba(34, 38, 60, 0.357) !important;
+        background: #121213;
+       
+    }
+
+
+
+    .child {
+        border-top: none !important;
+    }
+
+    .left-hide {
+        background: #a8aaac !important;
+    }
+
+    .col-selection {
+        color: #a9aaac !important
+    }
+
+    .list-header, .col-active, .sortBy, .team-helper, .league-chat-title, .no-favorites-title, .chat-name, .sub-league-text, .thread-username-search, .delete-option-team, .no-chats-info, .sort-by-chats, .discover-chats-h, .fav-teams-h, .fav-team-all, .fav-team-abb, .sub-league-text, .text-favteam, .text-team, .no-conv, .custom-share-chat, .f-text-all-span, .delete-option, .text-title,.text-league, .gameTime, .bio, .feed, .foll-username, .foll-no, .agreed-text, .emoji-sport, ion-icon[name="ai-heart-outline"], .more-icon, .n-text, .discussions-text, .username, #in-response, #username, #title, .count-title, .final, #selection,#selection-team, .league-scroll, .teams-scroll,.wait-container-3 ,.wait-container, .spinner-container, .scoreboard-grid-soccer ,.teams, .info-col, .score, .away-team, .home-team, .by-username, .thread-title, .custom-btn, .thread-description, #thread-title, .d-text, .d-username, .heart-container, .number-likes, .link-via, .discussions, .subheader-custom {
+        color: white !important;
+    }
+
+    .no-favorites-subtitle {
+        color:darkgray;
+    }
+
+    .text-description {
+        color: #adadad !important;
+    }
+
+    .right, .left {
+        background-color: #262626 !important;
+    }
+
+    #title { //add-comment.title
+        border-bottom: 1px solid #262626 !important;
+    }
+
+
+    //encuesta game
+
+    .option-size {
+        color: #858da3 !important;
+    }
+
+    .comment {
+        background-color: #262626 !important;
+        border: 1px solid #000000 !important;
+    }
+
+
+
+
+    .profile-comment {
+        background-color: #121213 !important;
+        border-bottom: 1px solid rgba(34, 38, 60, 0.357) !important;
+
+    }
+
+    .joined, .foll-txt, .right-hide, .name, .d-created, .reply, .minute-home, .minute-away, .quarters {
+        color: #a8aaac !important;
+    }
+
+    
+
+    .end-thread {
+        border-bottom: none !important;
+    }
+
+    .in-progress {
+        color: #5cad5c;
+    }
+
+    .divider {
+        margin: 0 !important;
+        height: 2px;
+    }
+
+    ion-spinner * { 
+        stroke: white !important;
+    }
+
+
+    ion-refresher {
+        ion-icon {
+            color: #b7b7b7 !important;
+        }
+    }
+    ion-spinner {
+        color: #b7b7b7 !important;
+    } 
+    
+
+    .divider-replies {
+        background: transparent !important;
+    }
+
+    .curated {
+        
+        background: #000000 !important;
+        color: white !important;
+      }
+
+      .description-featured {
+        color: #cecece !important;
+    }
+
+
+
+    .new-item ion-textarea, .add-item ion-textarea {
+        color: white !important;
+        background: #121213 !important;
+        border-bottom: 2px solid #4264d0 !important;
+    }
+
+    .post-textarea {
+        color: white !important;
+        background: #000000 !important;
+        border-bottom: 2px solid #4264d0 !important;
+    }
+
+    .url-item {
+        margin-top: 10px;
+    }
+
+    .option-item {
+        --ion-background-color: #262626 !important;
+        margin:  10px 0 0 0;
+        border-radius: 3px;
+    }
+
+    .edit-list .item {
+        --ion-background-color: #121213 !important;
+        color: white !important;
+        --background-activated: #262626aa !important;
+        --background-focused: #262626aa !important;
+          
+    }
+
+    
+
+    .thread-left {
+        border-bottom: 1px solid #000000 !important;
+    }
+
+    #too {
+        border-bottom: 1px solid #343956 !important;
+    }
+
+    .post-item, .user-post-item, .teams-footer {
+        --background: #000000 !important;
+    }
+
+    .edit-list .item ion-toggle .toggle-icon .toggle-inner {
+        --handle-background-checked: white !important;
+    }
+
+    .followers-add, .members-header, .edit-list .item a, .toggle-text, .usernamee, .last-message-unread, .send-active {
+        color: white !important;
+    }
+
+    .message-flash {
+        --background: #262626 !important;
+        color: white !important;
+
+
+    }
+
+    .small-link-container {
+        border: 1px solid #262626 !important;
+
+        img {
+            border-right: 1px solid #262626 !important;
+        }
+
+        .alt-thumbnail-link {
+            border-right: 1px solid #262626 !important;
+         
+        }
+    }
+
+    .link-container, .link-container-detail {
+        border: 1px solid #262626 !important;
+        canvas, img {
+            border-bottom: 1px solid #262626 !important;
+        }
+
+    }
+
+    .trivia-option-result, .trivia-option {
+        background: #262626 !important;
+        border: 2px solid #262626 !important;
+    }
+
+    .option-selected {
+        background: #4264d0 !important;
+        border: 2px solid #4264d0 !important;
+        
+      }
+
+    .option-selected-after {
+        background: #f32c41 !important;
+        border: 2px solid #f32c41 !important;
+      }
+
+      .correct-option {
+        background: #21D36E !important;
+        border: 2px solid #21D36E !important;
+        }
+
+    .take-image-container {
+        background: #262626 !important;
+        border: 1px solid #121213 !important;
+    }
+
+    .refresh-onresume {
+        background: #262626 !important;;
+        color: white !important;
+    }
+
+    .msg-msg {
+        color: white !important;
+    }
+
+   .last-message, .last-message-time {
+        color: #a5a5a5;
+    }
+
+    .typing-cont {
+        background: #121213 !important;
+    }
+      
+    .typing {
+      background: #262626 !important;
+      color: rgba(255, 255, 255, 0.858) !important;
+      
+    }
+        
+    .border-top-typing {
+      border-top: 0.55px solid #000000 !important;
+    }
+
+    .chat-item, .info-item {
+        --ion-background-color: #121213 !important;
+       
+    }
+
+    .disabled-chat {
+        color: rgba(255, 255, 255, 0.495) !important;
+    }
+
+    ion-segment-button {
+        color: white;
+    
+    }
+
+    ion-segment-button.segment-button-checked {
+        color: black;
+    }
+
+
+
+    .to-padding {
+        background: #000000 !important;
+        color: white !important;
+    }
+
+    .unread-text {
+        color: #d6d6d6 !important;
+    }
+
+    .unread-line {
+        background: #d6d6d6 !important;
+    }
+
+    .footer-chat {
+        border-top: 0.55px solid #000000 !important;
+    }
+
+    .play-content, .add-comment-content, .chat-content, .discover-content, .public-chats-content, .public-chat-info-content {
+        --background: #121213 !important;
+    }
+
+    .join-public-chat {
+        border-top: 1px solid #21243c !important;
+        border-bottom: 1px solid #21243c !important;
+       
+    }
+
+    li.sent p.text a {
+        color: white !important;
+      }
+
+     
+    .disabled {
+        color: rgba(255, 255, 255, 0.412) !important;
+    }
+      
+
+    li.sent p {
+        background: #262626 !important;
+        color: rgba(255, 255, 255, 0.858) !important;
+       
+      }
+    
+      li.sent .post {
+        background: #262626 !important;
+        color: white !important;
+      
+      }
+
+
+
+      .menu-top-container {
+        background: #000000 !important;;
+      }
+
+      .menu-content  {
+        
+        background: #000000 !important;
+        .item-menu {
+            border-bottom: 1px solid #121213 !important;
+
+            span {
+                color: rgba(255, 255, 255, 0.913);
+            }
+        }
+       
+      }
+
+    
+
+    .bio-list ion-item, .username-list ion-item, .foll-item {
+        --ion-background-color: #121213 !important;
+        border-bottom: 1px solid rgba(34, 38, 60, 0.357) !important;
+        color: white;
+    }
+
+    .username-list .old {
+        background:  #262626;
+        color: white;
+    }
+    
+
+    .edit-list ion-list-header {
+        color: white !important;
+    }
+
+    .option-item {
+        --border-radius: 3px;
+    }
+
+    .bio-list {
+        color: white;
+    }
+
+   .search-users-list, .add-chat-list, .username-list, .members-list, .game-list, .timeline-list, .answer-list, .bio-list, .foll-list, .edit-thread, .chat-list {
+        background: transparent;
+    }
+
+    
+
+    .option-number {
+        margin-left: 7px;
+    }
+
+    #add-button-item {
+    --ion-background-color: #000000 !important;
+    }
+
+    #selection, #selection-team {
+
+        --ion-background-color: #000000 !important;
+
+    }
+    .new-item, .add-item {
+        --ion-background-color: #000000 !important;
+        
+
+    }
+
+    .textarea-input {
+        border-bottom: none;
+        
+    }
+
+    .option-item {
+        color: white;
+        
+    }
+
+    .add-option{
+        color: white;
+    }
+
+    .poll-flex span {
+        margin-left: 5px;
+        color: white;
+    }
+
+    .focus {
+        background: #4d5575 !important; 
+    }
+
+    .edit-list {
+        background: #121213;
+
+        .edit-header {
+            background: #121213;
+            color: #8e8e8e;
+        }
+
+        button {
+            background: #121213;
+            color: white;
+        }
+    }
+
+    div.header-image {
+        background: #000000;
+    }
+
+    .league-scroll {
+        background: #121213 !important;
+        color: #b5b7b9 !important;
+          
+    }
+    
+
+   .play-header, .revealed-answer, #countdown-number, .text-option, #thread-title, .trivia-question, .section-header, .featured-header, .coming-soon, .text-trivia-option-result, .percentage-option, .percentage {
+        color: rgba(255, 255, 255, 0.906) !important;
+    }
+    .thread-description, .discussion, .by-username, .comment, .url-title {
+        color: rgba(255, 255, 255, 0.851) !important;
+    }
+
+    .thread-description a { 
+       
+        color: white !important;
+        border-bottom: 1px solid #426ad0 !important;
+    }
+
+    .thread-description table thead {
+        
+        background: #000000 !important;
+        
+      }
+
+      .thread-description tbody tr:nth-child(even) {
+        background-color: #262626 !important;
+      }
+
+
+       .thread-description  table thead {
+        border-left: 1px solid #000000 !important;
+        border-right: 1px solid #000000 !important;
+        border-top: 1px solid #000000 !important;
+        
+
+
+      }
+
+      .thread-description  table tbody, .thread-description td {
+        border: 1px solid #000000 !important;
+      }
+
+    .active {
+        background: #4264d0 !important;
+        color: white !important;
+    }
+
+    
+
+ 
+}
+
+
+
+

@@ -1,0 +1,117 @@
+
+
+    ion-content {
+        --background: #0d2477;  /* fallback for old browsers */
+        --background: -webkit-linear-gradient(to bottom, #2e4175, #224195); /* Chrome 10-25, Safari 5.1-6 */
+        --background: linear-gradient(to bottom, #2e4175, #224195)
+
+    }
+
+    .toolbar-background {
+        --border-bottom: none;
+    }
+
+   
+    .middle {
+        text-align: center;
+    }
+
+    .btn-signup, .btn-login {
+        
+        border: 3px solid #ffffff4a;
+        border-radius: 30px;
+        color: #ffffff;
+        font-weight: 500;
+        display: inline-block;
+        width: 80%;
+        overflow: hidden;
+        
+    } 
+
+    .bottom {
+        
+        text-align: center;
+        padding-bottom: 16px;
+    } 
+
+    #skip {
+        display: inline-block;
+        color: white;
+        font-weight: 500;
+        background: none;
+        font-size: 14px;
+    
+    }
+
+    #hey {
+        color: white;
+    }
+
+    h4 {
+        color: white;
+        text-align: right;
+        padding: 0px 32px 0 42px;
+        margin-top: 20px;
+        
+    }
+
+    .btn-signup {
+        --background: #315ce6 !important;
+        --background-activated: #5e82f7 !important;
+        overflow: hidden;
+    }
+
+    .btn-signup:hover, .btn-signup:active {
+        --background: #5e82f7 !important;
+        overflow: hidden;
+    }
+
+    #logo {
+        width: 70%;
+    }
+
+    #sports {
+        width: 85%;
+        object-fit: contain;
+    }
+
+    .top {
+        text-align: center;
+    }
+
+
+    .bottom button {
+        background-color: #ffffff36;
+        color: white;
+    }
+
+    .image-back {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100vh;
+    
+       
+    }
+
+
+    @media screen and (max-width: 321px) {
+        h4 {color: white;
+            text-align: right;
+            padding: 0px 32px 0 42px;
+            margin-top: 20px;
+            font-size: 17px;}
+        
+    }
+
+    
+
+
+  
+
+    
+
+   
+
+
+    

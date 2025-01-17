@@ -1,0 +1,148 @@
+
+
+.segmentSearch {
+  background: white;
+  padding: 16px;
+}
+
+
+
+.trivias {
+    padding: 16px 16px 0px 16px;
+}
+
+.fantasy {
+    padding: 16px;
+}
+
+.play-header {
+  font-size: 15px;
+    
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+
+.coming-soon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    font-size: 14px;
+}
+
+.section-header {
+    font-weight: bold;
+    color: #151515;
+    font-size: 16px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+
+    img {
+        height: 16px;
+        width: 16px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        margin-right: 5px;
+        margin-top: 1px;
+    }
+}
+
+
+//Placeholders
+
+  /* THREAD */
+
+  .placeholder-item {
+    padding-top: 45px;
+    width: 100%;
+    min-height: 417px;
+    background: white;
+    position: relative;
+  }
+  
+  .placeholder-flex , .skeleton-image-right{
+    display: flex;
+  }
+  
+  .skeleton-image-right {
+    flex-direction: column;
+    margin-left: 5px;
+  }
+  
+  .placeholder-flex {
+    padding: 16px 0 22px 16px;
+  }
+  
+  .skeleton-image {
+    background: #edeff1;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+  }
+
+  .placeholders-container{
+    background: #edeff1;
+}
+  
+  .skeleton-username {
+    height: 15px;
+    width: 55px;
+    background: #edeff1;
+    border-radius: 3px;
+  }
+  
+  .skeleton-username-1 {
+    align-self: flex-start;
+    margin-bottom: 6px;
+    margin-top: 3px;
+  }
+  
+  .play-container-title {
+   
+    height: 110px;
+    border-radius: 15px;
+    margin: 0 16px 12px 16px;
+    background: #edeff1;
+   
+  }
+
+
+  .trivias-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  .trivia-container {
+    padding-right: 8px;
+    width: 100%;
+    flex: 0 50%;
+  }
+
+  .trivia-container:nth-child(2n) {
+    padding-left: 8px;
+    padding-right: 0px;
+  }
+
+  .trivia-container-title {
+    height: 115px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    background: #edeff1;
+  }
+
+  .placeholder-trivias-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 16px;
+  }
+
+
+
+  
+  

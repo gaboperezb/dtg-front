@@ -1,0 +1,33 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-title>
+			<span>Chat</span>
+		</ion-title>
+		<ion-buttons slot="end" >
+			<ion-button (click)="presentActionSheet()">
+				<ion-icon name="add"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content #chat class="chat-content">
+	
+	<div class="no-chats" *ngIf="chatService.chats.length == 0 && !chatService.connecting">
+		<div class="text-no-conv">
+			<span class="no-conv">No Chats Yet</span>
+		</div>
+		<ion-button class="btn-signup" expand="full" (click)="newChat()">New Chat</ion-button>
+
+	</div>
+
+	<ion-list lines="none" class="chat-list directs">
+		<chat-item *ngFor="let chat of chatService.chats" [chat]="chat"></chat-item>
+	</ion-list>
+
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="20%"
+		[disabled]="!chatService.enableInfinite || chatService.chats.length < 20">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+
+</ion-content>

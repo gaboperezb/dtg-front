@@ -1,0 +1,81 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+			<ion-buttons slot="start">
+					<ion-button class="custom-back-button" (click)="goBack()">
+						<ion-icon class="sort" name="chevron-back"></ion-icon>
+					</ion-button>
+				</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" #timelineDetail>
+	<div *ngIf="wait" class="wait-container-2">
+		<ion-spinner name="crescent"></ion-spinner>
+	</div>
+	<div *ngIf="!wait" class="timeline-detail">
+		<!-- Discussions selected -->
+		<div class="header-link user-info c-padding c-padding-top" (click)="goToUser($event, timeline.user)">
+			<span class="span-userimage">
+				<img [src]="timeline?.user?.profilePictureThumbnail" class="profile-picture">
+			</span>
+			<span class="transparent" style="color: transparent;">::</span>
+			<span class="by-username">
+				<span>{{timeline?.user?.username}}</span>
+				<br>
+				<span class="name">{{timeline?.created}} ago</span>
+			</span>
+		</div>
+		<div *ngIf="authService.currentUser" class="more-comment">
+			<div *ngIf="authService.currentUser.isAdmin || timeline.user.username === authService.currentUser.username">
+				<ion-icon class="more-icon" name="ellipsis-horizontal" (click)="edit()"></ion-icon>
+			</div>
+		</div>
+
+		<div class="c-padding">
+			<p class="discussion">{{timeline?.discussion}}</p>
+		</div>
+
+		<!-- Like, share, comment -->
+		<div class="comment-container c-padding">
+			<div class="comment" (click)="replyTo()">
+				<span class="add">Reply to
+					<span class="reply-to">{{timeline?.user?.username}}</span>
+				</span>
+			</div>
+		</div>
+
+		<div class="actions-container">
+			<ion-row>
+				<ion-col>
+					<like-thread [initialPath]="''" [color]="'medium'" [thread]="timeline" (like)="like()"></like-thread>
+				</ion-col>
+				<ion-col>
+					<div class="like-div">
+						<ion-button color="medium" fill="clear" size="small" slot="start" (click)="replyTo()">
+							<ion-icon class="comment-icon" name="comment-gray"></ion-icon>
+							<div *ngIf="timeline.numberOfAnswers > 0" class="replies-text">{{timeline?.numberOfAnswers}}</div>
+							<div *ngIf="timeline.numberOfAnswers == 0" class="replies-text">Reply</div>
+						</ion-button>
+					</div>
+				</ion-col>
+			</ion-row>
+		</div>
+
+		<div class="divider c-padding">
+
+		</div>
+
+		<!-- Answers -->
+
+		<div class="spinner-container" *ngIf="answers.length == 0">
+			<ion-spinner *ngIf="loadingAnswers" name="crescent"></ion-spinner>
+		</div>
+		<ion-list lines="none" class="answer-list">
+			<trivia-answer-item *ngFor="let answer of answers; let last = last" (scroll)="scrollToItem()" (filterAnswer)="filterAnswers($event)" (imageVisible)="emitterImages()" [answer]="answer" [timeline]="timeline" [trivia]="trivia" [scrollTo]="scrollTo" [ready]="last"></trivia-answer-item>
+        </ion-list>
+
+	</div>
+
+
+
+</ion-content>

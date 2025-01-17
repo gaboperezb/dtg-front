@@ -1,0 +1,151 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+			
+		<div class="searchbar-container" >
+			<div class="back-container" (click)="goBack()">
+				<ion-icon class="sort" name="chevron-back"></ion-icon>
+			</div>
+			<ion-searchbar  *ngIf="authService.currentUser" debounce="700" type="email" (ionChange)="onSearchInput($event)" (ionFocus)="searchFocus()">
+			</ion-searchbar>
+
+			<!-- <ion-searchbar [color]="global.state['theme'] == 'dark' ? 'danger' : 'light'" *ngIf="authService.currentUser" debounce="700" type="email" (ionChange)="onSearchInput($event)" (ionFocus)="searchFocus()">
+			</ion-searchbar> ANDROID-->
+			<span *ngIf="searchToggled" (click)="searchCancel()">Cancel</span>
+		</div>
+
+	</ion-toolbar>
+
+	<div *ngIf="searchToggled" class="segmentSearch">
+		<ion-segment value="posts" >
+			<ion-segment-button value="posts" (touchend)="segmentChanged($event, 'posts')" >
+				<ion-label>Posts</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="users" (touchend)="segmentChanged($event, 'users')">
+				<ion-label>Users</ion-label>
+			</ion-segment-button>
+		</ion-segment>
+	</div>
+
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" class="discover-content">
+
+	<div class="no-favorites" *ngIf="!authService.currentUser || (authService.currentUser.favAllTeams.length == 0  && !searchToggled)">
+		<img src="assets/imgs/fav-teams.png" alt="">
+		<span class="no-favorites-title">You don't have any favorite teams yet</span>
+		<span class="no-favorites-subtitle">Add your favorite teams to join group chats and personalize your
+			experience</span>
+		<ion-button color="tertiary" (click)="addFavorites()">Add favorites</ion-button>
+
+	</div>
+
+
+	<!-- <div *ngIf="authService.currentUser && authService.currentUser.favAllTeams.length > 0">
+
+		<div class="fav-teams-container" *ngIf="!searchToggled">
+			<span class="fav-teams-h">My Teams</span>
+			<div scrollY="false" scrollX="true" class="fav-teams">
+				<div class="fav-team" (click)="goToFav('All')">
+					<img class="fav-team-logo" src="assets/imgs/fav-teams.png" alt="">
+					<span class="fav-team-all">All</span>
+				</div>
+				<div class="fav-team" *ngFor="let team of authService.currentUser.favAllTeams" (click)="goToFav(team)">
+					<img class="fav-team-logo" [src]="team.logo" alt="">
+					<span class="fav-team-abb">{{team.teamName | slice:0:12}}<span
+							*ngIf="team.teamName.length > 12">...</span></span>
+				</div>
+			</div>
+		</div>
+	</div> -->
+
+
+	<div  *ngIf="authService.currentUser && authService.currentUser.favAllTeams.length > 0" class="top-container-teams">
+		<span class="fav-teams-h" *ngIf="!searchToggled">My Teams</span>
+		<div class="fav-teams-container" *ngIf="!searchToggled" >
+			<div class="fav-team" (click)="goToFav('All')">
+				<img class="fav-team-logo" src="assets/imgs/fav-teams.png" alt="">
+				<span class="fav-team-all">All</span>
+			</div>
+			<div class="fav-team" *ngFor="let team of authService.currentUser.favAllTeams" (click)="goToFav(team)">
+				<img class="fav-team-logo" [src]="team.logo" alt="">
+				<span class="fav-team-abb">{{team.teamName | slice:0:12}}<span
+						*ngIf="team.teamName.length > 12">...</span></span>
+			</div>
+			
+		</div>
+	</div>
+	
+
+	<!-- W Search Focus -->
+
+	<div *ngIf="searchToggled" class="search-container">
+		
+		<div class="empty" *ngIf="notFound">
+			<span>No results found</span>
+		</div>
+
+		<div *ngIf="searching" class="spinner-container-2">
+			<ion-spinner></ion-spinner>
+		</div>
+		<div *ngIf="!searching">
+			<div class="s-threads" *ngIf="posts">
+				<div class="thread" *ngFor="let thread of threads" (click)="itemTapped($event, thread)">
+					<div class="thread-left">
+						<div class="thread-user" (click)="goToUser($event, thread.user)">
+							<img class="thread-profile" [src]="thread.user.profilePicture" alt="">
+							<span class="thread-username-search">{{thread?.user?.username}}</span>
+							<span class="thread-created"> · {{thread?.created}} ago</span>
+						</div>
+
+						<div class="thread-title">
+							<span>{{thread.title}}</span>
+						</div>
+						<div class="thread-comments">
+							<div class="likes">
+								<ion-icon class="chatbubbles" name="heart-outline-gray"></ion-icon>
+								<span>{{thread.count}}</span>
+							</div>
+							<div class="comments">
+								<ion-icon class="chatbubbles" name="comment-gray"></ion-icon>
+								<span>{{thread.replies}}</span>
+							</div>
+						</div>
+					</div>
+					<div class="thread-right">
+						<img *ngIf="thread.thumbnail" [src]="thread.thumbnail" alt="">
+					</div>
+				</div>
+				<ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="35%" [disabled]="hideInfinite">
+					<ion-infinite-scroll-content></ion-infinite-scroll-content>
+				</ion-infinite-scroll>
+			</div>
+
+
+			<div class="s-users" *ngIf="!posts">
+				<ion-list lines="none" class="search-users-list">
+					<ion-item *ngFor="let user of users" class="foll-item" (click)="goToUser($event, user)"
+						lines="none">
+						<ion-avatar slot="start">
+							<img class="profile-pic" [src]="user?.profilePictureThumbnail">
+						</ion-avatar>
+						<span class="foll-username">{{user?.username}}</span>
+					</ion-item>
+
+				</ion-list>
+				<ion-infinite-scroll (ionInfinite)="doInfiniteUsers($event)" threshold="35%"
+					[disabled]="hideInfiniteUsers">
+					<ion-infinite-scroll-content></ion-infinite-scroll-content>
+				</ion-infinite-scroll>
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+
+	<!-- W/O Search Focus -->
+
+
+</ion-content>

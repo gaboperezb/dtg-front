@@ -1,0 +1,293 @@
+<ion-header class="ion-no-border">
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-buttons slot="start">
+			<ion-button (click)="openFirst()">
+				<ion-icon class="sort" [name]="global.state['theme'] == 'light' ? 'sidemenu-black': 'sidemenu-white'">
+				</ion-icon>
+			</ion-button>
+
+		</ion-buttons>
+		<ion-title *ngIf="threadsService.followers">Following</ion-title>
+		<ion-title *ngIf="threadsService.bookmarks">Saved</ion-title>
+		<ion-title *ngIf="!threadsService.followers && threadsService.filterBy != 'TOP' && !threadsService.bookmarks">{{threadsService.filterBy}}
+		</ion-title>
+		<div class="logo-container" *ngIf="!threadsService.followers && threadsService.filterBy == 'TOP' && !threadsService.bookmarks">
+			<img *ngIf="global.state['theme'] == 'light'" src="assets/imgs/black_letters.png" alt="">
+			<img *ngIf="global.state['theme'] == 'dark' || global.state['theme'] == 'black'" src="assets/imgs/white_letters.png" alt="">
+		</div>
+
+		<ion-buttons slot="end">
+			<ion-button class="chat-button" (click)="chats()" color="primary">
+				<ion-icon class="chat-icon"
+					[name]="global.state['theme'] == 'light' ? 'discover-black': 'discover-white'"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+
+	</ion-toolbar>
+
+	<ion-grid class="control-grid-tab1">
+		<ion-row>
+			<ion-col [class.col-selection]="true" (click)="getPostsSegment()">
+				<span [class.col-active]="underlinedPosts">Posts</span>
+			</ion-col>
+			<ion-col [class.col-selection]="true" (click)="getTakesSegment()">
+				<span [class.col-active]="underlinedTakes">Discuss</span>
+			</ion-col>
+			<ion-col *ngIf="!threadsService.followers && !threadsService.bookmarks" [class.col-selection]="true" (click)="getPlaySegment()">
+				<span [class.col-active]="underlinedPlay">Play</span>
+			</ion-col>
+		</ion-row>
+
+
+	</ion-grid>
+
+</ion-header>
+
+<ion-content [scrollEvents]="true" #tabOne [class.stop-scroll]="stopScroll" [class.play-content]="playService.playToggled" (ionScrollStart)="logScrollStart()"
+	(ionScrollEnd)="logScrollEnd()">
+
+	<ion-refresher slot="fixed" (ionRefresh)="navbarGetThreads(threadsService.filterBy, $event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+
+	<!-- Posts -->
+	<div class="sorting-container" *ngIf="underlinedPosts && !threadsService.followers && !threadsService.bookmarks">
+		<div class="sort-container">
+			<ion-button class="custom-btn" slot="start" fill="clear" size="small" (click)="presentActionSheet()">
+				<ion-icon class="c-icon" [name]="global.state['theme'] == 'light' ? 'hot-posts' : 'hot-white'"
+					*ngIf="threadsService.hot"></ion-icon>
+				<ion-icon class="c-icon" [name]="global.state['theme'] == 'light' ? 'new-posts' : 'new-white'"
+					*ngIf="threadsService.new"></ion-icon>
+				<ion-icon class="c-icon" [name]="global.state['theme'] == 'light' ? 'top-posts' : 'top-white'"
+					*ngIf="threadsService.top"></ion-icon>
+				<div class="sortBy">{{sortBy}}</div>
+				<ion-icon class="dropdown" [name]="global.state['theme'] == 'light' ? 'dropdown' : 'dropdown-white'">
+				</ion-icon>
+			</ion-button>
+		</div>
+
+	</div>
+
+	<div *ngIf="threadsService.loaderActive">
+		<div class="f-container-place" *ngIf="(threadsService.hot || threadsService.top) && !threadsService.followers && !threadsService.bookmarks">
+			<div class="placeholder-featured-header"></div>
+			<div class="placeholder-featured">
+
+				<div class="placeholder-featured-item">
+
+				</div>
+				<div class="placeholder-featured-item">
+
+				</div>
+				<div class="placeholder-featured-item">
+
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="placeholder-item">
+			<div class="placeholder-flex">
+				<div class="skeleton-image">
+
+				</div>
+				<div class="skeleton-image-right">
+					<div class="skeleton-username skeleton-username-1">
+					</div>
+					<div class="skeleton-username skeleton-username-2">
+					</div>
+				</div>
+			</div>
+			<div class="container-title">
+				<div class="placeholder-title placeholder-title-1">
+				</div>
+
+				<div class="placeholder-title placeholder-title-2">
+
+				</div>
+			</div>
+
+		</div>
+		<div class="placeholder-item">
+			<div class="placeholder-flex">
+				<div class="skeleton-image">
+
+				</div>
+				<div class="skeleton-image-right">
+					<div class="skeleton-username skeleton-username-1">
+					</div>
+					<div class="skeleton-username skeleton-username-2">
+					</div>
+				</div>
+			</div>
+			<div class="container-title">
+				<div class="placeholder-title placeholder-title-1">
+				</div>
+
+				<div class="placeholder-title placeholder-title-2">
+
+				</div>
+			</div>
+
+		</div>
+		<div class="placeholder-item">
+			<div class="placeholder-flex">
+				<div class="skeleton-image">
+
+				</div>
+				<div class="skeleton-image-right">
+					<div class="skeleton-username skeleton-username-1">
+					</div>
+					<div class="skeleton-username skeleton-username-2">
+					</div>
+				</div>
+			</div>
+			<div class="container-title">
+				<div class="placeholder-title placeholder-title-1">
+				</div>
+
+				<div class="placeholder-title placeholder-title-2">
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="f-container"
+		*ngIf="(threadsService.hot || threadsService.top) && threadsService.featuredThreads.length > 0 && !threadsService.followers && !threadsService.bookmarks && threadsService.postsToggled">
+		<span *ngIf="!threadsService.loaderActive" class="featured-header">Featured</span>
+		<div *ngIf="!threadsService.loaderActive" scrollY="false" scrollX="true" class="featured">
+
+			<div *ngFor="let thread of threadsService.featuredThreads" class="featured-item"
+				[style.backgroundImage]="'url(' + thread.picture + ')'" (click)="itemTapped($event, thread)">
+				<div class="featured-text">
+					<span class="f-title">{{thread.titleToShow}}</span>
+					<span class="f-comments">{{thread.replies}} comments</span>
+				</div>
+			</div>
+			<div class="featured-all" *ngIf="!threadsService.loadingFeatured" (click)="allFeatured()">
+				<div class="f-text-all">
+					<span class="f-text-all-span">See all featured</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div *ngIf="threadsService.postsToggled && !threadsService.loaderActive" class="virtual">
+		<div class="post-item" *ngFor="let thread of threadsService.threads"
+			(click)="itemTapped($event, thread)">
+			<div class="c" [class.default]="!thread.picture">
+				<!-- HEADER -->
+				<div class="thread-header">
+					<div class="header-link user-info" (click)="goToUser($event, thread?.user)">
+						<span class="span-userimage">
+							<ion-avatar>
+								<ion-img [src]="thread?.user?.profilePictureThumbnail" class="profile-pic"></ion-img>
+							</ion-avatar>
+
+						</span>
+						<span class="transparent" style="color: transparent;">::</span>
+						<span class="by-username">
+							<span>{{thread?.user?.username}}</span>
+							<ion-img *ngIf="thread.user.verified" src="assets/imgs/verified.png" class="level">
+							</ion-img>
+							<br>
+							<span class="name-thread">{{thread?.created}}
+								<span class="dot">·</span>
+								<span>{{thread?.league}}</span>
+							</span>
+						</span>
+					</div>
+				</div>
+
+				<!-- TITLE -->
+
+				<span class="thread-title">
+					<ion-icon *ngIf="thread.type == 'Poll' || thread.type == 'A/B'" name="podium" class="poll">
+					</ion-icon>
+					<ion-icon *ngIf="thread.type == 'Link'" name="link" class="link"></ion-icon>{{thread?.title}}
+				</span>
+
+				<!-- ACTIONS -->
+				<div class="actions-container">
+					<div class="like-c">
+						<like-thread [initialPath]="'/tabs/tab1'" [thread]="thread" (like)="like(thread)"></like-thread>
+					</div>
+					<div class="replies-c">
+						<div class="like-div">
+							<ion-button color="light" fill="clear" size="small" slot="start">
+								<ion-icon name="comment-white"></ion-icon>
+								<div *ngIf="thread?.replies > 0" class="replies-text">{{thread?.replies}}</div>
+								<div *ngIf="thread?.replies == 0" class="replies-text">Comment</div>
+							</ion-button>
+						</div>
+					</div>
+					<div class="share-c">
+						<div>
+							<ion-button color="light" fill="clear" size="small" slot="start"
+								(click)="presentActionSheetShare($event, thread)">
+								<ion-icon class="share-icon" name="share-content-white"></ion-icon>
+							</ion-button>
+						</div>
+					</div>
+				</div>
+				<!-- BACKGROUND -->
+				<div class="background-image-black">
+				</div>
+				<ion-img *ngIf="thread.picture" class="background-image" [src]="thread?.picture"></ion-img>
+			</div>
+		</div>
+	</div>
+
+	<!-- Posts -->
+
+
+	<!-- Takes -->
+
+	<div class="takes">
+		<takes></takes>
+	</div>
+
+	<!-- Takes -->
+
+
+	<!-- Play -->
+
+	<div class="play">
+		<play></play>
+	</div>
+
+	<!-- Play -->
+
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="35%" [disabled]="threadsService.hideInfinite">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>
+
+<div class="centered-container" *ngIf="showHelp">
+	<div class="centered-h">
+		<div class="app-top">
+			<div class="recommendation-info">
+				<img class="level-img" src="assets/imgs/like-help.png" alt="">
+			</div>
+			<div class="already-chat">
+				Like on posts and help lift the best content to the top!
+			</div>
+		</div>
+
+		<div class="app-bottom" (click)="gotIt()">
+			<div class="join-bottom">Got it</div>
+		</div>
+
+	</div>
+</div>
+
+<!-- REFRESH -->
+
+<div class="refresh-onresume" *ngIf="threadsService.toggleRefresh || takeService.toggleRefresh || playService.toggleRefresh"
+	(click)="handleRefreshButton()">
+	Refresh
+</div>
+<!-- REFRESH -->

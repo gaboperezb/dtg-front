@@ -1,0 +1,156 @@
+.spinner-container-add {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.start-chat {
+    font-weight: 600;
+}
+
+
+.to-padding {
+    padding: 7px 5px 7px 10px;
+    height: 56px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    align-items: center;
+}
+
+.league-scroll {
+    height: 39px;
+    display: inline-block;
+    color: white;
+    background: #4264d0;
+    text-align: center;
+    padding: 10px 30px 0 10px;
+    margin-right: 10px;
+    border-radius: 6px;
+    flex: 0 0 auto;
+    position: relative;
+     
+}
+
+
+
+.league-scroll span.recipient-name {
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    
+}
+
+.delete-recipient {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 54%;
+    right: 0px;
+}
+
+.to-text {
+    margin-right: 10px;
+}
+
+.search-custom-add {
+    background: #e8e8e8;
+}
+
+
+.profile-pic {
+    object-fit: cover;
+}
+
+ion-item.foll-item {
+    margin: 10px 0;
+}
+
+ion-avatar {
+    height: 42px;
+    width: 42px;
+}
+
+.foll-username {
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.followers-add {
+    display: inline-block;
+    margin: 16px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.new-chat {
+    display: inline-block;
+    padding: 0 16px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #0b74c7;
+    margin: 20px 0 10px 0;
+}
+
+.add {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #c1c1c1;
+}
+
+.active {
+    background: #4264d0;
+    border: none;
+}
+
+.checkmark {
+    color: white;
+}
+
+.custom-share-chat {
+    padding: 5px 10px;
+  }
+
+  ion-input {
+      font-size: 15px;
+  }
+
+
+  .u-pic-c {
+    position: relative;
+  }
+
+.info-chat-container {
+    height: 18px;
+    width: 18px;
+    background: white;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    box-shadow: 0 1px 1px rgba(109, 109, 109, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+
+    img {
+        height: 15px;
+        width: 15px;
+        object-fit: contain;
+    }
+
+
+    .nfl-img-padding {
+        padding: 2px;
+    }
+
+    span {
+        font-size: 9px;
+    }
+}

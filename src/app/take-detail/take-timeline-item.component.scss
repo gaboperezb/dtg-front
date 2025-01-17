@@ -1,0 +1,195 @@
+
+
+/* TEST ALL DETAL */
+
+
+div.header-link {
+    display: table;
+    padding: 16px 0 10px 16px;
+    height: 59px;
+    
+}
+
+.more-icon {
+    margin-right: 16px;
+}
+
+.top-thread {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 59px;
+}
+
+.ago {
+    position: absolute;
+    top: 18px;
+    right: 16px;
+    color: #A2A4A6;
+    font-size: 12px;
+}
+
+.user-info .span-userimage, .transparent {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.profile-picture {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+    
+}
+
+ion-tab-bar {
+    display: none;
+}
+
+.by-username {
+    color: black;
+    font-weight: 500;
+    font-size: 13px;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: table-cell;
+    padding-bottom: 4px;
+}
+
+.by-username .name {
+    color: rgb(161, 161, 161);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+
+.level {
+    height: 15px;
+    width: 15px;
+    object-fit: contain;
+    margin: -3px 1px -2px 1px;
+    margin-left: 4px;
+}
+
+.level-container {
+    height: 15px;
+    
+}
+
+.discussion {
+    padding: 0 16px;
+    margin: 0;
+    color:  rgb(20, 23, 26);
+    white-space: pre-wrap;
+    font-size: 15px;
+    line-height: 130%;
+}
+
+.ion-item-btn {
+    border-bottom: 1px solid #EDEFF1;
+    padding-bottom: 5px;
+}
+ion-icon.heart-icon {
+    font-size: 15px;
+    margin-right: 5px !important;
+}
+
+.comment-icon {
+    font-size: 14px;
+    margin-right: 5px !important;
+}
+
+
+.comment-div {
+    width: 58px;
+}
+
+.cero-likes {
+    margin-left: -1px;
+}
+
+.reply-icon {
+    font-size: 15px;
+    margin-right: 5px !important;
+
+}
+
+.reply-div {
+    margin: 0 0px 0 auto;
+}
+
+.count {
+    font-size: 14px;
+    font-weight: 500;
+    color: #989aa2;
+}
+
+.reply {
+    font-size: 14px;
+    font-weight: 400;
+    color: #989aa2;
+}
+.custom-btn {
+    color: #EB4B59 !important;
+}
+.like-div {
+    display: inline-block;
+    padding-left: 3px;
+    width: 58px;
+    
+}
+
+.reply-div {
+    padding-right: 6px;
+    width: 90px;
+    
+}
+
+.likes {
+    font-size: 14px;
+    color: #989aa2;
+    font-weight: 500;
+}
+
+ion-avatar {
+    width: 0;
+    height: 0;
+}
+
+
+.actions {
+ 
+    display: flex;
+    margin-top: 4px;
+    align-items: center;
+    height: 35px;
+    width: 100%;
+}
+
+
+
+
+
+    
+    
+
+
+
+   
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+

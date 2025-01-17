@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+        <ion-buttons slot="start">
+            <ion-button slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="dismissModal()">
+                <ion-icon name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title></ion-title>
+        <ion-buttons slot="end">
+            <ion-button [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="send()" id="send">
+                SEND
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding add-comment-content">
+    <h4 *ngIf="data.title" id="title">{{data.title}}</h4>
+    <h4 *ngIf="data.username" id="in-response">
+        <ion-icon name="arrow-down" id="arrow"></ion-icon>Replying to
+        <span class="username">@{{data.username}}</span>
+    </h4>
+    <ion-item no-lines class="textarea add-item">
+        <ion-textarea #commentInput rows="6" placeholder="Your comment" autocorrect="on" autocapitalize="on" [(ngModel)]="comment"
+            class="textarea-input"></ion-textarea>
+    </ion-item>
+</ion-content>

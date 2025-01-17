@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+    <ion-buttons slot="start">
+		<ion-button class="custom-back-button" (click)="goBack()">
+            <ion-icon class="sort" name="chevron-back"></ion-icon>
+        </ion-button>
+	</ion-buttons>
+	<ion-title>{{trivia.league}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<div class="revealed" *ngIf="helper">
+		The answer of each trivia will be revealed 24 hours after its publication
+		<span class="got-it" (click)="setTriviaHelper()">GOT IT!</span>
+	</div>
+	
+        <div class="trivia-container">
+            <div class="trivia-top">
+				<div class="countdown-container">
+					<div id="countdown" *ngIf="!selected">
+						<div *ngIf="!userSelection" id="countdown-number">{{countdown}}</div>
+						<svg *ngIf="!userSelection">
+							<circle [class.entered]="viewEntered" r="18" cx="20" cy="20"></circle>
+						</svg>
+					</div>
+				</div>
+			   
+				<div *ngIf="selected && !trivia.correct && !trivia.timesUp && alreadyAnswered" class="timing-info wrong">
+                    Wrong
+                </div>
+                <div *ngIf="selected && trivia.timesUp && alreadyAnswered" class="timing-info timeout">
+                    Time's up
+                </div>
+                <div *ngIf="selected && trivia.correct && !trivia.timesUp  && alreadyAnswered" class="timing-info correct">
+                    Correct
+                </div>
+			
+
+                <div *ngIf="selected && !trivia.correct && !trivia.timesUp  && !alreadyAnswered" class="timing-info wrong">
+                    Wrong
+                </div>
+                <div *ngIf="selected && trivia.timesUp  && !alreadyAnswered" class="timing-info timeout ">
+                    Time's up
+                </div>
+                <div *ngIf="selected && trivia.correct && !trivia.timesUp  && !alreadyAnswered" class="timing-info correct">
+                    Correct
+                </div>
+
+                <div class="question-container">
+                    <span class="trivia-question">{{trivia?.question}}</span>
+				</div>
+				<div class="revealed-answer" *ngIf="trivia.revealAnswer && selected">
+					Answer: {{answer.option}}
+				</div>
+            </div>
+
+            <div class="options-container" *ngIf="!!triviaAnswered">
+                <div *ngFor="let option of trivia.options" [class.trivia-option-result]="true" [class.option-selected-after]="option._id == userSelection" [class.correct-option]="option._id == trivia.correctOption && userSelection == trivia.correctOption">
+                    <img class="picture-option" [src]="option.picture" alt="">
+                    <span class="text-trivia-option-result">{{option.option}}</span>
+                    <span class="percentage-option">{{option.flooredPercentage}}%</span>
+                </div>
+            </div>
+
+            
+			<ion-slides pager="false" (ionSlidesDidLoad)="loaded($event)" [options]="slideOpts" #triviaSlides *ngIf="!triviaAnswered && didInit">
+				<ion-slide>
+					<div class="options-container">
+						<div *ngFor="let option of trivia.options" [class.trivia-option]="true" [class.option-selected]="option._id == userSelection" (click)="selection(option)">
+							<img class="picture-option" [src]="option.picture" alt="">
+							<span class="text-option">{{option.option}}</span>
+						</div>
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="options-container">
+						<div *ngFor="let option of trivia.options" [class.trivia-option-result]="true" [class.option-selected-after]="option._id == userSelection" [class.correct-option]="option._id == trivia.correctOption && userSelection == trivia.correctOption ">
+							<img class="picture-option" [src]="option.picture" alt="">
+							<span class="text-trivia-option-result">{{option.option}}</span>
+							<span class="percentage-option">{{option.flooredPercentage}}%</span>
+						</div>
+					</div>
+				</ion-slide>	
+			</ion-slides>
+        </div>
+
+        <!-- Comments -->
+	<div class="sorting-container" *ngIf="addCommentToggled && timelines.length > 0">
+		<div class="sort-container">
+			<ion-button [color]="global.state['theme'] == 'dark' ? 'light' : 'primary'" class="custom-btn" slot="start"
+				fill="clear" size="small" (click)="presentActionSheet()">
+				<ion-icon class="c-icon" [name]="global.state['theme'] == 'light' ? 'hot-posts' : 'hot-white'"
+					*ngIf="hot"></ion-icon>
+				<ion-icon class="c-icon" [name]="global.state['theme'] == 'light' ? 'new-posts' : 'new-white'"
+					*ngIf="new"></ion-icon>
+				<ion-icon class="c-icon" [name]="global.state['theme'] == 'light' ? 'top-posts' : 'top-white'"
+					*ngIf="top"></ion-icon>
+				<div class="sortBy">{{sortBy}}</div>
+				<ion-icon class="dropdown" [name]="global.state['theme'] == 'light' ? 'dropdown' : 'dropdown-white'">
+				</ion-icon>
+			</ion-button>
+		</div>
+		<div class="refresh-container">
+			<ion-spinner class="spinner-d custom-btn" *ngIf="loadingDiscussions || loadingInitial"></ion-spinner>
+			<ion-button [color]="global.state['theme'] == 'dark' ? 'light' : 'cgray'" class="icon-refresh custom-btn"
+				*ngIf="!loadingDiscussions && !loadingInitial" slot="end" fill="clear" size="small" (click)="refresh()">
+				<ion-icon class="refresh-icon" name="refresh"></ion-icon>
+			</ion-button>
+		</div>
+	</div>
+
+	<ion-list lines="none" class="timeline-list" *ngIf="addCommentToggled">
+		<trivia-timeline-item *ngFor="let timeline of timelines" [timeline]="timeline" [trivia]="trivia"
+			(deleteComment)="deleteComment($event)"></trivia-timeline-item>
+	</ion-list>
+
+
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="20%"
+	[disabled]="!enableInfinite">
+	<ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+</ion-content>
+<ion-footer *ngIf="addCommentToggled">
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'secondary'">
+		<div class="comment-container">
+			<div class="comment" (click)="addComment()">
+				<span class="add">Add a comment</span>
+			</div>
+		</div>
+	</ion-toolbar>
+</ion-footer>

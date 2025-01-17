@@ -1,0 +1,72 @@
+<ion-app>
+  <menu-selection></menu-selection>
+  <ion-router-outlet id="main" ></ion-router-outlet>
+
+  <!-- Dms -->
+  <flash></flash>
+  <div (swipedown)="closeGesture($event)" (swipeup)="closeGesture($event)"  *ngIf="takeService.fullScreen"> 
+    <ion-slides (ionSlidesDidLoad)="loaded($event)" #imageSlide class="slides" [options]="sliderOptns">
+      <ion-slide>
+        <img   [src]="takeService.fullScreenImage" alt="">
+      </ion-slide>
+  
+      <div class="exit-full" (click)="closeFullScreen()"><ion-icon name="close"></ion-icon></div>
+    </ion-slides>
+  </div>
+
+  
+
+  <!-- LEVEL -->
+  <div class="centered-container" *ngIf="authService?.leveledUp">
+    <div class="centered animated zoomIn">
+      <div class="app-top">
+        <div class="level-up-h">
+          YOU JUST LEVELED UP!
+        </div>
+        <img class="level-img" [src]="largePicture()" alt="">
+        <div class="bar">
+          <div *ngIf="authService.currentUser" class="inner-bar">
+            <div *ngIf="authService.currentUser.totalPoints <= authService.currentUser.badge.nextPoints"
+              class="app-progress-outer">
+              <span>{{authService.currentUser.totalPoints}} PTS</span>
+              <div class="app-progress-inner" [style.width]="displayBar() + '%'">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="app-bottom" (click)="authService.leveledUp = false">
+        Close
+      </div>
+    </div>
+  </div>
+
+
+  <!-- APP RATE -->
+  <div class="centered-container" *ngIf="presentRateDialog0">
+    <div class="centered-rate" *ngIf="presentRateDialog1">
+      <div class="app-top-rate">
+        <img class="rate-img" src="assets/imgs/sign-pic.png" alt="">
+        <span class="rate-text">Do you enjoy using Discuss TheGame?</span>
+      </div>
+      <div class="app-bottom-rate">
+        <div class="rate-button-no" (click)="cancelRate()">Not really</div>
+        <div class="rate-button-yes" (click)="moveToSecondDialog()">Yes!</div>
+      </div>
+    </div> 
+
+
+    <div class="centered-rate-2" *ngIf="presentRateDialog2">
+      <div class="app-top-rate-2">
+        <img class="rate-img-2" src="assets/imgs/5stars.png" alt="">
+        <span class="rate-text">Would you mind rating it?</span>
+        <span class="rate-subtext">It won't take more than a minute and helps to promote our app. Thanks for your support!</span>
+      </div>
+      <div class="app-bottom-rate-2">
+        <div class="rate-button-no-2" (click)="cancelRate()">No, thanks</div>
+        <div class="rate-button-maybe-2" (click)="remindRate()">Remind me later</div>
+        <div class="rate-button-yes-2" (click)="rateApp()">Rate now!</div>
+      </div>
+    </div>
+  </div>
+</ion-app>

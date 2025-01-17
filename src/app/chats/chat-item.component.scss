@@ -1,0 +1,124 @@
+ion-item {
+    margin: 12px 0;
+}
+
+.last-message-time {
+    position: absolute;
+    right: 16px;
+    font-size: 15px;
+    color: #9c9c9c;
+}
+
+.muted {
+    font-size: 18px;
+    /* position: absolute; */
+    /* right: 28px; */
+    top: 11px;
+    position: absolute;
+    right: 75px;
+    font-size: 17px;
+    color: #9c9c9c;
+    display: inline-block;
+    color: #ababab;
+}
+
+
+
+.unread {
+    position: absolute;
+    right: 16px;
+    /* bottom: 0; */
+    top: 63%;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: #136eea;
+    display: inline-block;
+}
+
+.typing-item {
+    font-style: italic;
+}
+
+.last-message {
+    width: 89%;
+    margin-bottom: 0px !important;
+    font-size: 14px;
+}
+
+.placeholder {
+    height: 48px;
+    width: 48px;
+    margin-right: 10px;
+    object-fit: cover;
+    background: #e4e4e4;
+    border-radius: 50px;
+}
+
+.user-picture {
+    height: 55px;
+    width: 55px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.user-picture-cont {
+    height: 55px;
+    width: 55px;
+    margin-right: 10px;
+    position: relative;
+   
+}
+
+.usernamee {
+    
+    margin-bottom: 4px;
+    font-size: 15px;
+    color: #14171a;
+}
+
+.usernamee-active {
+    font-weight: 500;
+}
+
+.last-message-unread {
+    font-weight: 500;
+    color: #242629;
+}
+
+.info-chat-container {
+    height: 22px;
+    width: 22px;
+    background: white;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    box-shadow: 0 1px 1px rgba(109, 109, 109, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+
+    img {
+        height: 22px;
+        width: 22px;
+        object-fit: contain;
+    }
+
+
+    span {
+        font-size: 11px;
+    }
+}
+
+.online {
+    height: 15px;
+    width: 15px;
+    background: #00da29;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 2px solid white;
+}

@@ -1,0 +1,254 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-title>Notifications</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" #tabFour>
+	<ion-refresher slot="fixed" (ionRefresh)="getNotis($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+
+	<div class="placeholders" *ngIf="loadingNotis">
+
+		<div class="placeholder-item">
+			<div class="placeholder-logos-container">
+				<div class="placeholder-flex-logos">
+
+				</div>
+			</div>
+			<div class="placeholder-names-container">
+				<div class="placeholder-flex-name-1">
+
+				</div>
+				<div class="placeholder-flex-name-2">
+
+				</div>
+			</div>
+
+		</div>
+		<div class="placeholder-item">
+			<div class="placeholder-logos-container">
+				<div class="placeholder-flex-logos">
+
+				</div>
+			</div>
+			<div class="placeholder-names-container">
+				<div class="placeholder-flex-name-1">
+
+				</div>
+				<div class="placeholder-flex-name-2">
+
+				</div>
+			</div>
+
+		</div>
+		<div class="placeholder-item">
+			<div class="placeholder-logos-container">
+				<div class="placeholder-flex-logos">
+
+				</div>
+			</div>
+			<div class="placeholder-names-container">
+				<div class="placeholder-flex-name-1">
+
+				</div>
+				<div class="placeholder-flex-name-2">
+
+				</div>
+			</div>
+
+		</div>
+		<div class="placeholder-item">
+			<div class="placeholder-logos-container">
+				<div class="placeholder-flex-logos">
+
+				</div>
+			</div>
+			<div class="placeholder-names-container">
+				<div class="placeholder-flex-name-1">
+
+				</div>
+				<div class="placeholder-flex-name-2">
+
+				</div>
+			</div>
+
+		</div>
+		<div class="placeholder-item">
+			<div class="placeholder-logos-container">
+				<div class="placeholder-flex-logos">
+
+				</div>
+			</div>
+			<div class="placeholder-names-container">
+				<div class="placeholder-flex-name-1">
+
+				</div>
+				<div class="placeholder-flex-name-2">
+
+				</div>
+			</div>
+
+		</div>
+		<div class="placeholder-item">
+			<div class="placeholder-logos-container">
+				<div class="placeholder-flex-logos">
+
+				</div>
+			</div>
+			<div class="placeholder-names-container">
+				<div class="placeholder-flex-name-1">
+
+				</div>
+				<div class="placeholder-flex-name-2">
+
+				</div>
+			</div>
+
+		</div>
+		<div class="placeholder-item">
+			<div class="placeholder-logos-container">
+				<div class="placeholder-flex-logos">
+
+				</div>
+			</div>
+			<div class="placeholder-names-container">
+				<div class="placeholder-flex-name-1">
+
+				</div>
+				<div class="placeholder-flex-name-2">
+
+				</div>
+			</div>
+
+		</div>
+		<div class="placeholder-item">
+				<div class="placeholder-logos-container">
+					<div class="placeholder-flex-logos">
+	
+					</div>
+				</div>
+				<div class="placeholder-names-container">
+					<div class="placeholder-flex-name-1">
+	
+					</div>
+					<div class="placeholder-flex-name-2">
+	
+					</div>
+				</div>
+	
+			</div>
+			<div class="placeholder-item">
+				<div class="placeholder-logos-container">
+					<div class="placeholder-flex-logos">
+	
+					</div>
+				</div>
+				<div class="placeholder-names-container">
+					<div class="placeholder-flex-name-1">
+	
+					</div>
+					<div class="placeholder-flex-name-2">
+	
+					</div>
+				</div>
+	
+			</div>
+
+
+	</div>
+
+	<div class="logged" *ngIf="authService.currentUser && !loadingNotis; else not">
+		<div>
+			<div class="notifications-container" *ngIf="authService.notifications > 0">
+				<ion-button color="warning" (click)="getNotis()">{{authService.notifications}} new<span
+						*ngIf="authService.notifications == 1"> notification</span><span
+						*ngIf="authService.notifications > 1">
+						notifications</span></ion-button>
+			</div>
+			<div class="no-notifications" *ngIf="authService.visibleNotifications.length == 0 && !wait">
+				<img src="assets/imgs/nothing.png" alt="">
+				<span>Nothing here..</span>
+			</div>
+
+			<div class="no-permission"
+				*ngIf="authService.visibleNotifications.length > 0 && !authService.permissionForNotifications">
+				<p>Your notifications are disabled, you will not know if you have received messages. Go to the settings on your phone to allow them.</p>
+			</div>
+
+			<div *ngFor="let notification of authService.visibleNotifications" (click)="goToDetail(notification)" class="notification-container">
+				<div class="noti">
+					<img (click)="goToUser($event, notification.user)" [src]="notification.user.profilePictureThumbnail" class="user-picture">
+
+					<div class="flex-helper" *ngIf="notification.typeOf == 'follow'">
+						<p class="n-text follow-text">
+							<span class="username"
+								(click)="goToUser($event, notification.user)">{{notification?.user?.username}}</span>
+							is now following you
+							<span class="date">{{notification?.created}}</span>
+						</p>
+					</div>
+
+					<div class="flex-helper" *ngIf="notification.typeOf == 'comment' && notification.thread">
+						<p class="n-text">
+							<span class="username"
+								(click)="goToUser($event, notification.user)">{{notification?.user?.username}}</span>
+							commented on your post
+							<span (click)="goToThread(notification, $event)"
+								class="username">{{notification?.titleToShow}}
+							</span>{{notification?.notification?.discussion}} <span
+								class="date">{{notification?.notification?.created}}</span></p>
+					</div>
+
+
+					<div class="flex-helper" *ngIf="notification.typeOf == 'comment' && notification.take">
+						<p class="n-text">
+							<span class="username"
+								(click)="goToUser($event, notification.user)">{{notification?.user?.username}}</span>
+							commented on your discussion
+							<span (click)="goToTake(notification, $event)"
+								class="username">{{notification?.titleToShow}}
+							</span>{{notification?.notification?.discussion}} <span
+								class="date">{{notification?.notification?.created}}</span></p>
+					</div>
+
+
+
+
+
+					<div *ngIf="notification.typeOf == 'mention'" class="flex-helper">
+						<p class="n-text">
+							<span class="username"
+								(click)="goToUser($event, notification.user)">{{notification?.user?.username}}</span>
+							replied to your comment
+							<i
+								class="discussions-text">"{{notification?.replyTextToShow}}"</i>&nbsp;{{notification?.notification?.discussion}}
+							<span class="date">{{notification?.notification?.created}}</span>
+						</p>
+					</div>
+
+				</div>
+				<div class="reply-div"  *ngIf="notification.typeOf != 'follow'">
+					<ion-button (click)="replyTo(notification, $event)" color="medium" fill="clear" size="small" slot="start">
+						<ion-icon class="reply-icon" name="reply-gray"></ion-icon>
+						<div class="reply">Reply</div>
+					</ion-button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<ng-template #not>
+		<div class="no-notifications" *ngIf="!loadingNotis">
+			<span class="no-notifications-span">Sign in to see your notifications</span>
+			<ion-button expand="block" id="sign-in-btn" (click)="goToSign()">SIGN IN</ion-button>
+		</div>
+	</ng-template>
+
+
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="30%" [disabled]="!enableInfinite">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

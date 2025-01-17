@@ -1,0 +1,14 @@
+<div (swipeup)="closeGesture($event)" (click)="hide()" @messageState *ngIf="active" class="flash-container">
+
+        <ion-item class="message-flash" lines="none"> 
+            <ion-avatar slot="start">
+                <img [src]="user.profilePictureThumbnail" alt="">
+            </ion-avatar>
+            <ion-label>
+                <h2><span class="msg-username">{{user.username}} <span *ngIf="group">@ {{group}}</span></span></h2>  
+                <p class="msg-msg">{{message}}</p>
+            </ion-label>
+        </ion-item>
+    
+    
+</div>

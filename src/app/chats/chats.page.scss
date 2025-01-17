@@ -1,0 +1,322 @@
+.control-grid-tab1 {
+
+    padding: 0px !important;
+    background: white;
+  }
+  
+  .col-selection {
+    text-align: center;
+    padding: 0px;    
+    font-weight: 600;
+    color: #939697;
+  
+    span.main {
+      padding: 10px;
+      display: inline-block;
+      
+    }
+  
+    
+  }
+
+
+  .no-posts {
+    text-align: center;
+    padding: 30px 16px 30px 16px;
+    font-weight: 600;
+    color: #989898;
+    
+}
+
+.rooms {
+    padding: 16px 12px 12px 12px;
+}
+
+  .directs {
+   margin-top: 5px;
+  }
+
+  .wait-container-comments {
+    text-align: center;
+    padding: 30px 30px 90vh 30px;
+    
+}
+
+  .fantasy {
+    width: 100px !important;
+  }
+  
+  
+  .col-active {
+    color: #1A1A1A;
+    border-bottom: 2px solid #4264d0 !important;
+  }
+
+
+.share-container {
+    background: #4264d0;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-signup {
+        
+    border: 3px solid rgba(49, 92, 230, 0.58);;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 500;
+    display: inline-block;
+    width: 80%;
+    overflow: hidden;
+    margin-bottom: 5px;
+    
+} 
+
+.btn-login {
+    border: 3px solid rgba(49, 92, 230, 0.58);
+    border-radius: 30px;
+    color: #315ce6;
+    font-weight: 500;
+    display: inline-block;
+    width: 80%;
+    overflow: hidden;
+}
+
+.btn-signup {
+    --background: #315ce6 !important;
+    --background-activated: #5e82f7 !important;
+    overflow: hidden;
+}
+
+.btn-signup:hover, .btn-signup:active {
+    --background: #5e82f7 !important;
+    overflow: hidden;
+}
+
+.share-text {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.text-no-conv {
+    margin-bottom: 20px;
+}
+
+body.light {
+    background: #011b35;
+}
+.connecting {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ion-spinner.connecting-spinner {
+    margin-right: 5px;
+}
+
+.chat-img {
+    margin-bottom: 40px;
+    width: 100%;
+}
+.no-chats {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 85%;
+    transform: translate(-50%, -50%);
+}
+
+.no-conv {
+    font-weight: 500;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.kick {
+    display: block;
+    color: #8a8a8a;
+}
+
+
+
+.close-icon {
+    color: white;
+    font-size: 30px;
+}
+
+.share-link {
+
+
+    display: inline-flex;
+    border-radius: 5px;
+    overflow: hidden;
+    flex-direction: row;
+
+    .link {
+        background: rgba(24, 153, 255, 0.639);
+        padding: 8px;
+        color: white;
+        font-size: 14px;
+    }
+
+    .share {
+        background: white;
+        color: #4264d0;
+        font-weight: bold;
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+
+ion-item-sliding {
+    margin: 5px 0;
+}
+
+.last-message-time {
+    position: absolute;
+    right: 16px;
+    top: 13px;
+    font-size: 14px;
+    color: #9c9c9c;
+}
+
+.user-picture {
+    height: 45px;
+    width: 45px;
+    margin-right: 10px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+
+//scroll
+
+.wide-as-needed {
+    margin-top: 15px;
+}
+
+.scroll-padding {
+    padding: 7px 5px 7px 10px;
+    height: 56px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+
+
+.icon-scroll {
+    height: 15px;
+    
+   
+}
+
+.container-scroll {
+    height: 400px;
+}
+
+ 
+.league-scroll {
+    width: 68px;
+    height: 39px;
+    display: inline-block;
+    color: black;
+    background: #e8e8e8;
+    text-align: center;
+    padding-top: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    flex: 0 0 auto;
+     
+}
+
+.direct-span {
+    position: relative;
+}
+
+.direct-notification {
+    background: #e63d3d;
+    border-radius: 50px;
+    color: white;
+    font-size: 12px;
+    min-width: 12px;
+    display: inline-block;
+    min-width: 18px;
+    min-height: 18px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1px;
+}
+
+.league-scroll span {
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    
+}
+
+
+
+.active {
+    color: white !important;
+    background: #4264d0;
+}
+
+.room-type-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    margin-top: 10px;
+
+    span {
+        margin-right: 3px;
+    }
+    
+}
+
+.sortBy {
+    color: #878A8C;
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+  
+  
+  
+  
+  .sorting-container {
+    display: flex;
+    height: 44px;
+    background: #EDEFF1;
+    align-items: center;
+  }
+  
+  .sort-container, .refresh-container {
+    flex: 1;
+  }
+  
+  
+  
+  .sort {
+    font-size: 20px !important;
+  }
+
+  .dropdown {
+    font-size: 8px !important;
+  }
+  

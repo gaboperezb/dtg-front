@@ -1,0 +1,370 @@
+
+.trivia-container {
+    padding: 16px 16px 38px 16px;
+    width: 100%;
+    background: white;
+}
+
+.trivia-top {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    position: relative;
+}
+
+.countdown-container, .timing-info  {
+  position: absolute;
+    top: 0px;
+}
+
+#countdown {
+    position: relative;
+    margin: auto;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+  }
+  
+  #countdown-number {
+    color: rgb(12, 12, 12);
+    display: inline-block;
+    line-height: 50px;
+    font-weight: bold;
+  }
+  
+  svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+  }
+  
+  svg circle {
+    stroke-dasharray: 113px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 3px;
+    stroke: #4264d0;
+    fill: none;
+   
+  }
+
+  svg circle.entered {
+    stroke-dasharray: 113px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 3px;
+    stroke: #4264d0;
+    fill: none;
+    animation: countdown 15s linear forwards infinite;
+  }
+
+  .wrong, .correct, .timeout, .back {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+    padding: 0 10px;
+  }
+
+  .wrong, .timeout {
+    background: #F42C40;
+
+  }
+
+  .correct {
+    background: #21D36E;
+
+  }
+
+  
+  .options-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .trivia-option {
+    margin: 5px 0;
+    border-radius: 50px;
+    border: 2px solid #ebedf2;
+    overflow: hidden;
+    height: 60px;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    position: relative;
+  }
+
+  .trivia-option-result {
+    margin: 5px 0;
+    border-radius: 50px;
+    border: 2px solid #e8e8e8;
+    background: #ebedf2;
+    overflow: hidden;
+    height: 60px;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 12px;
+    position: relative;
+  }
+
+  ion-icon {
+    margin-right: 8px;
+  }
+
+  .placeholder {
+    height: 50px;
+  }
+
+   .option-selected {
+    background: #4264d0;
+    border: 2px solid #4264d0;
+    
+  }
+
+  .option-selected-after {
+    background: #f098b5;
+    border: 2px solid #f098b5;
+  }
+
+  .correct-option {
+    background: #21D36E;
+    border: 2px solid #21D36E;
+    }
+
+ 
+
+  .after {
+    background: #ebedf2 !important;
+    border: 2px solid #ebedf2 !important;
+  }
+
+
+  div.inner {
+    height: 50px;
+  }
+
+  div.effect {
+    animation: .5s ease-out 0s 1 slideInFromLeft;
+    background: #dbdbec; 
+    height: 50px;
+    
+  }
+
+ 
+
+
+
+  @keyframes slideInFromLeft {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+
+.text-option {
+    color: #262729;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+
+  .text-trivia-option-result {
+    color: #262729;
+    font-weight: 600;
+    transition: color 0.5s;
+    font-size: 18px;
+    margin-left: 55px;
+  }
+  
+  
+
+  .picture-option {
+    height: 48px;
+    width: 48px;
+    border-radius: 50px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    margin-right: 12px;
+    position: absolute;
+    /* top: 2px; */
+    left: 4px;
+
+  }
+
+  .percentage-option {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: #262729;
+    font-weight: 600;
+    transition: color 0.5s;
+    font-size: 16px;
+
+  }
+
+  .revealed-answer {
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000000;
+  }
+
+  .revealed {
+    background: #4264d0;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: #ffffff;
+    flex-direction: column;
+    text-align: center;
+  }
+
+
+  .got-it {
+    display: flex;
+    background: #162044;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    height: 34px;
+    border-radius: 10px;
+    margin-top: 15px;
+   
+  }
+
+
+  .option-selected .text-option {
+    color: white;
+  }
+
+  .text-selections {
+    color: #7d7da0;
+    font-weight: 500;
+  }
+
+
+  .question-container {
+    margin: 35px 0 20px 0;
+    text-align: center;
+    padding: 0 10px;
+    span {
+        font-weight: bold;
+        font-size: 22px;
+    }
+  }
+  
+  @keyframes countdown {
+    from {
+      stroke-dashoffset: 0px;
+    }
+    to {
+      stroke-dashoffset: 113px;
+    }
+  }
+
+  .comment-container {
+    padding: 4px;
+}
+
+.comment {
+  background: #F5F5F5;
+  border: 1px solid #e8e9ea;
+  border-radius: 4px;
+  color: #959798;
+  padding: 0px 10px;
+  line-height: 33px;
+  height: 35px;
+}
+
+.sortBy {
+  color: #878A8C;
+  font-weight: bold;
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.sort-comments {
+  height: 50px;
+  background: #EDEFF1;
+}
+.sort-by {
+  margin-left: 5px;
+}
+
+.sorting-container {
+  display: flex;
+  height: 50px;
+  background: #EDEFF1;
+  align-items: center;
+}
+
+.sort-container, .refresh-container {
+  flex: 1;
+}
+
+ion-icon.c-icon {
+  margin-right: 5px;
+  margin-bottom: 1px;
+  font-size: 15px !important;
+}
+
+.dropdown {
+  font-size: 8px !important;
+}
+.refresh-icon {
+  font-size: 17px;
+  margin-right: 0px !important;
+}
+
+.icon-refresh {
+  font-size: 15px;
+}
+
+.refresh-container {
+ 
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  
+
+}
+
+.refresh-col {
+  text-align: right;
+  position: relative;
+}
+
+ion-spinner.spinner-d {
+  width: 40px !important;
+  height: 20px !important;
+  
+}
+
+.spinner-container {
+  text-align: center;
+  padding: 30px 30px 90vh 30px;
+}

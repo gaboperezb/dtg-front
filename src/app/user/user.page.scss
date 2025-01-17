@@ -1,0 +1,930 @@
+
+
+
+.scroll-padding-teams {
+  padding: 7px 5px 7px 12px;
+  height: 56px;
+  background: transparent;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.more-teams {
+  font-size: 12px;
+  color: white;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  background: #4061d3;
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+ .line-breaker {
+  height: 20px;
+  width: 3px;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+.fav-team-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.diamond {
+  background: #0C5088;
+}
+
+.crown {
+  background: #173B60;
+
+}
+
+.star {
+  background: #097058;
+ 
+}
+
+.trophy {
+  background: #3B23AE;
+}
+
+.thread-header {
+    padding: 0px 16px;
+}
+
+.twenty {
+  background: #FDCF40;
+}
+    .user-header {
+        text-align: left;
+        background: white;
+        padding-left: 16px;
+   
+    }
+
+    .segment-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 44px;
+      margin-bottom: 10px;
+  
+    }
+
+    .col-selection {
+      color: #939697;
+      padding: 10px 5px;
+      font-weight: 500;
+      font-size: 16px;
+        
+    }
+
+    .col-active {
+      color: black;
+      border-bottom: 2px solid #4264d0 !important;
+    }
+
+    .wait-container-2 {
+        text-align: center;
+        padding-top: 16px;
+    }
+
+    ion-label {
+        margin-bottom: 0px !important;
+    }
+
+    .fantasy {
+      width: 100px !important;
+    }
+
+    .pic-and-username {
+        display: inline-block;
+        text-align: center;
+    }
+
+    .pic-username {
+        text-align: left;
+        background: white;
+        padding-left: 16px;
+        position: relative;
+    }
+
+    .follow {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #4061d3;
+        border-radius: 50px;
+        border: 1px solid #4061d3;
+        padding: 7px 18px;
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .followw:hover, .followingg:hover {
+        
+        background: rgba(64, 97, 211, 0.31);
+    }
+
+    .following {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: white;
+        border-radius: 50px;
+        background: #4061d3;
+        border: 1px solid #4061d3;
+        padding: 7px 18px;
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .wait-container {
+        text-align: center;
+        padding: 20px;
+        background: white;
+        height: 58%;
+        
+    }
+
+    .wait-container-comments {
+        text-align: center;
+        padding: 30px 30px 90vh 30px;
+        
+    }
+
+    .c-icon {
+        font-size: 16px !important;
+        color: #22263c;
+
+    }
+
+    .c-span {
+        font-size: 14px !important;
+        color: #22263c;
+
+    }
+   
+
+    .thread-or-game {
+        font-weight: 500;
+    }
+
+    .icon-btn {
+        padding-left: 16px !important;
+        padding-right: 2px !important;
+    }
+
+
+    .d-text {
+        white-space: pre-wrap;
+        margin: 12px 0px 10px 0px;
+        color:  rgb(20, 23, 26);
+        padding: 0px 16px;
+    }
+
+
+
+    #user-pic {
+        height: 82px;
+        width: 82px;
+        object-fit: cover;
+        margin-top: -20px;
+        border: 2px solid white;
+        border-radius: 50px;
+    }
+
+
+
+    #username {
+        font-weight: 500;
+        font-size: 18px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+    
+
+
+    #info {
+        color: #65737F;
+        display: inline-block;
+        margin-left: 3px;
+        text-decoration: underline;
+    }
+
+    #control-grid {
+        padding: 0px !important;
+        margin-top: 15px;
+        background: white;
+
+    }
+    .fixed-content {
+       background:  #EDEFF1
+    }
+
+    
+
+  
+
+    .foll-m {
+        margin-right: 10px;
+    }
+
+    ion-button {
+        --padding-start: 0px !important;
+    }
+
+    .foll-info {
+        font-size: 16px;
+    }
+
+   
+
+    .foll-no {
+       font-weight: bold;
+       margin-right: 5px;
+    }
+
+    .no-posts {
+        text-align: center;
+        padding: 30px 16px 30px 16px;
+        font-weight: 600;
+        color: #989898;
+        
+    }
+
+    
+
+    .col-image {
+        padding-right: 8px;
+        text-align: right;
+    }
+    .col-text {
+        
+        padding-top: 0px;
+        padding-left: 16px;
+        
+        
+    }
+
+
+    .item-inner {
+        padding: 0px !important;
+    }
+
+    .progress-inner {
+    
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 5px 0;
+        border-radius: 20px;
+        background-color: #4264d0;
+    }
+
+    #level {
+
+        width: 45px;
+        height: 45px;
+        object-fit: contain;
+        
+    }
+
+    .points {
+        display: inline-block;
+        /* border: 2px solid #4264d0; */
+        padding: 2px 5px;
+        margin-left: 7px;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 5px;
+        color: white;
+    }
+
+    
+
+    .thread-title {
+        font-weight: 600;
+        font-size: 18px;
+        color:  rgb(20, 23, 26);
+        min-height: 100px;
+        display: inline-flex;
+        align-items: center;
+    
+    }
+
+    
+
+    .row-info {
+        padding-left: 16px;
+        margin-top: 10px;
+    }
+
+    .replies {
+        font-size: 13px;
+        color: #989aa2;
+    }
+
+    .in-response {
+        color: rgb(161, 161, 161);
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .name {
+        color: rgb(161, 161, 161);
+        font-size: 14px;
+        font-weight: 400;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        display: inline-block;
+    }
+
+    span.responding {
+        color: #117DDC !important;
+        font-size: 14px;
+    
+    }
+
+
+    .grid-title {
+        padding: 0px;
+       
+    }
+
+
+    .dot {
+        font-weight: bold;
+    }
+
+    ion-icon.link {
+        font-size: 16px;
+        margin-right: 5px;
+        color: #3CA8FC;
+    }
+
+    ion-icon.create {
+        font-size: 16px;
+        color: #DA4242;
+    }
+
+    ion-icon.poll {
+        font-size: 16px;
+        margin-right: 5px;
+        color: #F9833E;
+    }
+
+
+    .ion-item-btn {
+        border-bottom: 1px solid #EDEFF1;
+    }
+
+
+    .container-custom {
+        width: 100%;
+        margin: 0 auto;
+      }
+      
+      a {
+        display: inline-block;
+        width: 25%;
+        padding: .75rem 0;
+        margin: 0;
+        text-decoration: none;
+        color: #333;
+      }
+            
+      .hr {
+        height: .35rem;
+        width: 100%;
+        margin: 0;
+        background: #4264d0;
+        border: none;
+        transition: .3s ease-in-out;
+      }
+
+
+
+
+      /*  */
+      /* THREAD */
+
+.placeholder-item {
+    height: 240px;
+    width: 100%;
+    margin-bottom: 4px;
+    background: white;
+    position: relative;
+  }
+  
+  .placeholder-flex , .skeleton-image-right{
+    display: flex;
+  }
+  
+  .skeleton-image-right {
+    flex-direction: column;
+    margin-left: 5px;
+  }
+  
+  .placeholder-flex {
+    padding: 16px;
+  }
+  
+  .skeleton-image {
+    background: #edeff1;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+  }
+  
+  .skeleton-username {
+    height: 9px;
+    width: 60px;
+    background: #edeff1;
+    border-radius: 3px;
+  }
+  
+  .skeleton-username-1 {
+    align-self: flex-start;
+    margin-bottom: 6px;
+    margin-top: 3px;
+  }
+  
+  .skeleton-username-2 {
+    align-self: flex-start;
+    width: 40px;
+  }
+  
+  .container-title {
+    position: absolute;
+    left: 16px;
+    bottom: 53px;
+    height: 60px;
+    right: 16px;
+  }
+  
+  .placeholder-title {
+  
+    height: 22px;
+    width: 100%;
+    background: #edeff1;
+    margin-bottom: 8px;
+    border-radius: 3px;
+  }
+  
+  .placeholder-title-1 {
+  
+    height: 22px;
+    width: 100%;
+    background: #edeff1;
+    margin-bottom: 8px;
+    border-radius: 3px;
+  }
+  
+  .placeholder-title-2 {
+  
+    height: 22px;
+    width: 70%;
+    background: #edeff1;
+    border-radius: 3px;
+  }
+  
+  
+  
+  ion-item {
+    height: 240px;
+    width: 100%;
+    margin-bottom: 3px;
+  }
+  
+  ion-item {
+    --inner-padding-end: 0px;
+  }
+  
+  .background-image {
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  ion-avatar {
+    height: 30px;
+    width: 30px;
+    border: 1px solid white;
+  }
+  
+  .level {
+  
+    object-fit: contain;
+    height: 15px;
+    width: 15px;
+    margin: -2px 4px;
+    display: inline-block,
+   
+  }
+  
+  .background-image-black {
+    /* background: rgba(0, 0, 0, 0.406); */  /* fallback for old browsers */
+    background: linear-gradient(to top, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.102));
+    position: absolute;
+    height: 240px;
+    width: 100%;
+    bottom: 0px;
+    z-index: 1;
+  }
+  
+  .logo-container {
+    text-align: center;
+  }
+  
+  .logo-container img {
+    height: 16px;
+  }
+  
+  .c {
+    position: relative;
+    height: 240px;
+    width: 100%;
+  }
+  
+  .top-header {
+    padding-top: 10px;
+    padding-bottom: 8px;
+  }
+  
+  
+  .container-item {
+    margin: 4px 0px;
+    background: white;
+    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+  }
+  
+  
+  
+  .user-info .span-userimage, .transparent {
+    vertical-align: middle;
+    display: table-cell;
+  }
+  
+  
+  
+  
+  
+  .span-userimage {
+    padding-top: 2px;
+  }
+  
+  .by-username {
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: table-cell;
+  }
+  
+  .by-username .name {
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  
+  .thread-image {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50px;
+  }
+  
+  
+  
+  .col-text {
+    
+    padding-top: 0px;
+    
+    
+  }
+
+  .user-list {
+    background: transparent;
+  }
+
+ 
+  
+  .virtual-item {
+    background: #EDEFF1;
+  }
+  
+  .col-image {
+    
+    padding-right: 2px;
+    text-align: right;
+  }
+  
+  .dot {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 3px;
+  }
+  
+  
+  
+  .thread-header {
+    height: 55px;
+    padding: 10px 12px 2px 12px;
+    position: absolute;
+    z-index: 30;
+    
+  }
+  
+  .grid {
+    padding: 0px 8px;
+    height: 100px;
+  }
+  
+  .header-link {
+    margin-bottom: 10px;
+  }
+
+  .header-image {
+    background: #dedede;
+  }
+  
+  
+  ion-icon.link {
+    font-size: 16px;
+    margin-right: 5px;
+    color: #3CA8FC;
+  }
+  
+  ion-icon.create {
+    font-size: 16px;
+    color: #DA4242;
+  }
+  
+  ion-icon.poll {
+    font-size: 18px;
+    margin-right: 3px;
+    color: #F9833E;
+  }
+  
+  .thread-title {
+      font-weight: 600;
+      font-size: 24px;
+      color: white;
+      z-index: 30;
+      padding-right: 16px;
+      bottom: 50px;
+      left: 16px;
+      position: absolute;
+      display: inline-block;
+  
+  }
+  
+  
+  
+  .note {
+    padding: 11px;
+    font-size: 12px;
+  }
+  
+  .label {
+    margin: 0;
+  }
+  
+  .item-inner {
+    padding-right: 0px!important;
+  }
+  
+  .heart {
+     color: #EB4B59 !important;
+  }
+  
+  
+  .league {
+    width: 27px;
+    
+  }
+  .league-text {
+   font-size: 14px;
+   margin-left: 8px;
+   font-weight: 500;
+  
+  }
+  
+  div.header-link {
+    display: table;
+  }
+  
+  
+  
+  img.league {
+  vertical-align: middle;
+  display: table-cell;
+  }
+  span.span-container, span.league-text {
+  vertical-align: middle;
+  display: table-cell;
+  }
+  
+  .img-relative {
+    position: relative;
+    height: 75px;
+    width: 75px;
+  
+    
+  }
+  
+  .share {
+    font-weight: 500;
+  }
+  
+  
+  
+  .replies-text {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 5px;
+  }
+  
+  .absolut-top {
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    font-weight: 500;
+    color: white;
+    background: rgba(11, 20, 41, 0.80);
+    text-align: center;
+    font-size: 11px;
+    border-radius: 0px 0px 4px 4px;
+    position: absolute;
+    padding: 3px;
+  }
+  
+  
+  .actions-container {
+    position: absolute;
+    display: flex;
+    height: 45px;
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+    z-index: 30;
+    padding-left: 4px;
+  }
+  
+  .like-div {
+    width: 65px;
+  }
+  
+  .replies-c {
+    margin: 0 auto 0 12px;
+  }
+  
+  
+  .thread-ago {
+    position: absolute;
+    color: white;
+    z-index: 30;
+    top: 16px;
+    left: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+  }
+
+ 
+  
+  ion-icon.comments-icon {
+    font-size: 16px;
+  }
+  
+  ion-icon.share-icon {
+    
+    font-size: 16px;
+    margin-right: 5px !important;
+  }
+
+
+
+.scroll-padding {
+    padding: 7px 5px 7px 10px;
+    height: 56px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.replies-text {
+    font-size: 14px;
+    font-weight: 500;
+   
+}
+
+ion-icon.comment-icon {
+    font-size: 15px;
+}
+
+.icon-scroll {
+    height: 15px;
+    
+   
+}
+
+.container-scroll {
+    height: 400px;
+}
+
+.foll-btn {
+    margin-left: 0px;
+    font-size: 15px; 
+}
+
+.joined {
+  color: #939697;
+  font-size: 15px;
+  margin: 0;
+  padding: 0 8px 0 0;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  ion-icon {
+    margin-right: 5px;
+    margin-top: 1px;
+  }
+}
+
+.level-container {
+    display: flex;
+    align-items: center;
+    height: 55px;
+    width: 100%;
+    
+  }
+
+  .bio {
+    margin: 0;
+    padding: 0 8px 0 0;
+    color: rgb(20, 23, 26);
+    margin-top: 12px;
+  }
+
+
+.league-scroll {
+    width: 68px;
+    height: 39px;
+    display: inline-block;
+    color: black;
+    background: #e8e8e8;
+    text-align: center;
+    padding-top: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    flex: 0 0 auto;
+     
+}
+
+.league-scroll span {
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    
+}
+
+
+
+.active {
+    color: white !important;
+    background: #4264d0;
+}
+  
+  
+
+     
+
+
+
+
+
+
+

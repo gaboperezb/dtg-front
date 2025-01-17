@@ -1,0 +1,177 @@
+
+
+
+<!-- 
+<div class="segmentSearch">
+<ion-segment value="trivia" >
+    <ion-segment-button value="trivia" (touchend)="segmentChanged('trivia')" >
+        <ion-label>Trivia</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="picks" (touchend)="segmentChanged('picks')">
+        <ion-label>Picks</ion-label>
+    </ion-segment-button>
+</ion-segment>
+</div> -->
+
+<div class="placeholders-container" *ngIf="playService.loaderActive">
+
+    <div class="placeholder-item" *ngIf="playService.triviaToggled">
+       
+        <div class="placeholder-trivias-container">
+            <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+             <div class="trivia-container" >
+                <div class="trivia-container-title">
+            
+                </div>
+             </div>
+         </div>
+     
+    </div>
+    <div class="placeholder-item" *ngIf="!playService.triviaToggled">
+        
+        <div class="play-container-title">
+            
+        </div>
+        <div class="play-container-title">
+            
+        </div>
+        <div class="play-container-title">
+            
+        </div>
+        <div class="play-container-title">
+            
+        </div>
+        <div class="play-container-title">
+            
+        </div>
+        <div class="play-container-title">
+            
+        </div>
+        <div class="play-container-title">
+            
+        </div>
+        <div class="play-container-title">
+            
+        </div>
+        <div class="play-container-title">
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+ <div class="trivias" *ngIf="!playService.loaderActive && playService.playToggled">
+     <div class="coming-soon" *ngIf="playService.trivias.length == 0 && playService.triviaToggled">
+        No {{threadsService.filterBy}} trivia open for today
+     </div>
+     <div class="coming-soon" *ngIf="playService.picks.length == 0 && !playService.triviaToggled">
+        No {{threadsService.filterBy}} picks open for today
+     </div>
+
+     <span class="play-header">Trivia</span>
+     <div class="trivias-container" *ngIf="playService.triviaToggled">
+        
+        <div class="trivia-container" *ngFor="let trivia of playService.trivias">
+            <trivia-item  [trivia]="trivia"></trivia-item>
+         </div>
+     </div>
+     <!-- <div class="trivias-container" *ngIf="!playService.triviaToggled">
+        <div class="pick-container" *ngFor="let pick of playService.picks">
+            <pick-item [pick]="pick"></pick-item>
+         </div>
+     </div> -->
+
+   
+</div>
+
+
+
+
+
+

@@ -1,0 +1,97 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-buttons slot="start">
+			<ion-button class="custom-back-button" (click)="goBack()">
+				<ion-icon class="arrow-back" name="chevron-back"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title *ngIf="showTitle">{{leagueToShow}} Featured</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" #featuredPage (ionScroll)="fScroll($event)">
+	
+	<ion-refresher slot="fixed" (ionRefresh)="getFeatured(league, $event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	
+	<div class="curated">
+		<span class="league-featured">{{leagueToShow}} Featured</span>
+		<br>
+		<span class="description-featured">A curated collection of {{leagueToShow == 'ALL' ? "sports" : league}} posts</span>
+	</div>
+	<div *ngIf="loadingFeatured" class="wait-container-2">
+			<ion-spinner name="crescent"></ion-spinner>
+	</div>
+	<ion-list *ngIf="!loadingFeatured" lines="none" class="virtual">
+		<ion-item class="post-item" *ngFor="let thread of featuredThreads" lines="none" detail="false"
+			(click)="itemTapped($event, thread)">
+			<div class="c" [class.default]="!thread.picture">
+				<!-- HEADER -->
+				<div class="thread-header">
+					<div class="header-link user-info" (click)="goToUser($event, thread?.user)">
+						<span class="span-userimage">
+							<ion-avatar>
+								<ion-img [src]="thread?.user?.profilePictureThumbnail" class="profile-pic"></ion-img>
+							</ion-avatar>
+
+						</span>
+						<span class="transparent" style="color: transparent;">::</span>
+						<span class="by-username">
+							<span>{{thread?.user?.username}}</span>
+							<ion-img *ngIf="thread.user.verified" src="assets/imgs/verified.png" class="level">
+							</ion-img>
+							<br>
+							<span class="name-thread">{{thread?.created}}
+								<span class="dot">·</span>
+								<span>{{thread?.league}}</span>
+							</span>
+						</span>
+					</div>
+				</div>
+
+				<!-- TITLE -->
+
+				<span class="thread-title">
+					<ion-icon *ngIf="thread.type == 'Poll' || thread.type == 'A/B'" name="podium" class="poll">
+					</ion-icon>
+					<ion-icon *ngIf="thread.type == 'Link'" name="link" class="link"></ion-icon>{{thread?.title}}
+				</span>
+
+				<!-- ACTIONS -->
+				<div class="actions-container">
+
+					<div class="like-c">
+						<like-thread [initialPath]="'/tabs/tab1'" [thread]="thread" (like)="like(thread)"></like-thread>
+					</div>
+					<div class="replies-c">
+						<div class="like-div">
+							<ion-button color="light" fill="clear" size="small" slot="start">
+								<ion-icon name="comment-white"></ion-icon>
+								<div *ngIf="thread?.replies > 0" class="replies-text">{{thread?.replies}}</div>
+								<div *ngIf="thread?.replies == 0" class="replies-text">Comment</div>
+							</ion-button>
+						</div>
+					</div>
+					<div class="share-c">
+							<div class="">
+								<ion-button color="light" fill="clear" size="small" slot="start"
+									(click)="presentActionSheetShare($event, thread)">
+									<ion-icon class="share-icon" name="share-content-white"></ion-icon>
+								</ion-button>
+							</div>
+	
+						</div>
+				</div>
+				<!-- BACKGROUND -->
+				<div class="background-image-black">
+				</div>
+				<ion-img *ngIf="thread.picture" class="background-image" [src]="thread?.picture"></ion-img>
+			</div>
+		</ion-item>
+	</ion-list>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="35%" [disabled]="hideInfinite || loadingFeatured">
+			<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+
+</ion-content>

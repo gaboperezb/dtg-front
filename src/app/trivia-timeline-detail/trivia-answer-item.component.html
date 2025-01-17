@@ -1,0 +1,102 @@
+
+
+<div [class.ion-item-btn]="true" [id]="answer?._id" [class.focus]="focus == answer._id">
+    <div class="top-thread">
+        <div class="header-link user-info white" padding (click)="goToUser($event, answer.user)">
+            <span class="span-userimage">
+                <img [src]="answer?.user?.profilePictureThumbnail " class="profile-picture">
+            </span>
+            <span class="transparent" style="color: transparent;">::</span>
+            <span class="by-username">
+                <span>{{answer?.user?.username}}</span>
+            
+                <br>
+                <span class="name">{{answer?.created}} ago</span>
+            </span>
+        </div>
+        <div *ngIf="authService.currentUser" class="more-comment">
+            <div *ngIf="answer.user.username == authService.currentUser.username || authService.currentUser.isAdmin">
+                <ion-icon class="more-icon" name="ellipsis-horizontal" (click)="editAnswer(answer)"></ion-icon>
+            </div>
+        </div>
+        
+    </div>
+    <p  class="discussion" >{{answer?.discussion}}</p>
+
+    <div class="actions">
+            <div  class="like-div">
+                <ion-button (click)="like($event, answer)" [class.heart-container]="true" color="medium" [class.custom-btn]="answer.likedByUser"  fill="clear" size="small" slot="start">
+                    <ion-icon [name]="answer.likedByUser ? 'heart-red' : 'heart-outline-gray'"></ion-icon>
+                    <div *ngIf="answer.count > 0"[class.count]="true" [class.custom-btn]="answer.likedByUser" >{{answer?.count}}</div>
+                    <div *ngIf="answer.count == 0" class="cero-likes">Like</div>
+                </ion-button>
+            </div>
+            
+            <div  class="reply-div">
+                <ion-button  (click)="replyTo(answer?.user?.username, answer, answer)" color="medium" fill="clear" size="small" slot="start">
+                    <ion-icon class="reply-icon" name="reply-gray"></ion-icon>
+                    <div class="reply">Reply</div>
+                </ion-button>
+            </div>
+       
+    </div>
+</div>
+
+
+
+
+<div class="hide-container" *ngIf="answer.children.length > 0" (click)="toggleAnswers()">
+<span class="left-hide"></span><span class="right-hide">{{showHide}} replies</span>
+</div>
+
+<div *ngIf="showHideToggle">
+
+    <div [class.ion-item-btn]="true"  [class.child]="true"[id]="child?._id" [class.focus]="focus == child._id" *ngFor="let child of answer.children">
+            <div class="top-thread">
+                <div class="header-link user-info white" padding (click)="goToUser($event, child.user)">
+                    <span class="span-userimage">
+                        <img [src]="child?.user?.profilePictureThumbnail " class="profile-picture-child">
+                    </span>
+                    <span class="transparent" style="color: transparent;">::</span>
+                    <span class="by-username">
+                        <span>{{child?.user?.username}}</span>
+                        
+                        <br>
+                        <span class="name">{{child?.created}} ago</span>
+                    </span>
+        
+                </div>
+                <div *ngIf="authService.currentUser" class="more-comment">
+                        <div *ngIf="child.user.username == authService.currentUser.username || authService.currentUser.isAdmin">
+                            <ion-icon class="more-icon" name="ellipsis-horizontal" (click)="editAnswer(child)"></ion-icon>
+                        </div>
+                </div>
+                
+            </div>
+            <p class="discussion"><span class="responding" (click)="goToUser($event, child.responding)">@{{child?.responding?.username}}</span>{{child?.discussion}}</p>
+        
+            <div class="actions">
+                    <div  class="like-div">
+                        <ion-button (click)="like($event, child)" [class.heart-container]="true" color="medium" [class.custom-btn]="child.likedByUser"  fill="clear" size="small" slot="start">
+                            <ion-icon [name]="child.likedByUser ? 'heart-red' : 'heart-outline-gray'"></ion-icon>
+                            <div *ngIf="child.count > 0" [class.count]="true" [class.custom-btn]="child.likedByUser" >{{child?.count}}</div>
+                            <div *ngIf="child.count == 0" class="cero-likes">Like</div>
+                        </ion-button>
+                    </div>
+                    
+                    <div  class="reply-div">
+                        <ion-button  (click)="replyTo(child.user.username, answer, child)" color="medium" fill="clear" size="small" slot="start">
+                            <ion-icon class="reply-icon" name="reply-gray"></ion-icon>
+                            <div class="reply">Reply</div>
+                        </ion-button>
+                    </div>
+               
+            </div>
+        </div>
+
+
+</div>
+
+<div class="divider-replies">
+
+</div> 

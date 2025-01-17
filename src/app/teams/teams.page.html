@@ -1,0 +1,67 @@
+<ion-header class="team-header">
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-buttons slot="start">
+			<ion-button slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="dismiss()">
+				<ion-icon name="close"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title>Favorite teams</ion-title>
+	</ion-toolbar>
+
+	<ion-content scrollY="false" scrollX="true" class="wide-as-needed" style="width:100vw; height:53px">
+		<div class="scroll-padding" *ngIf="leagues.length > 1">
+			<div *ngFor="let league of leagues" [class.league-scroll]="true" [class.active]="filterBy===league"
+				(click)="getTeams(league)">
+				<span>{{league}}</span>
+			</div>
+		</div>
+	</ion-content>
+	<ion-content scrollY="false" scrollX="true" class="wide-as-needed" style="width:100vw; height:53px"
+		*ngIf="filterBy==='NCAAF' || filterBy==='Soccer'">
+		<div class="scroll-padding">
+			<div *ngFor="let league of subLeaguesCategories" [class.subleague-scroll]="true"
+				[class.sub-active]="filterBySub===league" (click)="selectContextLeague(league)">
+				<span class="sub-league-text">{{league}}</span>
+			</div>
+		</div>
+	</ion-content>
+
+
+	<ion-content scrollY="false" scrollX="true" id="too" class="to" style="width:100vw; height:70px">
+		<div class="fav-padding">
+			<div *ngFor="let team of favAllTeams" class="fav-scroll">
+				<img class="img-favteam" [src]="team.logo">
+				<span class="text-favteam">{{team.abbreviation}}</span>
+			</div>
+		</div>
+	</ion-content>
+
+
+
+</ion-header>
+
+<ion-content>
+
+	<div *ngIf="wait" class="wait-container-2">
+		<ion-spinner name="crescent"></ion-spinner>
+	</div>
+
+	<div class="teams-container" *ngIf="!wait">
+		<div *ngFor="let team of teamsToShow" (click)="addTeam(team)" [class.team-selection]="true"
+			[class.active-team]="team.selected" >
+			<img class="img-league" [src]="team.logo">
+			<span class="text-team">{{team.abbreviation}}</span>
+		</div>
+
+	</div>
+
+
+
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar  class="teams-footer">
+		<ion-button (click)="updateTeams()" color="tertiary" expand="block">DONE</ion-button>
+	</ion-toolbar>
+</ion-footer>
+

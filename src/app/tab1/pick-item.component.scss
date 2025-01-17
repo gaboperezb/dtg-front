@@ -1,0 +1,64 @@
+.pick {
+    min-height: 115px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    background: white;
+    position: relative;
+    padding: 10px 16px 16px 16px;
+}
+
+.pick-question {
+    font-weight: 600;
+    font-size: 15px;
+    flex-basis: 60%;
+    margin: 8px 10px 0 0
+}
+
+.pick-imgs {
+    flex: 1;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .left-img {
+        border-radius: 8px;
+        height: 100%;
+        flex-basis: 40%;
+        background-repeat: no-repeat;
+        background-position: center; 
+        background-size: cover;
+        margin-right: 5px;
+    }
+
+    .versus-img {
+        object-fit: contain;
+        height: 25px;
+        flex: 1;
+    }
+
+    .right-img {
+        margin-left: 5px;
+        border-radius: 8px;
+        height: 100%;
+        flex-basis: 40%;
+        background-repeat: no-repeat;
+        background-position: center; 
+        background-size: cover;
+
+    }
+}
+
+.pick-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.pick-league {
+    font-size: 12px;
+    color: rgb(167, 167, 167);
+    margin: 0px;
+
+}

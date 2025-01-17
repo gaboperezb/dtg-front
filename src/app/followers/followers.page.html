@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+      <ion-buttons slot="start">
+          <ion-button class="custom-back-button" (click)="goBack()">
+            <ion-icon class="sort" name="chevron-back"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+    <div *ngIf="wait" class="wait-container-2">
+        <ion-spinner name="crescent"></ion-spinner>
+    </div>
+    <ion-list lines="none" class="foll-list">
+      <followers-item *ngFor="let user of users" [user]="user"></followers-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="30%" [disabled]="!enableInfinite">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

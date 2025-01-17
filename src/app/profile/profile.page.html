@@ -1,0 +1,295 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+
+		<ion-title>Profile</ion-title>
+		<ion-buttons slot="end" *ngIf="authService.currentUser">
+			<ion-button slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'"
+				(click)="editProfile($event)">
+				<ion-icon name="menu"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content [scrollEvents]="true" #tabFive>
+	<ion-refresher slot="fixed" (ionRefresh)="load($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<div class="background-container header-image" [ngStyle]="userBackground" *ngIf="authService.currentUser">
+		<ion-button *ngIf="!authService.currentUser.coverPhoto" slot="start" fill="clear" size="small" class="add-cover"
+			(click)="addCover()">
+			<ion-icon name="image" class="add-c-icon"></ion-icon>Add a cover photo
+		</ion-button>
+	</div>
+
+	<div class="pic-username" *ngIf="authService.currentUser">
+		<img id="user-pic" [src]="authService?.currentUser?.profilePicture" alt="">
+		<br>
+		<span id="username">{{authService?.currentUser?.username}}</span>
+
+	</div>
+
+	<div class="wait-container" *ngIf="authService.currentUser && wait">
+		<ion-spinner name="crescent"></ion-spinner>
+	</div>
+
+	<div class="fetch-content" *ngIf="authService.currentUser && !wait">
+		<div class="user-info user-header">
+			<div class="info" *ngIf="authService.currentUser">
+				<div *ngIf="!authService.currentUser.verified" class="level-container">
+					<img id="level" *ngIf="global.state['theme'] == 'light' "
+						[src]="authService?.currentUser?.badge.picture.replace('.png', 'L.png')" alt=""
+						(click)="levelsInfo()">
+					
+					<img id="level" *ngIf="global.state['theme'] == 'dark' || global.state['theme'] == 'black' "
+						[src]=" authService.currentUser.badge.picture.replace('.png', 'LN.png')" alt=""
+						(click)="levelsInfo()">
+						<div *ngIf="(authService.currentUser.favAllTeams && authService.currentUser.favAllTeams.length)"
+						[class.line-breaker]="true" [class.star]="authService.currentUser?.badge?.level <= 5"
+						[class.trophy]="authService.currentUser?.badge?.level <= 10 && authService.currentUser?.badge?.level > 5"
+						[class.diamond]="authService.currentUser?.badge?.level <= 15 && authService.currentUser?.badge?.level > 10"
+						[class.crown]="authService.currentUser?.badge?.level <= 19  && authService.currentUser?.badge?.level > 15"
+						[class.twenty]="authService.currentUser?.badge?.level == 20">
+					</div>
+					<div  scrollY="false" scrollX="true" class="scroll-padding-teams">
+						<img *ngFor="let team of teamsToShow" class="fav-team-logo" [src]="team.logo" alt="">
+						<span (click)="addMoreTeams()" *ngIf="extraTeams" class="more-teams">{{extraTeams}}+</span>
+					</div>
+					<!-- <div (click)="levelsInfo()"
+						*ngIf="authService.currentUser.totalPoints <= authService.currentUser.badge.nextPoints"
+						class="progress-outer">
+						<span class="points"
+							*ngIf="authService.currentUser.totalPoints <= authService.currentUser.badge.nextPoints">{{commaPoints}}
+							PTS</span>
+						<div class="progress-inner" [style.width]="displayBar() + '%'">
+						</div>
+					</div> -->
+				</div>
+
+				<div *ngIf="authService.currentUser.verified" class="level-container">
+					<img id="level" src="assets/imgs/verified.png" alt="">
+				</div>
+
+
+				<p *ngIf="authService.currentUser.bio" class="bio">{{authService?.currentUser?.bio}}</p>
+				<p class="joined">
+					<ion-icon [name]="global.state['theme'] == 'light' ? 'joined' : 'joined-night'"></ion-icon>Joined
+					{{authService.currentUser.createdAt | date}}
+				</p>
+
+				<div class="foll-info">
+					<ion-button fill="clear" class="foll-btn foll-m" (click)="following()">
+						<span class="foll-no">{{authService?.currentUser?.followingNumber}}</span><span
+							class="foll-txt">Following</span>
+					</ion-button>
+					<ion-button fill="clear" class="foll-btn" (click)="followers()">
+						<span class="foll-no">{{authService?.currentUser?.followersNumber}}</span><span
+							class="foll-txt">Followers</span>
+					</ion-button>
+
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="segment-container">
+			<div [class.col-selection]="true" [class.col-active]="postsBoolean" (click)="getPostsSegment()">
+				Posts
+			</div>
+			<div [class.col-selection]="true" [class.col-active]="takesBoolean" (click)="getTakesSegment()">
+				Discussions
+			</div>
+			<div [class.col-selection]="true" [class.col-active]="commentsBoolean" (click)="getCommentsSegment()">
+				Comments
+			</div>
+			<div [class.col-selection]="true" [class.col-active]="answersBoolean" (click)="getAnswersSegment()">
+				Replies
+			</div>
+		</div>
+
+		<!-- Segment -->
+
+		<div *ngIf="waitComments" class="wait-container-comments">
+			<ion-spinner name="crescent"></ion-spinner>
+		</div>
+		<div *ngIf="postsBoolean && !waitComments && threads.length == 0" class="nothing">
+			<span>You have not posted anything</span>
+		</div>
+		<div *ngIf="commentsBoolean && !waitComments && comments.length == 0" class="nothing">
+			<span>You have not comment on any post</span>
+		</div>
+		<div *ngIf="answersBoolean && !waitComments && answers.length == 0" class="nothing">
+			<span>You have not replied to anyone</span>
+		</div>
+		<div *ngIf="takesBoolean && !waitComments && takes.length == 0" class="nothing">
+			<span>You have not created any discussions</span>
+		</div>
+
+		<!-- Posts -->
+
+		<ion-list no-lines *ngIf="!waitComments && postsBoolean" class="profile-list">
+			<ion-item class="thread user-post-item ion-no-padding ion-no-lines" *ngFor="let thread of threads"
+				(click)="goToThread(thread)">
+				<div class="c">
+					<!-- HEADER -->
+					<span class="thread-ago">{{thread?.created}} ago</span>
+					<ion-button fill="clear" class="delete-thread" (click)="deleteOrEdit($event, thread, 'post')">
+						<ion-icon class="more-icon" name="ellipsis-horizontal"></ion-icon>
+					</ion-button>
+
+					<!-- TITLE -->
+
+					<span class="thread-title">
+						<ion-icon *ngIf="thread.type == 'Poll' || thread.type == 'A/B'" name="podium" class="poll">
+						</ion-icon>
+						<ion-icon *ngIf="thread.type == 'Link'" name="link" class="link"></ion-icon>{{thread?.title}}
+					</span>
+
+					<!-- ACTIONS -->
+					<div class="actions-container">
+
+						<div class="like-c">
+							<like-thread [initialPath]="'/tabs/tab5'" [thread]="thread" (like)="like(thread)">
+							</like-thread>
+						</div>
+						<div class="replies-c">
+							<div class="like-div">
+								<ion-button color="light" fill="clear" size="small" slot="start">
+									<ion-icon class="comments-icon" name="comment-white"></ion-icon>
+									<div class="replies-text">{{thread.replies}}</div>
+								</ion-button>
+							</div>
+						</div>
+						<div class="replies-v">
+							<div class="like-div">
+								<ion-button color="light" fill="clear" size="small" slot="start">
+									<ion-icon class="comments-icon views-icon" name="views"></ion-icon>
+									<div class="replies-text">{{thread.views}}</div>
+								</ion-button>
+							</div>
+						</div>
+						<div class="share-c">
+							<div class="">
+								<ion-button color="light" fill="clear" size="small" slot="start"
+									(click)="presentActionSheetShare($event, thread)">
+									<ion-icon class="share-icon" name="share-content-white"></ion-icon>
+
+								</ion-button>
+							</div>
+
+						</div>
+					</div>
+					<!-- BACKGROUND -->
+					<div class="background-image-black">
+					</div>
+					<ion-img class="background-image" [src]="thread?.picture"></ion-img>
+				</div>
+			</ion-item>
+		</ion-list>
+
+
+		<!-- Takes -->
+		<div class="takes" *ngIf="!waitComments && takesBoolean">
+			<profile-take-item *ngFor="let take of takes" [take]="take" [takes]="takes"
+				(filterTake)="filterTake($event)" [showUser]="false"></profile-take-item>
+		</div>
+
+
+
+		<!-- Comments -->
+
+
+		<div *ngIf="commentsBoolean && !waitComments">
+			<div *ngFor="let comment of comments" class="profile-comment" (click)="goToComment(comment)">
+				<div class="top-comment">
+					<span class="name">{{comment?.created}} ago
+						<span class="dot" *ngIf="comment.thread">·</span>
+						<span *ngIf="comment.thread" (click)="goToObject($event, comment)"
+							class="thread-or-game">{{comment?.thread?.title}}</span>
+					</span>
+					<div class="more-col">
+						<ion-icon class="more-icon" name="ellipsis-horizontal"
+							(click)="deleteComment($event, comment, 'comment')">
+						</ion-icon>
+					</div>
+				</div>
+
+				<p class="d-text">{{comment?.discussion}}</p>
+
+				<div class="comment-actions">
+					<div class="like-c">
+						<like-thread [initialPath]="'/tabs/tab5'" [thread]="comment" (like)="likeComment(comment)"
+							[color]="'medium'"></like-thread>
+					</div>
+					<div class="replies-c" *ngIf="comment.numberOfAnswers > 0">
+						<div class="like-div">
+							<ion-button color="primary" fill="clear" size="small" slot="start">
+								<ion-icon class="comments-icon" name="comment-gray"></ion-icon>
+								<div class="replies-text-comments">{{comment?.numberOfAnswers}}</div>
+							</ion-button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Answers -->
+
+
+
+		<div *ngIf="answersBoolean && !waitComments">
+			<div *ngFor="let comment of answers" class="profile-comment" (click)="goToAnswer(comment)">
+				<div class="top-comment">
+					<span class="name">{{comment?.answers.created}} ago
+						<span class="dot" *ngIf="comment.thread">·</span>
+						<span *ngIf="comment.thread" (click)="goToObject($event, comment)"
+							class="thread-or-game">{{comment?.thread?.title}}</span>
+
+						<br>
+						<span class="in-response">Replying to</span>
+						<span class="responding" (click)="goToUser($event, comment.answers.responding)">
+							@{{comment?.answers?.responding?.username}}</span>
+					</span>
+					<div class="more-col">
+						<ion-icon class="more-icon" name="ellipsis-horizontal"
+							(click)="deleteComment($event, comment, 'answer')">
+						</ion-icon>
+					</div>
+				</div>
+
+				<p class="d-text">{{comment?.answers?.discussion}}</p>
+
+				<div class="comment-actions">
+					<div class="replies-c">
+						<like-thread [initialPath]="'/tabs/tab5'" [thread]="comment.answers"
+							(like)="likeAnswer($event, comment)" [color]="'medium'"></like-thread>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+		<ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="30%" [disabled]="!enableInfinite">
+			<ion-infinite-scroll-content></ion-infinite-scroll-content>
+		</ion-infinite-scroll>
+	</div>
+
+
+	<div class="no-notifications" *ngIf="!authService.currentUser">
+		<span>Sign in to see your profile</span>
+		<ion-button expand="block" id="sign-in-btn" (click)="goToSign()">SIGN IN</ion-button>
+	</div>
+</ion-content>

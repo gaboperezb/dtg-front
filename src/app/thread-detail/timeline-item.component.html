@@ -1,0 +1,49 @@
+<div class="ion-item-btn" detail="false">
+    <div class="top-thread">
+        <div class="header-link user-info white ion-padding" (click)="goToUser($event, timeline.user)">
+            <span class="span-userimage">
+                <img [src]="timeline?.user?.profilePictureThumbnail " class="profile-picture">
+            </span>
+            <span class="transparent" style="color: transparent;">::</span>
+            <span class="by-username">
+                <span>{{timeline?.user?.username}}</span>
+                <br>
+                <span class="name">{{timeline?.created}} ago</span>
+            </span>
+
+        </div>
+        <div *ngIf="authService.currentUser">
+            <div
+                *ngIf="timeline.user.username === authService.currentUser.username || authService.currentUser.isAdmin">
+                <ion-icon class="more-icon" name="ellipsis-horizontal" (click)="edit()"></ion-icon>
+            </div>
+        </div>
+
+    </div>
+    <p class="discussion" (click)="goToDetail()">{{timeline?.discussion}}</p>
+
+    <div class="actions">
+        <div class="like-div">
+            <ion-button [class.heart-container]="true" color="medium" [class.custom-btn]="timeline.likedByUser"
+                fill="clear" size="small" slot="start" (click)="like()">
+                <ion-icon class="heart-icon" [name]="timeline.likedByUser ? 'heart-red' : 'heart-outline-gray'">
+                </ion-icon>
+                <div *ngIf="timeline.count > 0" [class.custom-btn]="timeline.likedByUser">{{timeline?.count}}</div>
+                <div *ngIf="timeline.count == 0" class="cero-likes">Like</div>
+            </ion-button>
+        </div>
+        <div class="comment-div" *ngIf="timeline.numberOfAnswers > 0">
+            <ion-button color="medium" fill="clear" size="small" slot="start" (click)="goToDetail()">
+                <ion-icon class="comment-icon" name="comment-gray"></ion-icon>
+                <div class="replies-text">{{timeline?.numberOfAnswers}} </div>
+            </ion-button>
+        </div>
+        <div class="reply-div">
+            <ion-button (click)="replyTo()" color="medium" fill="clear" size="small" slot="start">
+                <ion-icon class="reply-icon" name="reply-gray"></ion-icon>
+                <div class="reply">Reply</div>
+            </ion-button>
+        </div>
+
+    </div>
+</div>

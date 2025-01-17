@@ -1,0 +1,48 @@
+
+ion-icon {
+    margin: 0;
+    
+}
+
+.dtg ion-icon {
+    font-size: 36px;
+    margin-bottom: 2px;
+}
+
+
+/* .games ion-icon {
+    font-size: 30px;
+}  */ 
+
+.new-post ion-icon {
+   font-size: 42px;
+}
+
+/* .notifications ion-icon {
+    font-size: 30px;
+}  */
+.profile-pic {
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 10;
+  
+}
+
+ion-badge {
+    --background: #e63d3d;
+}
+.profile ion-icon {
+    font-size: 26px;
+}
+
+ion-icon.profile-selected {
+    font-size: 38px !important;
+}
+
+
+.tab-disabled {
+    opacity: 1 !important;
+}

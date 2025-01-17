@@ -1,0 +1,90 @@
+
+    #title {
+        color:  rgb(20, 23, 26);
+        border-bottom: 1px solid #ececec;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        padding-bottom: 7px;
+        
+    
+    }
+
+    ion-item {
+        --border-style: none;
+        --inner-padding-end: 0px;
+        --padding-start: 0px;
+    }
+
+    .custom-div {
+        --height: 100%;
+    }
+
+    .item-md {
+        --padding-left: 0px !important;
+    }
+
+    .toast {
+        background-color: dodgerblue;
+    }
+
+    .sub-div-add-comment  {
+        padding: 16px;
+        height: 100%;
+
+    }
+
+
+    .item-ios {
+        --padding-left:  0px !important;
+        --border-bottom: "3px solid rgb(12, 20, 42)";
+    }
+    
+    #send {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .textarea-input {
+        border-bottom: 3px solid #0c142a;
+        margin: 0px;
+    }
+
+    #in-response {
+        color:  rgb(20, 23, 26);
+        border-bottom: 1px solid #ececec;
+        padding-bottom: 15px;
+        font-size: 16px;
+
+    }
+
+    .username {
+        color: #117DDC;
+        font-size: 16px;
+    }
+
+    #arrow {
+        margin-right: 8px;
+        font-size: 17px;
+    }
+
+  
+   
+
+    ion-scroll { 
+        white-space: nowrap;
+        height: 150px;
+     }
+
+    .scroll-content {
+        padding: 78px 16px; 
+        
+    }
+
+    
+
+  
+
+    
+

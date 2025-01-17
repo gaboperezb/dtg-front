@@ -1,0 +1,135 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-buttons slot="start">
+			<ion-button slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="dismissModal()">
+				<ion-icon name="close"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+	<div class="content-popout">
+		<div class="user-points-info" *ngIf="authService.currentUser">
+			<img [src]="authService.currentUser.profilePicture" alt="" id="user-pic">
+			<span class="center">{{authService.currentUser.username}}</span>
+			<ul class="ul-points">
+				<li class="first-top">
+					<span>Points: </span>
+					<span class="points-text">{{authService.currentUser.totalPoints}}</span>
+				</li>
+				<li class="first-top">
+					<span>Points to reach next level: </span>
+					<span class="points-text">{{authService.currentUser.badge.nextPoints}}</span>
+
+				</li>
+				<li class="first-top">
+					<ion-row align-items-center>
+						<ion-col  class="no-padding level-cont">
+							<span class="info-level">Current Level:</span>
+						</ion-col>
+						<ion-col >
+							<img [src]="authService.currentUser.badge.picture" alt="">
+						</ion-col>
+					</ion-row>
+				</li>
+				<li class="first-top">
+					<ion-row align-items-center>
+						<ion-col  class="no-padding level-cont">
+							<span class="info-level">Next Level:</span>
+						</ion-col>
+						<ion-col>
+							<img [src]="authService.currentUser.badge.nextPicture" alt="">
+						</ion-col>
+					</ion-row>
+				</li>
+			</ul>
+		</div>
+		<h4 class="how-text">How to get points</h4>
+		<ul class="how">
+			<li>
+				<ion-row align-items-center>
+					<ion-col size="3">
+						<img src="assets/imgs/1POINT.png" alt="" class="point">
+					</ion-col>
+					<ion-col size="9">
+						<span>Getting a like on one of your comments, posts or discussions</span>
+					</ion-col>
+				</ion-row>
+			</li>
+			<li>
+				<ion-row align-items-center>
+					<ion-col size="3">
+						<img src="assets/imgs/1POINT.png" alt="" class="point">
+					</ion-col>
+					<ion-col size="9">
+						<span>Getting a comment on one of your posts or discussions</span>
+					</ion-col>
+				</ion-row>
+			</li>
+			<li>
+				<ion-row align-items-center>
+					<ion-col size="3">
+						<img src="assets/imgs/5POINT.png" alt="" class="point">
+					</ion-col>
+					<ion-col size="9">
+						<span>Sending a comment</span>
+					</ion-col>
+				</ion-row>
+			</li>
+			<li>
+				<ion-row align-items-center>
+					<ion-col size="3">
+						<img src="assets/imgs/5POINT.png" alt="" class="point">
+					</ion-col>
+					<ion-col size="9">
+						<span>Creating a discussion</span>
+					</ion-col>
+				</ion-row>
+			</li>
+			<li>
+				<ion-row align-items-center>
+					<ion-col size="3">
+						<img src="assets/imgs/5POINT.png" alt="" class="point">
+					</ion-col>
+					<ion-col size="9">
+						<span>Answering a daily trivia correctly</span>
+					</ion-col>
+				</ion-row>
+			</li>
+			<li>
+				<ion-row align-items-center>
+					<ion-col size="3">
+						<img src="assets/imgs/10POINT.png" alt="" class="point">
+					</ion-col>
+					<ion-col size="9">
+						<span>Getting a follower</span>
+					</ion-col>
+				</ion-row>
+			</li>
+			<li>
+				<ion-row align-items-center>
+					<ion-col size="3">
+						<img src="assets/imgs/30POINT.png" alt="" class="point">
+					</ion-col>
+					<ion-col size="9">
+						<span>Writing a post</span>
+					</ion-col>
+				</ion-row>
+			</li>
+			<li>
+					<ion-row align-items-center>
+						<ion-col size="3">
+							<img src="assets/imgs/50POINT.png" alt="" class="point">
+						</ion-col>
+						<ion-col size="9">
+							<span>Getting one of your posts featured</span>
+						</ion-col>
+					</ion-row>
+				</li>
+		</ul>
+		<p class="info">All the content that you post must be relevant. Your account may be suspended if it's not.</p>
+	</div>
+
+</ion-content>

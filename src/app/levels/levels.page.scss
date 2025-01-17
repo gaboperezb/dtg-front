@@ -1,0 +1,159 @@
+
+
+    .point {
+        height: 60px;
+        width: 60px;
+        object-fit: contain;
+    }
+    
+    
+    .user-points-info ul li img  {
+        height: 30px;
+        width: 30px;
+        object-fit: contain;
+    }
+
+    .info {
+        color: white;
+    text-align: center;
+    font-weight: 500;
+    font-style: italic;
+    }
+    
+    
+    
+    .user-points-info {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+        border-bottom: 3px solid white;
+        margin-bottom: 30px;
+        padding-bottom: 5px;
+        padding: 16px;
+        border-radius: 15px;
+        background: white;
+    
+    }
+
+    .center {
+        display: block;
+        margin: 3px auto;
+        text-align: center;
+        color: #22263c;
+    }
+    
+    
+    
+    
+    .user-points-info ul {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        list-style: none;
+        margin-bottom: 0;
+        text-align: left;
+        border-top: 1px solid #d0d0d0;
+        padding-top: 15px;
+    
+    }
+
+    .info-level {
+        
+        display: inline-block;
+    }
+
+    ion-content {
+        --background: #343a56;
+    }
+
+    .how-text {
+        color: white;
+        /* text-align: center; */
+        background: #4264d0;
+        border-radius: 15px;
+        /* text-align: center; */
+        padding: 10px;
+        width: auto;
+        display: block;
+        text-align: center;
+        /* width: 70%; */
+        margin: 0 auto;
+    }
+
+    
+
+
+    .content-popout ul {
+        list-style-type: none;
+        width: 100%;
+        list-style: none;
+        margin-bottom: 0;
+        text-align: left;
+    }
+    
+    .content-popout ul li {
+        margin-bottom: 3px;
+    }
+    
+    .content-popout ul.how li span {
+        font-weight: 600;
+        margin-left: 3px;
+    }
+    
+    .information {
+        margin-left: 5px;
+        font-size: 14px;
+        color: #65737F;
+        font-weight: lighter;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    
+
+    .content-popout span {
+        font-size: 18px;
+    font-weight: 600;
+    color: #22263c;
+    }
+
+    .points-text {
+        font-weight: 600;
+        color: #65737F;
+    }
+
+    .how {
+        padding: 16px;
+        border-radius: 15px;
+        background: white;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+    }
+
+    .no-padding {
+        padding: 0px !important;
+    }
+
+    .banner {
+        width: 80%;
+        text-align: center;
+        margin: 20px auto;
+        display: block;
+        height: 30px;
+        object-fit: contain;
+    }
+
+    #user-pic {
+        height: 52px;
+        width: 52px;
+        object-fit: cover;
+        border-radius: 50px;
+        display: block;
+        margin: 0 auto;
+    }
+    .first-top {
+        margin-bottom: 12px !important;
+    }
+
+    ion-col {
+        display: flex;
+        align-items: center;
+    }
+
+    

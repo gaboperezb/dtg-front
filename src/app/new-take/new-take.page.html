@@ -1,0 +1,154 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-buttons slot="start">
+			<ion-button slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'"
+				(click)="dismiss()">
+				<ion-icon name="close"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+
+		<ion-buttons slot="end">
+            <ion-button [disabled]="!take" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="submit()" id="send">
+                POST
+            </ion-button>
+        </ion-buttons>
+
+	</ion-toolbar>
+
+	<ion-item id="selection" lines="none">
+		<ion-icon slot="start" name="trophy" id="trophy"></ion-icon>
+		<ion-label class="choose-text">Feed</ion-label>
+		<ion-select #leagueSelection [(ngModel)]="league" (ionChange)="selectChange($event)"
+			(ionCancel)="selectCancel()">
+			<ion-select-option value="NBA">NBA</ion-select-option>
+			<ion-select-option value="NFL">NFL</ion-select-option>
+			<ion-select-option value="Soccer">Soccer</ion-select-option>
+			<ion-select-option value="MLB">MLB</ion-select-option>
+			<ion-select-option value="NHL">NHL</ion-select-option>
+			<ion-select-option value="NCAAF">NCAAF</ion-select-option>
+			<ion-select-option value="NCAAB">NCAAB</ion-select-option>
+			<ion-select-option value="NFL Fantasy">NFL Fantasy</ion-select-option>
+			<ion-select-option value="MMA">MMA</ion-select-option>
+			<ion-select-option value="Boxing">Boxing</ion-select-option>
+			<ion-select-option value="Tennis">Tennis</ion-select-option>
+			<ion-select-option value="Golf">Golf</ion-select-option>
+			<ion-select-option value="Motorsports">Motorsports</ion-select-option>
+			<ion-select-option value="General">General</ion-select-option>
+		</ion-select>
+	</ion-item>
+</ion-header>
+
+<ion-content class="ion-padding" #createContent>
+
+	<!-- Form -->
+	<ion-list lines="none" class="new-thread-list">
+		<!-- Teams -->
+		<div class="team-container" *ngIf="teamsAvailable">
+		
+			<div *ngFor="let postTeam of postTeams, let i = index, trackBy: customTrackByTeams" class="poll-flex">
+				<ion-item id="selection-team" lines="none">
+					<ion-icon slot="start" name="team" id="trophy"></ion-icon>
+					<ion-label class="choose-text">Team (optional)</ion-label>
+					<ion-select [disabled]="!league" [name]="'select-'+i" [ngModelOptions]="{standalone: true}"
+						[(ngModel)]="postTeams[i]">
+						<ion-select-option *ngFor="let team of teams" [value]="team.teamName">{{team.teamName}}
+						</ion-select-option>
+					</ion-select>
+				</ion-item>
+				<span *ngIf="postTeams[0].length > 0" (click)="deletePostTeam(i)"
+					class="delete-option-team">Delete</span>
+			</div>
+
+			<ion-item id="add-button-item" lines="none">
+				<ion-button color="primary" (click)="addPostTeam()">Add another team</ion-button>
+			</ion-item>
+		</div>
+
+		<!-- Teams -->
+		<ion-item id="input-title" class="new-item description-item">
+			<ion-label color="primary" position="stacked" class="count-title">{{count}}</ion-label>
+			<div class="">
+				<ion-textarea (ionFocus)="elementFocus($event)" autocapitalize="on" rows="6" [ngModelOptions]="{standalone: true}" (keyup)="wordCount()"
+				(keydown)="wordCount()" placeholder="Your discussion" autocorrect="on" [(ngModel)]="take"
+				class="textarea post-textarea" id="take" [attr.maxlength]=300></ion-textarea>
+			</div>
+			
+		</ion-item>
+
+		<ion-item *ngIf="link" class="link-item new-item url-item textarea">
+			<ion-textarea (ionFocus)="elementFocus($event)" [ngModelOptions]="{standalone: true}" type="text" rows="2"
+				placeholder="URL" [(ngModel)]="url" class="textarea" id="linkId"></ion-textarea>
+		</ion-item>
+		
+	</ion-list>
+	<div class="photo-container" *ngIf="selection != 'video'">
+		<input accept="image/*" (change)="onChange($event)" id="file" type="file" class="form-control-file inputfile" />
+		
+		<div class="image-container" *ngIf="threadPicture">
+			<ion-icon name="trash" class="trash" (click)="deletePicture()"></ion-icon>
+			<img (load)="imageLoaded($event)" class="media-file" [src]="threadPicture" alt="">
+		</div>
+	</div>
+
+	<div class="poll-container" *ngIf="poll">
+		<div *ngFor="let option of options, let i = index, trackBy: customTrackBy" class="poll-flex">
+			<ion-item class="option-item">
+				<ion-label class="option-number" color="primary">{{i + 1}}</ion-label>
+				<ion-input autocapitalize="on" (ionFocus)="elementFocus($event)" [name]="'input-'+i" [id]="'poll'+i" [ngModelOptions]="{standalone: true}" type="text"
+					placeholder="Poll option" [(ngModel)]="options[i]" class="add-option" [attr.maxlength]=30>
+				</ion-input>
+			</ion-item>
+			<span *ngIf="i > 1" (click)="deleteOption(i)" class="delete-option">x</span>
+		</div>
+
+		<ion-item id="add-button-item">
+			<ion-button color="primary" (click)="addOption()">Add another option</ion-button>
+		</ion-item>
+	</div>
+
+	<div class="media-container" *ngIf="base64VideoThumbnail">
+		
+        <div class="video-container">
+            <ion-icon name="trash" class="trash" (click)="deleteVideo()"></ion-icon>
+			<img [src]="base64VideoThumbnail" alt="" class="media-file" (click)="onChangeVideo($event)">
+			<img class="play-img" src="assets/imgs/play.png" alt="" (click)="onChangeVideo($event)">	
+        </div>   
+    </div>
+
+</ion-content>
+
+<div class="progress-container" *ngIf="toggleProgress">
+	<div class="progress-div">
+		<div class="progress-top">
+			<span>Generating video preview...</span>
+		</div>
+		<div class="progress-bottom">
+			<div class="progress-outer" >
+				<div [style.width]="progress + '%'" class="progress-inner">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ion-footer>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'secondary'">
+		<ion-buttons slot="start">
+			<label id="label-profile-picture" for="file" [class.btn-selected]="threadPicture" class="f-btn">
+				<ion-icon name="image"></ion-icon>
+			</label>
+
+			<ion-button class="f-btn" [class.btn-selected]="base64VideoThumbnail" slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="onChangeVideo($event)">
+				<ion-icon name="videocam"></ion-icon>
+			</ion-button>
+
+			<ion-button class="f-btn" [class.btn-selected]="poll" slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="pollTake()">
+				<ion-icon name="bar-chart" class="poll-icon"></ion-icon>
+			</ion-button>
+	
+			<ion-button class="f-btn" [class.btn-selected]="link" slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'" (click)="linkTake()">
+				<ion-icon name="link"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-footer>

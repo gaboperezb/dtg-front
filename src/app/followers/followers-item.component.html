@@ -1,0 +1,12 @@
+<ion-item class="foll-item" (click)="goToUser()" lines="none">
+        <ion-avatar slot="start">
+            <img class="profile-pic" [src]="user?.profilePictureThumbnail">
+        </ion-avatar>
+        <span class="foll-username">{{user?.username}}</span>
+        <div slot="end" [class.follow]="!user.provFollowing" [class.following]="user.provFollowing" (click)="followUser($event)">
+            <span *ngIf="!user.provFollowing && !user.loadingFollow">Follow</span>
+            <span *ngIf="user.provFollowing && !user.loadingFollow">Following</span>
+            <span *ngIf="user.loadingFollow">Loading..</span>
+        </div> 
+    </ion-item>
+    

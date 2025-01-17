@@ -1,0 +1,79 @@
+<ion-header>
+	<ion-toolbar [color]="global.state['theme'] == 'light' ? 'light' : 'primary'">
+		<ion-buttons slot="start">
+			<ion-button slot="icon-only" [color]="global.state['theme'] == 'light' ? 'blacky' : 'light'"
+				(click)="dismiss()">
+				<ion-icon name="close"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+
+	</ion-toolbar>
+
+	<ion-item id="selection" lines="none">
+		<ion-icon slot="start" name="trophy" id="trophy"></ion-icon>
+		<ion-label class="choose-text">Feed</ion-label>
+		<ion-select #leagueSelection [(ngModel)]="take.league" (ionChange)="selectChange($event)">
+			<ion-select-option value="NBA">NBA</ion-select-option>
+			<ion-select-option value="NFL">NFL</ion-select-option>
+			<ion-select-option value="Soccer">Soccer</ion-select-option>
+			<ion-select-option value="MLB">MLB</ion-select-option>
+			<ion-select-option value="NHL">NHL</ion-select-option>
+			<ion-select-option value="NCAAF">NCAAF</ion-select-option>
+			<ion-select-option value="NCAAB">NCAAB</ion-select-option>
+			<ion-select-option value="NFL Fantasy">NFL Fantasy</ion-select-option>
+			<ion-select-option value="MMA">MMA</ion-select-option>
+			<ion-select-option value="Boxing">Boxing</ion-select-option>
+			<ion-select-option value="Tennis">Tennis</ion-select-option>
+			<ion-select-option value="Golf">Golf</ion-select-option>
+			<ion-select-option value="Motorsports">Motorsports</ion-select-option>
+			<ion-select-option value="General">General</ion-select-option>
+		</ion-select>
+	</ion-item>
+</ion-header>
+
+<ion-content class="ion-padding" #createContent>
+
+	<!-- Form -->
+	<ion-list lines="none" class="new-thread-list">
+		<!-- Teams -->
+		<div class="team-container" *ngIf="teamsAvailable">
+			
+			<div *ngFor="let postTeam of postTeams, let i = index, trackBy: customTrackByTeams" class="poll-flex">
+				<ion-item id="selection-team" lines="none">
+					<ion-icon slot="start" name="team" id="trophy"></ion-icon>
+					<ion-label class="choose-text">Team (optional)</ion-label>
+					<ion-select [disabled]="!take.league" [name]="'select-'+i" [ngModelOptions]="{standalone: true}"
+						[(ngModel)]="postTeams[i]">
+						<ion-select-option *ngFor="let team of teams" [value]="team.teamName">{{team.teamName}}
+						</ion-select-option>
+					</ion-select>
+				</ion-item>
+				<span *ngIf="postTeams[0].length > 0" (click)="deletePostTeam(i)"
+					class="delete-option-team">Delete</span>
+			</div>
+
+			<ion-item id="add-button-item" lines="none">
+				<ion-button color="primary" (click)="addPostTeam()">Add another team</ion-button>
+			</ion-item>
+		</div>
+
+		<!-- Teams -->
+
+		<ion-item id="input-title" class="new-item">
+			<ion-label color="primary" position="stacked" class="count-title">{{count}}</ion-label>
+			<ion-textarea autocapitalize="on" rows="6" [ngModelOptions]="{standalone: true}" (keyup)="wordCount()"
+				(keydown)="wordCount()" placeholder="What's happening?" autocorrect="on" [(ngModel)]="take.take"
+				class="textarea" id="take" [attr.maxlength]=300></ion-textarea>
+		</ion-item>
+		<ion-item *ngIf="link" class="link-item new-item url-item textarea">
+			<ion-textarea  [ngModelOptions]="{standalone: true}" type="text" rows="2"
+				placeholder="Copy or write a URL here" [(ngModel)]="take.url" class="textarea" id="linkId"></ion-textarea>
+		</ion-item>
+		
+	</ion-list>
+
+
+	<ion-button color="warning" expand="block" id="post" (click)="submit()">SAVE</ion-button>
+
+</ion-content>
+

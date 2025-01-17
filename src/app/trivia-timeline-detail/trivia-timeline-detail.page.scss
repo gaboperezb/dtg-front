@@ -1,0 +1,151 @@
+
+    div.header-link {
+        display: table;
+       
+        
+    }
+
+    .timeline-detail {
+        position: relative;
+    }
+
+    .more-comment {
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        display: inline-block;
+    }
+
+    .answer-list {
+        margin-bottom: 70px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+       
+    }
+    
+    
+    ion-icon.more-icon {
+        font-size: 16px !important;
+    }
+
+    .user-info .span-userimage, .transparent {
+        vertical-align: middle;
+        display: table-cell;
+    }
+
+    .profile-picture {
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        object-fit: cover;
+        
+    }
+
+    ion-icon.comment-icon {
+        font-size: 16px !important;
+    }
+
+    .spinner-container {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .by-username {
+        color:  rgb(20, 23, 26);
+        font-weight: 500;
+        font-size: 13px;
+        margin-left: 10px;
+        vertical-align: middle;
+        display: table-cell;
+        padding-bottom: 4px;
+    }
+
+    .level {
+        height: 15px;
+        width: 15px;
+        object-fit: contain;
+        margin: -2px 4px;
+    }
+
+    .level-container {
+        height: 20px;
+        
+    }
+
+    .by-username .name {
+        color: rgb(161, 161, 161);
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .discussion {
+        color:  rgb(20, 23, 26);
+      
+        white-space: pre-wrap;
+    font-size: 15px;
+    line-height: 130%;
+
+    }
+
+    
+
+   
+
+    .wait-container-2 {
+        text-align: center;
+        padding-top: 16px;
+    }
+
+    
+
+    .heart {
+        color: #EB4B59 !important;
+    }
+
+    .reply-to {
+        font-weight: 600;
+    }
+
+    .replies-text {
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+
+    .comment-container {
+        padding: 2px 0px 10px 0px;
+    }
+
+    ion-col {
+        text-align: center;
+    }
+
+    .comment {
+        background: #F6F7F8;
+        border: 1px solid #EDEFF1;
+        border-radius: 3px;
+        color: #959798;
+        padding: 0px 10px;
+        line-height: 33px;
+        height: 35px;
+    }
+
+
+    .divider {
+        height: 1px;
+        background: #EDEFF1;
+        margin: 5px -16px;
+    }
+
+
+    .c-padding {
+        padding: 0px 16px !important;
+
+    }
+
+    .c-padding-top {
+        padding-top: 16px !important;
+
+    }

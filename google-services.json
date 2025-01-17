@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "594525853654",
+    "firebase_url": "https://discuss-thegame-b7338.firebaseio.com",
+    "project_id": "discuss-thegame-b7338",
+    "storage_bucket": "discuss-thegame-b7338.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594525853654:android:9cb6ad2fd2b20846",
+        "android_client_info": {
+          "package_name": "com.discussthegame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594525853654-lidlrs9vaajnr814b45jvtqovj964tne.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUN8YGW4XFL1RMaWaeqqeMJ6fY5n_4vwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594525853654-lidlrs9vaajnr814b45jvtqovj964tne.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "594525853654-5j3p7klol7beelce7pqeditujhn1292s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.discussthegame"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

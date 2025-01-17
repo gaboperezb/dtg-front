@@ -1,0 +1,119 @@
+.sorting-container {
+    display: flex;
+    height: 44px;
+    background: #EDEFF1;
+    align-items: center;
+  }
+
+  .sort-container {
+    flex: 1;
+  }
+
+  .c-icon {
+    margin-right: 5px;
+    font-size: 15px !important;
+    margin-top: -2px;
+  }
+
+  .sortBy {
+    color: #878A8C;
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+
+  .dropdown {
+    font-size: 8px !important;
+  }
+  
+
+
+  //Placeholders
+
+  /* THREAD */
+
+.placeholder-item {
+    height: 180px;
+    width: 100%;
+    background: white;
+    position: relative;
+    border-bottom: 1px solid #edeff1;
+  }
+  
+  .placeholder-flex , .skeleton-image-right{
+    display: flex;
+  }
+  
+  .skeleton-image-right {
+    flex-direction: column;
+    margin-left: 5px;
+  }
+  
+  .placeholder-flex {
+    padding: 16px;
+  }
+  
+  .skeleton-image {
+    background: #edeff1;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+  }
+
+  .placeholders-container{
+    background: #edeff1;
+}
+  
+  .skeleton-username {
+    height: 9px;
+    width: 60px;
+    background: #edeff1;
+    border-radius: 3px;
+  }
+  
+  .skeleton-username-1 {
+    align-self: flex-start;
+    margin-bottom: 6px;
+    margin-top: 3px;
+  }
+  
+  .skeleton-username-2 {
+    align-self: flex-start;
+    width: 40px;
+  }
+  
+  .container-title {
+    position: absolute;
+    left: 16px;
+    bottom: 35px;
+    height: 55px;
+    right: 16px;
+  }
+
+  
+  
+  .placeholder-title {
+  
+    height: 16px;
+    width: 100%;
+    background: #edeff1;
+    margin-bottom: 8px;
+    border-radius: 3px;
+  }
+  
+  .placeholder-title-1 {
+  
+    height: 17px;
+    width: 100%;
+    background: #edeff1;
+    margin-bottom: 8px;
+    border-radius: 3px;
+  }
+  
+  .placeholder-title-2 {
+  
+    height: 17px;
+    width: 70%;
+    background: #edeff1;
+    border-radius: 3px;
+  }

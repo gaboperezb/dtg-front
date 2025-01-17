@@ -1,0 +1,39 @@
+<ion-tabs #dtgTabs >
+
+  <ion-tab-bar slot="bottom" [color]="global.state['theme'] == 'light' ? 'light' : 'primary'" id="myTabBar" mode="ios">
+    <ion-tab-button class="dtg" tab="tab1" (click)="toTop()" #dtgTab1 [disabled]="!authService.swipeBack">
+      <ion-icon *ngIf="global.state['theme'] == 'light'" [name]="tab1Activated ? 'dtg' : 'dtg-deactivated'"></ion-icon>
+      <ion-icon *ngIf="global.state['theme'] == 'dark'" [name]="tab1Activated ? 'dtg-night' : 'dtg-deactivated-night'"></ion-icon>
+      <ion-icon *ngIf="global.state['theme'] == 'black'" [name]="tab1Activated ? 'dtg-black' : 'dtg-deactivated-black'"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button class="games" tab="tab2" (click)="toTop()" #dtgTab2 [disabled]="!authService.swipeBack">
+      <ion-icon *ngIf="global.state['theme'] == 'light'" [name]="tab2Activated ? 'chat' : 'chat-deactivated'"></ion-icon>
+      <ion-icon *ngIf="global.state['theme'] == 'dark'" [name]="tab2Activated ? 'chat-night' : 'chat-deactivated-night'"></ion-icon>
+      <ion-icon *ngIf="global.state['theme'] == 'black'" [name]="tab2Activated ? 'chat-black' : 'chat-deactivated-black'"></ion-icon>
+      <ion-badge *ngIf="chatService.chatNotificationsNumber">{{chatService.chatNotificationsNumber}}</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button class="new-post" tab="tab3"  #dtgTab3 [disabled]="!authService.swipeBack">
+      <ion-icon *ngIf="global.state['theme'] == 'light'" [name]="tab3Activated ? 'new-post' : 'new-post-deactivated'"></ion-icon>
+      <ion-icon *ngIf="global.state['theme'] == 'dark'" [name]="tab3Activated ? 'new-post-night' : 'new-post-deactivated-night'"></ion-icon>
+      <ion-icon *ngIf="global.state['theme'] == 'black'" [name]="tab3Activated ? 'new-post-black' : 'new-post-deactivated-black'"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab4" class="notifications" (click)="toTop()"  #dtgTab4 [disabled]="!authService.swipeBack">
+      <ion-icon *ngIf="global.state['theme'] == 'light'"[name]="tab4Activated ? 'notifications' : 'notifications-deactivated'"></ion-icon>
+      <ion-icon *ngIf="global.state['theme'] == 'dark'"[name]="tab4Activated ? 'notifications-night' : 'notifications-deactivated-night'"></ion-icon>
+      <ion-icon *ngIf="global.state['theme'] == 'black'"[name]="tab4Activated ? 'notifications-black' : 'notifications-deactivated-black'"></ion-icon>
+      <ion-badge *ngIf="authService.notifications > 0">{{authService.notifications}}</ion-badge>
+     
+    </ion-tab-button>
+
+    <ion-tab-button class="profile" tab="tab5" (click)="toTop()"  #dtgTab5 [disabled]="!authService.swipeBack">
+      <img *ngIf="authService.currentUser" class="profile-pic" [src]="authService.currentUser.profilePictureThumbnail" alt="">
+      <ion-icon *ngIf="global.state['theme'] == 'light'" [class.profile-selected]="tab5Activated" [name]="tab5Activated ? 'profile-activated' : 'profile-deactivated'"></ion-icon>
+      <ion-icon  *ngIf="global.state['theme'] == 'dark'" [class.profile-selected]="tab5Activated" [name]="tab5Activated ? 'profile-activated-night' : 'profile-deactivated-night'"></ion-icon>
+      <ion-icon  *ngIf="global.state['theme'] == 'black'" [class.profile-selected]="tab5Activated" [name]="tab5Activated ? 'profile-activated-black' : 'profile-deactivated-black'"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

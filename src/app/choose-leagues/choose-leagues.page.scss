@@ -1,0 +1,102 @@
+
+
+.button-container {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.leagues-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 25px;
+
+    
+}
+
+.mma-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+
+
+.league-selection {
+    height: 90px;
+    width: 90px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border: 1px solid rgb(228, 228, 228);
+    margin: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: background .2s ease, border .2s ease;
+}
+
+.send {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.heart {
+    font-size: 16px;
+    margin: 0 4px;
+}
+
+.text-league {
+    font-size: 14px;
+}
+
+
+
+.img-sport {
+    height: 35px;
+    width: 35px;
+    object-fit: contain;
+}
+
+.img-league {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+}
+
+.active-leagues {
+    border: 2px solid #4264d0;
+    background: #4264d054;
+}
+
+.general-img {
+    position: absolute;
+    height: 90px;
+    width: 90px;
+    object-fit: cover;
+}
+
+span.general-text {
+    z-index: 20;
+    color: black !important;
+    /* font-weight: 600; */
+    background: #ffffff;
+    padding: 2px 4px;
+    position: absolute;
+    border-radius: 3px;
+    bottom: 10px;
+    border: 1px solid rgb(228, 228, 228);;
+}
+
+.fantasy {
+    position: absolute;
+    height: 90px;
+    width: 75px;
+    -o-object-fit: cover;
+    object-fit: contain;
+}

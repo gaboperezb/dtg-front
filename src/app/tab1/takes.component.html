@@ -1,0 +1,138 @@
+
+<div class="sorting-container" *ngIf="this.takeService.takesToggled && !takeService.followers && !takeService.bookmarks">
+    <div class="sort-container">
+        <ion-button class="custom-btn" slot="start" fill="clear" size="small" (click)="presentActionSheet()">
+            <ion-icon class="c-icon" [name]="global.state['theme'] == 'light' ? 'hot-posts' : 'hot-white'"
+                *ngIf="takeService.hot"></ion-icon>
+            <ion-icon class="c-icon" [name]="global.state['theme'] == 'light' ? 'new-posts' : 'new-white'"
+                *ngIf="takeService.new"></ion-icon>
+            <ion-icon class="c-icon" [name]="global.state['theme'] == 'light' ? 'top-posts' : 'top-white'"
+                *ngIf="takeService.top"></ion-icon>
+            <div class="sortBy">{{sortBy}}</div>
+            <ion-icon class="dropdown" [name]="global.state['theme'] == 'light' ? 'dropdown' : 'dropdown-white'">
+            </ion-icon>
+        </ion-button>
+    </div>
+</div>
+<div class="placeholders-container" *ngIf="takeService.loaderActive">
+
+    <div class="placeholder-item">
+        <div class="placeholder-flex">
+            <div class="skeleton-image">
+
+            </div>
+            <div class="skeleton-image-right">
+                <div class="skeleton-username skeleton-username-1">
+                </div>
+                <div class="skeleton-username skeleton-username-2">
+                </div>
+            </div>
+        </div>
+        <div class="container-title">
+            <div class="placeholder-title placeholder-title-1">
+            </div>
+
+            <div class="placeholder-title placeholder-title-2">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="placeholder-item">
+        <div class="placeholder-flex">
+            <div class="skeleton-image">
+
+            </div>
+            <div class="skeleton-image-right">
+                <div class="skeleton-username skeleton-username-1">
+                </div>
+                <div class="skeleton-username skeleton-username-2">
+                </div>
+            </div>
+        </div>
+        <div class="container-title">
+            <div class="placeholder-title placeholder-title-1">
+            </div>
+
+            <div class="placeholder-title placeholder-title-2">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="placeholder-item">
+        <div class="placeholder-flex">
+            <div class="skeleton-image">
+
+            </div>
+            <div class="skeleton-image-right">
+                <div class="skeleton-username skeleton-username-1">
+                </div>
+                <div class="skeleton-username skeleton-username-2">
+                </div>
+            </div>
+        </div>
+        <div class="container-title">
+            <div class="placeholder-title placeholder-title-1">
+            </div>
+
+            <div class="placeholder-title placeholder-title-2">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="placeholder-item">
+        <div class="placeholder-flex">
+            <div class="skeleton-image">
+
+            </div>
+            <div class="skeleton-image-right">
+                <div class="skeleton-username skeleton-username-1">
+                </div>
+                <div class="skeleton-username skeleton-username-2">
+                </div>
+            </div>
+        </div>
+        <div class="container-title">
+            <div class="placeholder-title placeholder-title-1">
+            </div>
+
+            <div class="placeholder-title placeholder-title-2">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="placeholder-item">
+        <div class="placeholder-flex">
+            <div class="skeleton-image">
+
+            </div>
+            <div class="skeleton-image-right">
+                <div class="skeleton-username skeleton-username-1">
+                </div>
+                <div class="skeleton-username skeleton-username-2">
+                </div>
+            </div>
+        </div>
+        <div class="container-title">
+            <div class="placeholder-title placeholder-title-1">
+            </div>
+
+            <div class="placeholder-title placeholder-title-2">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="!takeService.loaderActive && takeService.takesToggled">
+    <take *ngFor="let take of takeService.takes" [take]="take"></take>
+</div>
+
+
+
+
+

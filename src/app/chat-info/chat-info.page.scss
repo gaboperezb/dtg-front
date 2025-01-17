@@ -1,0 +1,168 @@
+.add-member {
+    padding: 0 0 0 16px;
+    color: #0066c3;
+    font-weight: 500;
+}
+
+.username {
+    font-weight: 500;
+}
+
+.toggle-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 16px;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.top-info {
+    padding: 16px 0 0 0;
+}
+
+.text-action {
+    display: block;
+    color: #e63d3d;
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.actions {
+    padding: 0 16px;
+}
+
+.members-list {
+    border-top: 1px solid #d2d2d2;
+}
+
+.username-list {
+    margin-bottom: 0px;
+}
+
+ion-item {
+    margin: 10px 0;
+}
+
+
+//type
+
+.centered-container {
+    background-color: rgba(0, 0, 0, 0.653);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000;
+    overflow: hidden;
+} 
+
+
+.type-app {
+   
+    padding: 16px 32px;
+    border-bottom: 1px solid #cecece;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.type-app:hover {
+   
+    background: rgb(187, 187, 187);
+}
+
+.label-select {
+    display: none;
+}
+
+.disabled-chat {
+    color: rgba(0, 0, 0, 0.412);
+}
+
+
+.app-top {
+    background: #F8F9FD;
+    background-size: cover;
+    flex-basis: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #d2d2d2;
+   
+}
+
+
+
+.app-bottom {
+    
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    overflow: hidden;
+    border-radius: 0 0 10px 10px;
+    background: #4264d0;
+    padding: 16px 32px;
+
+    div {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+}
+
+.app-bottom:hover {
+    background: #7c96ee;
+    
+}
+
+//room
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border-bottom: 1px solid #dadada;
+
+
+    .name-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .chat-name-indicator {
+        font-size: 14px;
+        color: rgb(181, 181, 181);
+        margin-bottom: 5px;
+        display: inline-block;
+
+    }
+
+    .chat-logo {
+        height: 50px;
+        width: 50px;
+        object-fit: contain;
+        
+    }
+
+    .chat-name {
+        font-size: 18px;
+        color: rgb(19, 19, 19);
+        font-weight: 500;
+    }
+}
+
+

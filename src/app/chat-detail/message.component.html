@@ -1,0 +1,79 @@
+<li [class.sent]="message.user._id != authService.currentUser._id && message.customType != 'operation'"
+    [class.replies]="message.user._id == authService.currentUser._id && message.customType != 'operation'"
+    [class.operation]="message.customType == 'operation'" [class.cascade-li]="conversationThread" [class.last]="last">
+    <div id="unread-div" class="unread"
+        *ngIf="unreadMessages &&  (i == chatService.channelMessages[chat._id].length - chat.unreadMessageCount)">
+        <div class="unread-line">
+
+        </div>
+        <span class="unread-text">New Messages</span>
+        <div class="unread-line">
+
+        </div>
+    </div>
+    <p *ngIf="message.customType == 'operation'" class="operation-message">{{message.message}}</p>
+
+    <img *ngIf="(message.user._id != authService.currentUser._id) && (message.customType != 'operation') && !conversationThread"
+        [class.profile-pic]="true" [class.group-img]="chat.customType != '1-1'"
+        [src]="message.user.profilePictureThumbnail" alt="" (click)="goToUser()"/>
+    <span
+        *ngIf=" message.customType != 'operation' && message.user._id != authService.currentUser._id &&  chat.customType != '1-1' && !conversationThread"
+        class="username">{{message.user.username}}</span>
+    <p [innerHtml]="message.message | linkify: optionsLinkified" *ngIf="message.customType == 'text'" [class.text]="true"
+        [class.cascade]="conversationThread && message.user._id != authService.currentUser._id" (click)="showDate()">
+    </p>
+
+    <!-- Post -->
+    <div *ngIf="message.customType == 'post' && message.thread && message.thread.title" class="post" (click)="goToThread()"
+        [class.cascade]="conversationThread && message.user._id != authService.currentUser._id">
+
+        <div class="thread-top-container">
+            <div class="thread-bottom-container">
+                <img class="thread-user-img " [src]="message?.thread?.user?.profilePictureThumbnail" alt="">
+                <span class="thread-username">{{message?.thread?.user?.username}}</span>
+                <ion-icon class="post-arrow" name="chevron-forward"></ion-icon>
+            </div>
+
+            <img *ngIf="message?.thread?.picture" class="post-pic" [src]="message?.thread?.picture" alt="">
+        </div>
+        <div class="post-title-container">
+            <span class="post-title">{{message?.thread?.title}}</span>
+        </div>
+        <span *ngIf="message.message != 'Sent a post'" class="thread-message">{{message?.message}}</span>
+    </div>
+
+
+    <!-- Discussion -->
+
+    <div *ngIf="message.customType == 'discussion' && message.take && message.take.take" class="post" (click)="goToTake()"
+        [class.cascade]="conversationThread && message.user._id != authService.currentUser._id">
+
+        <div class="thread-top-container">
+            <div class="thread-bottom-container">
+                <img class="thread-user-img " [src]="message?.take?.user?.profilePictureThumbnail" alt="">
+                <span class="thread-username">{{message?.take?.user?.username}}</span>
+                <ion-icon class="post-arrow" name="chevron-forward"></ion-icon>
+            </div>
+
+        </div>
+        <div class="take-title-container">
+            <div class="take-pic-container">
+                <img *ngIf="message?.take?.picture" class="take-pic" [src]="message?.take?.picture" alt="">
+            </div>
+           
+            <span class="take-title">{{message?.take?.take}}</span>
+        </div>
+        <span *ngIf="message.message != 'Sent a discussion'" class="thread-message">{{message?.message}}</span>
+        
+    </div>
+
+
+
+
+    <p class="text post-deleted" *ngIf="message.customType == 'post' && message.thread && !message.thread.title">
+        The post was deleted
+    </p>
+    <span *ngIf="toggleDate" [class.time-left]="message.user._id == authService.currentUser._id"
+        [class.time-right]="message.user._id != authService.currentUser._id">{{displayDate(message.createdAt)}}</span>
+        
+</li>
